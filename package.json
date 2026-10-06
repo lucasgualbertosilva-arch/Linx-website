@@ -1,0 +1,15 @@
+{
+  "name": "blackbriar-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public product page for BlackBriar. Static site + Vercel serverless functions.",
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/check.mjs",
+    "test": "node --test \"tests/**/*.test.mjs\""
+  }
+}

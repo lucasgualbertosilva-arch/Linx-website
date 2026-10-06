@@ -1,0 +1,17 @@
+# Environment files: never commit real values
+.env
+.env.*
+!.env.example
+
+# Vercel CLI local state
+.vercel
+
+# Dependencies and logs
+node_modules/
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
