@@ -333,6 +333,73 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
   .nav-r .btn .lab{display:none}
   .glyph{display:none}
 }
+/* roadmap */
+.rm-head{display:flex;justify-content:space-between;align-items:end;gap:24px 48px;flex-wrap:wrap;margin-bottom:clamp(32px,4vw,56px)}
+.rm-head h2{margin-bottom:16px}
+.rm-head p{color:var(--soft);max-width:34em;margin:0}
+.rm-side{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
+.rm-legend{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--mute);margin:0;padding:0;list-style:none}
+.rm-legend li{display:flex;align-items:center;gap:8px}
+.rm-legend i,.rm-dia{display:inline-block;width:9px;height:9px;transform:rotate(45deg);border:1px solid currentColor;flex:none}
+.rm-nav{display:flex;align-items:center;gap:12px}
+.rm-nav button{background:none;border:1px solid var(--line2);color:var(--fg);width:40px;height:40px;cursor:pointer;font-family:var(--mono)}
+.rm-nav button:hover{border-color:var(--fg);background:var(--fg);color:var(--bg)}
+.rm-nav button:disabled{opacity:.3;pointer-events:none}
+.rm-count{color:var(--mute);min-width:4.5em;text-align:center;font-variant-numeric:tabular-nums}
+.rm-count b{color:var(--fg);font-weight:500}
+.rm-scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--line2) transparent;padding-bottom:18px;cursor:grab;-webkit-user-select:none;user-select:none}
+.rm-scroll.drag{cursor:grabbing}
+.rm{--n:8;--p:0;display:grid;grid-template-columns:repeat(calc(var(--n) + 1),minmax(170px,1fr));grid-template-rows:auto 64px auto;position:relative;min-width:calc((var(--n) + 1) * 170px)}
+.rm-axis{grid-column:1/-1;grid-row:2;align-self:center;height:1px;background:var(--line2);position:relative}
+.rm-prog{position:absolute;left:0;top:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--ok),var(--accent));transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.rm.in .rm-prog{width:calc(var(--p) / (var(--n) + 1) * 100% + 15px)}
+.rm-node{grid-column:var(--c);grid-row:2;justify-self:start;align-self:center;display:flex;align-items:center;gap:12px;background:none;border:0;padding:6px 10px 6px 8px;margin-left:0;color:var(--mute);cursor:pointer;position:relative;z-index:1;font:inherit}
+.rm-node .rm-dia{width:14px;height:14px;background:var(--bg);transition:transform .25s,background .25s}
+.rm-node .mono{background:var(--bg);padding:2px 6px;transition:color .2s}
+.rm-node:hover .mono,.rm-node.on .mono{color:var(--fg)}
+.rm-node.on .rm-dia{transform:rotate(45deg) scale(1.35)}
+.s-done{color:var(--ok)}.s-done .rm-dia{background:var(--ok)}
+.s-now{color:var(--accent)}
+.s-now .rm-dia{animation:rmPulse 2s infinite}
+.s-next{color:var(--soft)}
+.s-locked{color:var(--dim)}.s-locked .rm-dia{border-style:dashed}
+@keyframes rmPulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}70%,100%{box-shadow:0 0 0 10px transparent}}
+.rm-card{grid-column:var(--c)/span 2;position:relative;margin-right:18px;border:1px solid var(--line);background:var(--bg2);padding:18px 20px 20px;color:var(--fg);cursor:pointer;transition:border-color .25s,background .25s,opacity .25s,transform .35s}
+.rm-card.top{grid-row:1;align-self:end}
+.rm-card.bot{grid-row:3;align-self:start}
+.rm-card::after{content:"";position:absolute;left:14px;width:1px;height:25px;background:var(--line2);transition:background .25s}
+.rm-card.top::after{top:100%}.rm-card.bot::after{bottom:100%}
+.rm-card:hover{border-color:var(--line2)}
+.rm-card.on{border-color:currentColor;background:var(--bg3)}
+.rm-card.on::after{background:currentColor}
+.rm-card.top:hover,.rm-card.top.on{transform:translateY(-4px)}
+.rm-card.bot:hover,.rm-card.bot.on{transform:translateY(4px)}
+.rm-tag{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.rm-tag .st{border:1px solid currentColor;padding:3px 8px;font-size:10px;letter-spacing:.1em}
+.rm-tag .v{color:var(--mute)}
+.rm-card h3{font-size:22px;font-weight:500;letter-spacing:-.02em;margin:0 0 4px;color:var(--fg)}
+.rm-card .sub{color:var(--mute);font-size:14px;margin:0 0 14px}
+.rm-card ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;color:var(--soft);font-size:14px;line-height:1.4}
+.rm-card li{display:grid;grid-template-columns:16px 1fr}
+.rm-card li::before{content:"→";color:var(--dim)}
+.rm-card.s-done li::before{content:"✓";color:var(--ok)}
+.rm-card.s-done{color:var(--ok)}.rm-card.s-now{color:var(--accent)}.rm-card.s-next{color:var(--soft)}
+.rm-legend .s-done i{background:var(--ok)}
+.rm-card.s-locked{border-style:dashed;background:transparent;color:var(--dim)}
+.rm-card.s-locked h3,.rm-card.s-locked ul{color:var(--dim)}
+.rm-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--dim);margin-top:14px}
+@media (max-width:760px){
+  .rm-scroll{overflow:visible;cursor:auto;padding-bottom:0}
+  .rm{grid-template-columns:28px minmax(0,1fr);grid-template-rows:none;grid-auto-rows:auto;row-gap:14px;min-width:0}
+  .rm-axis{grid-column:1;grid-row:1/span var(--n);justify-self:center;align-self:stretch;width:1px;height:auto}
+  .rm-prog{width:3px!important;left:-1px;top:0;height:0;transition:height 1.6s cubic-bezier(.2,.7,.2,1)}
+  .rm.in .rm-prog{height:var(--ph,0)}
+  .rm-foot span+span{display:none}
+  .rm-node{grid-column:1;grid-row:var(--i);justify-self:center;align-self:start;margin-top:22px;padding:0}
+  .rm-node .mono{display:none}
+  .rm-card,.rm-card.top,.rm-card.bot{grid-column:2;grid-row:var(--i);align-self:start;margin-right:0;transform:none!important}
+  .rm-card::after{top:29px!important;bottom:auto!important;left:auto;right:100%;width:10px;height:1px}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
   html{scroll-behavior:auto}
@@ -354,8 +421,9 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
     <li><a href="#features"><span class="mono">002</span><span data-scramble>Capabilities</span></a></li>
     <li><a href="#workspace"><span class="mono">003</span><span data-scramble>The Board</span></a></li>
     <li><a href="#showcase"><span class="mono">004</span><span data-scramble>Interface</span></a></li>
-    <li><a href="#pricing"><span class="mono">005</span><span data-scramble>Licensing</span></a></li>
-    <li><a href="#faq"><span class="mono">006</span><span data-scramble>Before you deploy</span></a></li>
+    <li><a href="#roadmap"><span class="mono">005</span><span data-scramble>Roadmap</span></a></li>
+    <li><a href="#pricing"><span class="mono">006</span><span data-scramble>Licensing</span></a></li>
+    <li><a href="#faq"><span class="mono">007</span><span data-scramble>Before you deploy</span></a></li>
   </ol>
   <div class="wrap mono muted">Runs locally · Every link sourced · Zero egress</div>
 </div>
@@ -537,6 +605,33 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
   </div>
 </section>
 
+<!-- ROADMAP -->
+<section class="sec" id="roadmap">
+  <div class="wrap">
+    <div class="label mono" data-scramble>Roadmap</div>
+    <div class="rm-head">
+      <div>
+        <h2>What has shipped, and what comes next.</h2>
+        <p>Every release is delivered as a signed offline package and installed on your own hardware. Select a milestone to see what it contains.</p>
+      </div>
+      <div class="rm-side">
+        <ul class="rm-legend mono" aria-label="Legend">
+          <li class="s-done"><i></i>Released</li><li class="s-now"><i></i>In progress</li><li class="s-next"><i></i>Planned</li><li class="s-locked"><i style="border-style:dashed"></i>Later</li>
+        </ul>
+        <div class="rm-nav mono">
+          <button type="button" id="rmPrev" aria-label="Previous milestone">&lt;</button>
+          <span class="rm-count" id="rmCount" aria-live="polite"></span>
+          <button type="button" id="rmNext" aria-label="Next milestone">&gt;</button>
+        </div>
+      </div>
+    </div>
+    <div class="rm-scroll" id="rmScroll">
+      <div class="rm" id="rm" role="list" aria-label="Release timeline"></div>
+    </div>
+    <div class="rm-foot mono"><span>Example data · placeholder releases and dates</span><span>Drag or use ← → to browse</span></div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="sec light" id="pricing">
   <div class="wrap">
@@ -619,7 +714,7 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
     <div class="mark" role="img" aria-label="Linx wordmark in ASCII characters"><pre class="ascii" data-scene="mark" data-fs="7"></pre></div>
     <div class="foot-bot mono">
       <span>© Linx</span>
-      <nav aria-label="Footer"><a href="#features">Capabilities</a><a href="#workspace">The Board</a><a href="#pricing">Licensing</a><a href="#faq">FAQ</a></nav>
+      <nav aria-label="Footer"><a href="#features">Capabilities</a><a href="#workspace">The Board</a><a href="#roadmap">Roadmap</a><a href="#pricing">Licensing</a><a href="#faq">FAQ</a></nav>
       <span><span id="tokCount">0</span> tokens billed · all compute local</span>
     </div>
     <p class="disc">Time savings are estimates based on a typical 400-hour case. Quotes and prices on this page are placeholders.</p>
@@ -844,6 +939,46 @@ function typeTerm(){ if(typed) return; typed=true; term.innerHTML=''; let li=0;
 term.innerHTML=TL.map(([p,c])=>`<div class="tl">${p}${p?'<b>'+c+'</b>':c}</div>`).join('')+'<div class="tl"><a href="#pricing">~/linx &gt; <b>request-access</b></a></div>';
 new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ typeTerm(); o.disconnect(); } }),{threshold:.4}).observe(document.getElementById('ws'));
 addEventListener('keydown',e=>{ if(!(e.metaKey||e.ctrlKey)) return; const k=e.key.toLowerCase(); if(k==='j'){ e.preventDefault(); term.hidden=!term.hidden; } if(k==='k'){ e.preventDefault(); document.getElementById('workspace').scrollIntoView(); treeEl.querySelector('button.on')?.focus(); } });
+
+/* ---------- roadmap ---------- */
+// Edit releases here. status: done | now | next | locked
+const ROADMAP=[
+ {m:'May 2026',v:'v0.1',status:'done',title:'Private alpha',items:['Single-workstation install, fully offline','Spreadsheet and CSV import','First link charts','Per-project change history']},
+ {m:'Jun 2026',v:'v0.2',status:'done',title:'Non-destructive import',items:['Import specs you can change without starting over','Editing and undo on imported data','Directional links','One-click filters']},
+ {m:'Jul 2026',v:'v0.3',status:'done',title:'Sources and layers',items:['Unstructured import: notes and reports','Enable and disable sources','Data layering on charts']},
+ {m:'Aug 2026',v:'v0.4',status:'done',title:'Find the gaps',items:['Multi-degree visualization','Missing-link flags','Unverified connection markers']},
+ {m:'Sep 2026',v:'v0.5',status:'done',title:'Review and release',items:['Report and chart export','Redaction for public release','Review chain']},
+ {m:'Oct 2026',v:'v0.6',status:'now',title:'Ask the data',items:['Ask questions of the data','Suggested connections','Cross-project sharing']},
+ {m:'Nov 2026',v:'v0.7',status:'next',title:'Enclave',items:['Shared on-prem server for teams','[Placeholder text, lorem ipsum]']},
+ {m:'2027',v:'',status:'locked',title:'Coming later',items:['[Placeholder text, lorem ipsum]']},
+];
+(()=>{ const rm=document.getElementById('rm'), sc=document.getElementById('rmScroll'); if(!rm) return;
+ const LAB={done:'Released',now:'In progress',next:'Planned',locked:'Later'};
+ const n=ROADMAP.length, cur=Math.max(0,ROADMAP.findIndex(r=>r.status==='now'));
+ rm.style.setProperty('--n',n); rm.style.setProperty('--p',cur);
+ rm.innerHTML='<div class="rm-axis" aria-hidden="true"><div class="rm-prog"></div></div>'+ROADMAP.map((r,i)=>{ const st='s-'+r.status, pos=i%2?'bot':'top', vars=`--c:${i+1};--i:${i+1}`;
+   return `<button type="button" class="rm-node ${st}" style="${vars}" data-i="${i}" aria-label="${esc(r.m)}: ${LAB[r.status]}"><span class="rm-dia"></span><span class="mono">${esc(r.m)}</span></button>`+
+   `<article class="rm-card ${pos} ${st}" style="${vars}" data-i="${i}" role="listitem"><div class="rm-tag mono"><span class="st">${LAB[r.status]}</span><span class="v">${esc(r.v)}</span></div><h3>${esc(r.m)}</h3><p class="sub">${esc(r.title)}</p><ul>${r.items.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></article>`; }).join('');
+ const nodes=[...rm.querySelectorAll('.rm-node')], cards=[...rm.querySelectorAll('.rm-card')], cnt=document.getElementById('rmCount'), pv=document.getElementById('rmPrev'), nx=document.getElementById('rmNext');
+ let sel=cur;
+ function select(i,scroll){ sel=Math.max(0,Math.min(n-1,i)); nodes.forEach((x,k)=>{ x.classList.toggle('on',k===sel); x.setAttribute('aria-pressed',k===sel); }); cards.forEach((x,k)=>x.classList.toggle('on',k===sel));
+  cnt.innerHTML=`<b>${String(sel+1).padStart(2,'0')}</b> / ${String(n).padStart(2,'0')}`; pv.disabled=sel===0; nx.disabled=sel===n-1;
+  if(scroll && sc.scrollWidth>sc.clientWidth){ const c=cards[sel]; const left=c.offsetLeft-(sc.clientWidth-c.offsetWidth)/2; sc.scrollTo({left:Math.max(0,left),behavior:RM||scroll==='instant'?'auto':'smooth'}); } }
+ let moved=false;
+ rm.addEventListener('click',e=>{ if(moved) return; const t=e.target.closest('[data-i]'); if(t) select(+t.dataset.i,true); });
+ pv.onclick=()=>select(sel-1,true); nx.onclick=()=>select(sel+1,true);
+ sc.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft'||e.key==='ArrowRight'){ e.preventDefault(); select(sel+(e.key==='ArrowRight'?1:-1),true); nodes[sel].focus({preventScroll:true}); } });
+ // drag to scroll (mouse only; touch scrolls natively)
+ let sx=0, sl=0, down=false;
+ sc.addEventListener('pointerdown',e=>{ if(e.pointerType!=='mouse'||sc.scrollWidth<=sc.clientWidth) return; down=true; moved=false; sx=e.clientX; sl=sc.scrollLeft; });
+ addEventListener('pointermove',e=>{ if(!down) return; const dx=e.clientX-sx; if(Math.abs(dx)>4){ moved=true; sc.classList.add('drag'); } sc.scrollLeft=sl-dx; });
+ addEventListener('pointerup',()=>{ if(!down) return; down=false; sc.classList.remove('drag'); setTimeout(()=>moved=false,0); });
+ const axis=rm.querySelector('.rm-axis');
+ function fitProg(){ rm.style.setProperty('--ph',(nodes[cur].offsetTop+nodes[cur].offsetHeight/2-axis.offsetTop)+'px'); }
+ new ResizeObserver(fitProg).observe(rm);
+ select(cur,'instant');
+ new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ rm.classList.add('in'); o.disconnect(); } }),{threshold:.25}).observe(rm);
+})();
 
 /* ---------- screenshot insert ---------- */
 const sb=document.getElementById('shotBtn'), si=document.getElementById('shotInput'), sf=document.getElementById('shotFrame');
