@@ -147,19 +147,7 @@ h2{font-size:clamp(32px,4.4vw,64px);line-height:1;letter-spacing:-.035em;font-we
 
 /* problems list */
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
-.probs{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.probs li{display:grid;grid-template-columns:44px 1fr auto;gap:14px;padding-block:14px;border-bottom:1px solid var(--line);align-items:baseline;transition:background .2s,padding .3s;cursor:default}
-.probs li:hover{background:var(--bg2);padding-inline:10px}
-.probs .n{color:var(--dim)}
-.probs .t{font-size:15px}
-.probs .h{color:var(--mute);font-variant-numeric:tabular-nums}
-.probs li:hover .h{color:var(--accent)}
-.probs .tot{grid-template-columns:1fr auto;color:var(--fg);border-bottom:0;padding-top:20px}
-.probs .tot .h{color:var(--accent)}
 .note{color:var(--dim);margin-top:10px}
-.probs .t small{display:block;margin-top:4px;color:var(--mute);font-size:12px;line-height:1.45;letter-spacing:0}
-.probs .hd{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding-block:10px}
-.probs .hd:hover{background:none;padding-inline:0}
 .uses{list-style:none;margin:-14px 0 28px;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
 .uses li::before{content:"→ ";color:var(--dim)}
 .hold{font-size:clamp(15px,1.15vw,17px);color:var(--fg);max-width:34em;margin:0 0 32px;font-weight:500}
@@ -326,9 +314,6 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
   .ws{grid-template-columns:1fr;grid-template-rows:auto 180px minmax(320px,1fr) auto;height:auto}
   .tree{border-right:0;border-bottom:1px solid var(--line)}
   .nav-r .btn .lab .roll{max-width:9em}
-  .probs li{grid-template-columns:36px 1fr;}
-  .probs li .h{grid-column:2}
-  .probs .tot{grid-template-columns:1fr}
   .nav-in{grid-template-columns:auto 1fr auto}.menu-btn{justify-self:end}
   .nav-r .btn .lab{display:none}
   .glyph{display:none}
@@ -400,6 +385,63 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
   .rm-card,.rm-card.top,.rm-card.bot{grid-column:2;grid-row:var(--i);align-self:start;margin-right:0;transform:none!important}
   .rm-card::after{top:29px!important;bottom:auto!important;left:auto;right:100%;width:10px;height:1px}
 }
+/* savings tables */
+.stall-head{margin-bottom:clamp(48px,6vw,88px)}
+.tblk{margin-top:clamp(48px,6vw,80px)}
+.tblk-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px clamp(32px,6vw,96px);align-items:end;margin-bottom:22px}
+.tblk-h .mono{color:var(--mute);display:block;margin-bottom:10px}
+.tblk-h h3{font-size:clamp(22px,2vw,30px);font-weight:500;letter-spacing:-.025em;line-height:1.15;margin:0}
+.tblk-h p{color:var(--soft);margin:0;max-width:36em}
+.tscroll{overflow-x:auto;border:1px solid var(--line2);background:color-mix(in srgb,var(--bg2) 55%,var(--bg))}
+.ctab{width:100%;min-width:820px;border-collapse:collapse;font-size:15px;line-height:1.45}
+.ctab th{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:left;vertical-align:bottom;padding:16px 18px;border-bottom:1px solid var(--line2);background:var(--bg2)}
+.ctab td{padding:18px;border-bottom:1px solid var(--line);vertical-align:top}
+.ctab th+th,.ctab td+td{border-left:1px solid var(--line)}
+.ctab tbody tr{transition:background .2s}
+.ctab tbody tr:hover{background:var(--bg2)}
+.ctab .ph-n{display:block;font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:4px}
+.ctab .phase{font-weight:500;min-width:190px}
+.ctab .how{color:var(--soft);font-size:14px}
+.ctab .how.none{color:var(--dim);font-family:var(--mono);font-size:12px}
+.ctab .num{text-align:right;font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ctab th.num{text-align:right;font-size:11px;white-space:normal}
+.ctab .save{color:var(--accent);font-weight:500}
+.ctab .pct{display:grid;justify-items:end;gap:8px}
+.ctab .bar{width:72px;height:4px;background:var(--line);position:relative;overflow:hidden}
+.ctab .bar::after{content:"";position:absolute;inset:0 auto 0 0;width:calc(var(--v) * 1%);background:var(--accent)}
+.ctab tfoot td{font-weight:500;border-top:1px solid var(--fg);border-bottom:0;background:var(--bg2)}
+.ctab tfoot .num{font-size:15px}
+.tnote{display:grid;grid-template-columns:auto 1fr;gap:14px;margin:18px 0 0;color:var(--soft);max-width:60em}
+.tnote::before{content:"";width:6px;height:6px;margin-top:9px;background:var(--accent)}
+.tsum{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line2)}
+.tsum>div{padding:24px 22px;display:grid;gap:10px;align-content:start}
+.tsum>div+div{border-left:1px solid var(--line2)}
+.tsum .mono{color:var(--mute)}
+.tsum b{font-size:clamp(36px,4vw,60px);font-weight:500;letter-spacing:-.04em;line-height:1}
+.tsum b small{font-size:.4em;letter-spacing:0;color:var(--mute);margin-left:4px}
+.tsum p{margin:0;color:var(--soft);font-size:14px}
+.tsum .hi{background:var(--fg);color:var(--bg)}
+.tsum .hi .mono,.tsum .hi p,.tsum .hi b small{color:color-mix(in srgb,var(--bg) 70%,var(--fg))}
+@media (max-width:700px){
+  .tscroll{overflow:visible;border:0;background:none}
+  .ctab{min-width:0;display:block}
+  .ctab thead{display:none}
+  .ctab tbody,.ctab tfoot,.ctab tr{display:block}
+  .ctab tr{border:1px solid var(--line2);background:var(--bg2);margin-bottom:10px}
+  .ctab tbody tr:hover{background:var(--bg2)}
+  .ctab td,.ctab td+td{display:grid;grid-template-columns:42% 1fr;gap:12px;align-items:center;padding:10px 16px;border:0;border-top:1px solid var(--line);text-align:right}
+  .ctab td::before{content:attr(data-label);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:left}
+  .ctab td.phase{display:block;text-align:left;border-top:0;padding-top:16px;font-size:16px}
+  .ctab td.phase::before,.ctab td:empty{display:none}
+  .ctab td.how{text-align:left;align-items:start}
+  .ctab .pct{justify-items:end}
+  .ctab tfoot tr{border-color:var(--fg)}
+  .ctab tfoot td{border-top:1px solid var(--line);background:none}
+  .ctab tfoot td:first-child{display:block;text-align:left;border-top:0;padding-top:16px}
+  .ctab tfoot td:first-child::before{display:none}
+}
+@media (max-width:900px){.tblk-h{grid-template-columns:1fr}.tsum{grid-template-columns:repeat(2,minmax(0,1fr))}.tsum>div:nth-child(3){border-left:0}.tsum>div:nth-child(n+3){border-top:1px solid var(--line2)}}
+@media (max-width:480px){.tsum{grid-template-columns:1fr}.tsum>div+div{border-left:0;border-top:1px solid var(--line2)}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
   html{scroll-behavior:auto}
@@ -457,26 +499,68 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 
 <!-- PROBLEMS -->
 <section class="sec light" id="problems">
-  <div class="wrap split">
-    <div>
-      <div class="label mono" data-scramble>Where cases stall</div>
-      <ul class="probs mono">
-        <li class="hd"><span></span><span>Phase · hours per case</span><span class="h">Today → Linx → Linx AI</span></li>
-        <li><span class="n">001</span><span class="t">Research and data gathering<small>AI-suggested threads and flagged gaps mean more targeted research and fewer dead ends</small></span><span class="h">140 → 140 → 126</span></li>
-        <li><span class="n">002</span><span class="t">Data import, cleaning and structuring<small>Bulk import, import specs you can change without starting over, editing and undo</small></span><span class="h">60 → 36 → 25</span></li>
-        <li><span class="n">003</span><span class="t">Link charting and analysis<small>Multi-degree visualization, clear directionality, data layering, questions asked of the data</small></span><span class="h">100 → 70 → 35</span></li>
-        <li><span class="n">004</span><span class="t">Visualization and report writing<small>Automated reports with key insights and an executive summary</small></span><span class="h">60 → 30 → 24</span></li>
-        <li><span class="n">005</span><span class="t">Collaboration, review and edits<small>Sharing, a review chain and change history, so no step gets recreated</small></span><span class="h">40 → 24 → 18</span></li>
-        <li class="tot"><span>Hours per case: 400 → 300 → <span id="totHrs">228</span></span><span class="h">(≈ 43% fewer)</span></li>
-      </ul>
-      <div class="note mono">Estimates for a typical 400-hour case · conservative</div>
+  <div class="wrap">
+    <div class="split stall-head">
+      <div>
+        <div class="label mono" data-scramble>Where cases stall</div>
+        <h2>Most of a case isn't analysis. It's everything around it.</h2>
+      </div>
+      <div class="body">
+        <p>A typical case runs about 400 analyst hours. Only a quarter of that is link charting and analysis. The rest goes into gathering data, cleaning it into shape, rebuilding charts when a source changes, writing the report and reworking it through review.</p>
+        <p>Linx works on the stages where those hours go. Imports can be re-specified without starting over, charts update when the data does, reports draft themselves from the chart, and every change is kept in the project history.</p>
+        <p>The two tables below break a typical case down phase by phase: first what the Linx workspace saves on its own, then what the built-in AI saves on top of it.</p>
+      </div>
     </div>
-    <div class="body">
-      <h2>Most of a case isn't analysis. It's everything around it.</h2>
-      <p>A typical case runs about 400 analyst hours. Only a quarter of that is link charting and analysis. The rest goes into gathering data, cleaning it into shape, rebuilding charts when a source changes, writing the report and reworking it through review.</p>
-      <p>Linx works on the stages where those hours go. Imports can be re-specified without starting over, charts update when the data does, reports draft themselves from the chart, and every change is kept in the project history. Conservatively, that saves around 100 hours per case.</p>
-      <p>The built-in AI takes off roughly another 70 hours by drawing connections, answering questions about the data and pointing out what was missed. With 1,800 to 2,000 working hours in a year, that is room for one or two more cases per analyst.</p>
+
+    <div class="tblk">
+      <div class="tblk-h">
+        <div><span class="mono">Table 01 · The workspace</span><h3>Where a 400-hour case goes, and what Linx saves</h3></div>
+        <p>Each phase's share of a typical case, the Linx tools that apply to it, and the hours they save.</p>
+      </div>
+      <div class="tscroll" tabindex="0" role="region" aria-label="Table 01: hours saved by the Linx workspace">
+        <table class="ctab">
+          <thead><tr><th scope="col">Phase</th><th scope="col" class="num">% of case</th><th scope="col" class="num">Hours per case</th><th scope="col">Linx tools</th><th scope="col" class="num">Linx savings</th><th scope="col" class="num">Hours saved</th></tr></thead>
+          <tbody>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">001</span>Research and data gathering</td><td data-label="% of case" class="num">35%</td><td data-label="Hours per case" class="num">140 h</td><td data-label="Linx tools" class="how none">Not changed by Linx</td><td data-label="Linx savings" class="num"><div class="pct"><span>0%</span><span class="bar" style="--v:0" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">0 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">002</span>Data import, cleaning and structuring</td><td data-label="% of case" class="num">15%</td><td data-label="Hours per case" class="num">60 h</td><td data-label="Linx tools" class="how">Bulk import, changing import specs without restarting, editing and undo</td><td data-label="Linx savings" class="num"><div class="pct"><span>40%</span><span class="bar" style="--v:40" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">24 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">003</span>Link charting and analysis</td><td data-label="% of case" class="num">25%</td><td data-label="Hours per case" class="num">100 h</td><td data-label="Linx tools" class="how">Simplified multi-degree visualization, clear directionality, data layering</td><td data-label="Linx savings" class="num"><div class="pct"><span>30%</span><span class="bar" style="--v:30" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">30 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">004</span>Visualization and report writing</td><td data-label="% of case" class="num">15%</td><td data-label="Hours per case" class="num">60 h</td><td data-label="Linx tools" class="how">Automated reports with key insights and an executive summary</td><td data-label="Linx savings" class="num"><div class="pct"><span>50%</span><span class="bar" style="--v:50" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">30 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">005</span>Collaboration, review and edits</td><td data-label="% of case" class="num">10%</td><td data-label="Hours per case" class="num">40 h</td><td data-label="Linx tools" class="how">Sharing, a review chain and change history, so no step is recreated</td><td data-label="Linx savings" class="num"><div class="pct"><span>40%</span><span class="bar" style="--v:40" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">16 h</td></tr>
+          </tbody>
+          <tfoot><tr><td data-label="Phase">Total</td><td data-label="% of case" class="num">100%</td><td data-label="Hours per case" class="num">400 h</td><td data-label="Linx tools"></td><td data-label="Linx savings" class="num"><div class="pct"><span>25%</span><span class="bar" style="--v:25" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">100 h</td></tr></tfoot>
+        </table>
+      </div>
+      <p class="tnote">At 1,800 to 2,000 working hours a year, an analyst handles four to five cases. Saving 100 hours per case is a conservative estimate; in practice the workload drops by 25 to 35 percent, which makes room for one or two more cases per year.</p>
     </div>
+
+    <div class="tblk">
+      <div class="tblk-h">
+        <div><span class="mono">Table 02 · The AI</span><h3>Then add the built-in AI</h3></div>
+        <p>Starting from the hours left after Table 01, how the AI helps in each phase and what it saves on top.</p>
+      </div>
+      <div class="tscroll" tabindex="0" role="region" aria-label="Table 02: additional hours saved by the AI">
+        <table class="ctab">
+          <thead><tr><th scope="col">Phase</th><th scope="col" class="num">Hours with Linx</th><th scope="col">How the AI helps</th><th scope="col" class="num">AI savings</th><th scope="col" class="num">Hours saved with AI</th></tr></thead>
+          <tbody>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">001</span>Research and data gathering</td><td data-label="Hours with Linx" class="num">140 h</td><td data-label="How the AI helps" class="how">Suggested threads and flagged gaps mean more targeted research and fewer dead ends</td><td data-label="AI savings" class="num"><div class="pct"><span>10%</span><span class="bar" style="--v:10" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">14 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">002</span>Data import and structuring</td><td data-label="Hours with Linx" class="num">36 h</td><td data-label="How the AI helps" class="how">The AI builds out connections automatically instead of the analyst mapping them</td><td data-label="AI savings" class="num"><div class="pct"><span>30%</span><span class="bar" style="--v:30" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">11 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">003</span>Link charting and analysis</td><td data-label="Hours with Linx" class="num">70 h</td><td data-label="How the AI helps" class="how">Asking questions of the data, AI-drawn connections, surfacing missed items</td><td data-label="AI savings" class="num"><div class="pct"><span>50%</span><span class="bar" style="--v:50" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">35 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">004</span>Report writing</td><td data-label="Hours with Linx" class="num">30 h</td><td data-label="How the AI helps" class="how">AI-identified insights feed directly into the narrative</td><td data-label="AI savings" class="num"><div class="pct"><span>20%</span><span class="bar" style="--v:20" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">6 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">005</span>Review and collaboration</td><td data-label="Hours with Linx" class="num">24 h</td><td data-label="How the AI helps" class="how">Reviewers can ask questions of the data directly</td><td data-label="AI savings" class="num"><div class="pct"><span>25%</span><span class="bar" style="--v:25" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">6 h</td></tr>
+          </tbody>
+          <tfoot><tr><td data-label="Phase">Total</td><td data-label="Hours with Linx" class="num">300 h</td><td data-label="How the AI helps"></td><td data-label="AI savings" class="num"><div class="pct"><span>24%</span><span class="bar" style="--v:24" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">72 h</td></tr></tfoot>
+        </table>
+      </div>
+      <p class="tnote">That is 72 additional hours per case, on top of the 100 the workspace already saves.</p>
+    </div>
+
+    <div class="tsum" aria-label="Summary">
+      <div><span class="mono">Today</span><b>400<small>h</small></b><p>A typical case with existing tools.</p></div>
+      <div><span class="mono">With Linx</span><b>300<small>h</small></b><p>100 hours saved by the workspace (−25%).</p></div>
+      <div><span class="mono">With Linx AI</span><b>228<small>h</small></b><p>72 more hours saved by the AI.</p></div>
+      <div class="hi"><span class="mono">Total saved</span><b>172<small>h</small></b><p>About 43% of the case, compared with existing tools.</p></div>
+    </div>
+    <div class="note mono" style="color:var(--dim);margin-top:14px">Estimates for a typical 400-hour case · conservative</div>
   </div>
 </section>
 
