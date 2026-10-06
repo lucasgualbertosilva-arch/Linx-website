@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BlackBriar</title>
-<meta name="description" content="BlackBriar runs language models trained for investigative work on your own workstation. Local inference, zero egress, zero tokens billed.">
+<title>linxai</title>
+<meta name="description" content="Linx is a link analysis workspace that runs entirely on your own hardware. Bring your data: Linx maps every connection, shows its work, and tells you what's still missing.">
 <meta name="theme-color" content="#141414">
 <meta property="og:type" content="website">
-<meta property="og:title" content="BlackBriar">
-<meta property="og:description" content="Offline language models for investigators. Local inference, zero egress, zero tokens billed.">
+<meta property="og:title" content="linxai">
+<meta property="og:description" content="Every network has a missing link. Linx finds it first. Local link analysis, every link sourced, nothing leaves the building.">
 <style>
 /* Base reset: reproduces the defaults the page was designed against */
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -16,7 +16,8 @@ body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
 </style>
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAAAAACPAi4CAAAEfElEQVR42u1XXYhVVRT+1j5rn5npOsnoKClCTVPWS1DkhJCFEIYmKGEWShQS9CCYpS8+BCWi+FYgUQ/2Y9BDaajlT4j2Yhlm+NCbhi8+BEZdf2acmXvOPvvr4fzfuVenXnXBPffudVjf/tZef/sCd+XOE5mySDXC9FMsUFkXYto0QvC/7G06KAUKQCjTQLLx+i3eAKAAEFDGVl9LScl0GCheZ5tEczJW0wAQizcYszWRyT/OxUlz8Hamkj/F4k22+Nnw8NDQ0NCDw/O/9o68OngbBiKpNaDYyEnuLd7spuNkCTAVQlVVrbVqrapai82M+an09IRh2GOxhxHf+Z3NwU6RyXauy1ZG0Y5i9REnuQmXUgDt5Dk39Hsp4588vCnRy3++DQIw7ulXop4te3p9tywSg73tAfM+TspVzK0I9I8uLojBPraqxnHsamgtvgcLvcjmIKTNBaEhv1ofhx9eyRI/uLHxESe4/HGWrMatfRKn6lVRPTIjwX62uKHUbByP6Xi6VHxCPg9FcLGTC0bsQUZ8DT2hDUMb9mEHHfdf5S9qVVVVe3UfuawAaIuXQXiEkVtXAu/gBLcPTvJnmDS4is9TAO0AYND3A1sTGzCz0Wg0Go3+/l2c4G481OKZHFPxRZVBLQ+Mbxx+LratbTuTDNjMi3p3vmtAAEXJs35yJUCQzPh+aWzRu7BCKnx/u419GiApModZiQAsAYJk5pElsXVN+MI8Cfbs0mJJqcUtbSXUwn7g2GJncWkEgnKrMZO7w1KLai/U3H728RHKRJ8brZ9rWRMVF6q5YzL7uSdH/NV1YxARI2KMiIgY40HklMg2/iVAkMw7+bgfW350BkgC9D6roZIL239khAwAkyw4+Zi/seLc3KSOPsWk6gLThwLG339iIa+vOGui9KWvDxURAGJ8+i3lMTKNgvC+U8NsLv8tjNrIZuY+AcgkfZFU6GQMxD8w7JorzqvLOVb3Nz7p6wOCezKlxrY0z8PovP56Xp0Bp4w8Q/1yiVg+caGAHEhMfeAIxEBNmWfV/Rl88yIA9CyoV12ZVnkm+oBTx4NhcGC1079MngNZ12pVwqgdehMhIISGemBVLC+fCBKp1AJlLK0XqQCU+QZASIHQMPx2ZSxrD3Vo3VNdyDcQTae9QKLeg8tpXzrU5wQUQigUCgAPoUqtGgv/nSsQ+w4vi66t+QkTHceHS2oMijYz5y3J+oVf82wUnnv0KVceWJnGwmBWvqvBCHkMAQzmX68OILbimN3FxX/Xe6IAwb0lQ1DDW14eAsyWzAXmXlzbZikEgmhgs+rkB+NgmpnVW5TkDVYmb6bjNnehWq7fOX9zGaZ3d8ruMSIQqFBo3MDxRRxf9WPob2PsIAQCjJBHq/pZZ+lGl6bHI93vqICU01kbgc+Vs/cv8uMrT9u4Y3uqRp0gFATIZy6kXVcA9t/L0RfOaCw1++5XUYOR9hA3F6dlLtM6RCC6Ur3rEqOvnlOH2hy49V2y6FdZUbUi49PK+R//ATKvRDq4IF2tpcsguCt3jPwL61yCn3bElMcAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;800;900&family=Geist+Mono:wght@400;500&display=swap">
@@ -47,7 +48,7 @@ a{color:inherit}
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:14px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--sans);font-weight:400;font-size:18px;letter-spacing:.01em}
-.logo img{width:36px;height:auto;mix-blend-mode:screen;display:block}
+.logo img{width:32px;height:auto;mix-blend-mode:screen;display:block}
 .menu-btn{background:none;border:0;color:var(--fg);font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:10px;cursor:pointer;padding:6px}
 .menu-btn i{display:grid;gap:3px}.menu-btn i b{display:block;width:14px;height:1px;background:currentColor;transition:transform .3s}
 .menu-open .menu-btn i b:first-child{transform:translateY(2px) rotate(45deg)}.menu-open .menu-btn i b:last-child{transform:translateY(-2px) rotate(-45deg)}
@@ -146,16 +147,10 @@ h2{font-size:clamp(32px,4.4vw,64px);line-height:1;letter-spacing:-.035em;font-we
 
 /* problems list */
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:start}
-.probs{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.probs li{display:grid;grid-template-columns:44px 1fr auto;gap:14px;padding-block:14px;border-bottom:1px solid var(--line);align-items:baseline;transition:background .2s,padding .3s;cursor:default}
-.probs li:hover{background:var(--bg2);padding-inline:10px}
-.probs .n{color:var(--dim)}
-.probs .t{font-size:15px}
-.probs .h{color:var(--mute);font-variant-numeric:tabular-nums}
-.probs li:hover .h{color:var(--accent)}
-.probs .tot{grid-template-columns:1fr auto;color:var(--fg);border-bottom:0;padding-top:20px}
-.probs .tot .h{color:var(--accent)}
 .note{color:var(--dim);margin-top:10px}
+.uses{list-style:none;margin:-14px 0 28px;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.uses li::before{content:"→ ";color:var(--dim)}
+.hold{font-size:clamp(15px,1.15vw,17px);color:var(--fg);max-width:34em;margin:0 0 32px;font-weight:500}
 
 /* features */
 .feat-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);margin-bottom:clamp(40px,6vw,80px)}
@@ -190,7 +185,7 @@ kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line2);padding
 .tab{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:9px 14px;color:var(--fg)}
 .tab .path{color:var(--dim)}
 .code{flex:1;overflow:auto;display:grid;grid-template-columns:auto 1fr;font-family:var(--mono);font-size:13px;line-height:1.7;padding-block:14px}
-.gutter{color:var(--dim);text-align:right;padding-inline:16px 14px;user-select:none;border-right:1px solid var(--line);font-variant-numeric:tabular-nums}
+.gutter{white-space:pre;color:var(--dim);text-align:right;padding-inline:16px 14px;user-select:none;border-right:1px solid var(--line);font-variant-numeric:tabular-nums}
 .src{padding-inline:18px;white-space:pre;color:#c8c7c1;min-width:0}
 .src .h1{color:var(--fg);font-weight:500}.src .cm{color:var(--dim)}.src .k{color:var(--accent)}.src .ok{color:var(--ok)}
 .term{grid-column:1/-1;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;padding:12px 16px;min-height:132px;background:var(--bg)}
@@ -319,13 +314,134 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
   .ws{grid-template-columns:1fr;grid-template-rows:auto 180px minmax(320px,1fr) auto;height:auto}
   .tree{border-right:0;border-bottom:1px solid var(--line)}
   .nav-r .btn .lab .roll{max-width:9em}
-  .probs li{grid-template-columns:36px 1fr;}
-  .probs li .h{grid-column:2}
-  .probs .tot{grid-template-columns:1fr}
   .nav-in{grid-template-columns:auto 1fr auto}.menu-btn{justify-self:end}
   .nav-r .btn .lab{display:none}
   .glyph{display:none}
 }
+/* roadmap */
+.rm-head{display:flex;justify-content:space-between;align-items:end;gap:24px 48px;flex-wrap:wrap;margin-bottom:clamp(32px,4vw,56px)}
+.rm-head h2{margin-bottom:16px}
+.rm-head p{color:var(--soft);max-width:34em;margin:0}
+.rm-side{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
+.rm-legend{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--mute);margin:0;padding:0;list-style:none}
+.rm-legend li{display:flex;align-items:center;gap:8px}
+.rm-legend i,.rm-dia{display:inline-block;width:9px;height:9px;transform:rotate(45deg);border:1px solid currentColor;flex:none}
+.rm-nav{display:flex;align-items:center;gap:12px}
+.rm-nav button{background:none;border:1px solid var(--line2);color:var(--fg);width:40px;height:40px;cursor:pointer;font-family:var(--mono)}
+.rm-nav button:hover{border-color:var(--fg);background:var(--fg);color:var(--bg)}
+.rm-nav button:disabled{opacity:.3;pointer-events:none}
+.rm-count{color:var(--mute);min-width:4.5em;text-align:center;font-variant-numeric:tabular-nums}
+.rm-count b{color:var(--fg);font-weight:500}
+.rm-scroll{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--line2) transparent;padding-bottom:18px;cursor:grab;-webkit-user-select:none;user-select:none}
+.rm-scroll.drag{cursor:grabbing}
+.rm{--n:8;--p:0;display:grid;grid-template-columns:repeat(calc(var(--n) + 1),minmax(170px,1fr));grid-template-rows:auto 64px auto;position:relative;min-width:calc((var(--n) + 1) * 170px)}
+.rm-axis{grid-column:1/-1;grid-row:2;align-self:center;height:1px;background:var(--line2);position:relative}
+.rm-prog{position:absolute;left:0;top:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--ok),var(--accent));transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.rm.in .rm-prog{width:calc(var(--p) / (var(--n) + 1) * 100% + 15px)}
+.rm-node{grid-column:var(--c);grid-row:2;justify-self:start;align-self:center;display:flex;align-items:center;gap:12px;background:none;border:0;padding:6px 10px 6px 8px;margin-left:0;color:var(--mute);cursor:pointer;position:relative;z-index:1;font:inherit}
+.rm-node .rm-dia{width:14px;height:14px;background:var(--bg);transition:transform .25s,background .25s}
+.rm-node .mono{background:var(--bg);padding:2px 6px;transition:color .2s}
+.rm-node:hover .mono,.rm-node.on .mono{color:var(--fg)}
+.rm-node.on .rm-dia{transform:rotate(45deg) scale(1.35)}
+.s-done{color:var(--ok)}.s-done .rm-dia{background:var(--ok)}
+.s-now{color:var(--accent)}
+.s-now .rm-dia{animation:rmPulse 2s infinite}
+.s-next{color:var(--soft)}
+.s-locked{color:var(--dim)}.s-locked .rm-dia{border-style:dashed}
+@keyframes rmPulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}70%,100%{box-shadow:0 0 0 10px transparent}}
+.rm-card{grid-column:var(--c)/span 2;position:relative;margin-right:18px;border:1px solid var(--line);background:var(--bg2);padding:18px 20px 20px;color:var(--fg);cursor:pointer;transition:border-color .25s,background .25s,opacity .25s,transform .35s}
+.rm-card.top{grid-row:1;align-self:end}
+.rm-card.bot{grid-row:3;align-self:start}
+.rm-card::after{content:"";position:absolute;left:14px;width:1px;height:25px;background:var(--line2);transition:background .25s}
+.rm-card.top::after{top:100%}.rm-card.bot::after{bottom:100%}
+.rm-card:hover{border-color:var(--line2)}
+.rm-card.on{border-color:currentColor;background:var(--bg3)}
+.rm-card.on::after{background:currentColor}
+.rm-card.top:hover,.rm-card.top.on{transform:translateY(-4px)}
+.rm-card.bot:hover,.rm-card.bot.on{transform:translateY(4px)}
+.rm-tag{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.rm-tag .st{border:1px solid currentColor;padding:3px 8px;font-size:10px;letter-spacing:.1em}
+.rm-tag .v{color:var(--mute)}
+.rm-card h3{font-size:22px;font-weight:500;letter-spacing:-.02em;margin:0 0 4px;color:var(--fg)}
+.rm-card .sub{color:var(--mute);font-size:14px;margin:0 0 14px}
+.rm-card ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;color:var(--soft);font-size:14px;line-height:1.4}
+.rm-card li{display:grid;grid-template-columns:16px 1fr}
+.rm-card li::before{content:"→";color:var(--dim)}
+.rm-card.s-done li::before{content:"✓";color:var(--ok)}
+.rm-card.s-done{color:var(--ok)}.rm-card.s-now{color:var(--accent)}.rm-card.s-next{color:var(--soft)}
+.rm-legend .s-done i{background:var(--ok)}
+.rm-card.s-locked{border-style:dashed;background:transparent;color:var(--dim)}
+.rm-card.s-locked h3,.rm-card.s-locked ul{color:var(--dim)}
+.rm-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--dim);margin-top:14px}
+@media (max-width:760px){
+  .rm-scroll{overflow:visible;cursor:auto;padding-bottom:0}
+  .rm{grid-template-columns:28px minmax(0,1fr);grid-template-rows:none;grid-auto-rows:auto;row-gap:14px;min-width:0}
+  .rm-axis{grid-column:1;grid-row:1/span var(--n);justify-self:center;align-self:stretch;width:1px;height:auto}
+  .rm-prog{width:3px!important;left:-1px;top:0;height:0;transition:height 1.6s cubic-bezier(.2,.7,.2,1)}
+  .rm.in .rm-prog{height:var(--ph,0)}
+  .rm-foot span+span{display:none}
+  .rm-node{grid-column:1;grid-row:var(--i);justify-self:center;align-self:start;margin-top:22px;padding:0}
+  .rm-node .mono{display:none}
+  .rm-card,.rm-card.top,.rm-card.bot{grid-column:2;grid-row:var(--i);align-self:start;margin-right:0;transform:none!important}
+  .rm-card::after{top:29px!important;bottom:auto!important;left:auto;right:100%;width:10px;height:1px}
+}
+/* savings tables */
+.stall-head{margin-bottom:clamp(48px,6vw,88px)}
+.tblk{margin-top:clamp(48px,6vw,80px)}
+.tblk-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px clamp(32px,6vw,96px);align-items:end;margin-bottom:22px}
+.tblk-h .mono{color:var(--mute);display:block;margin-bottom:10px}
+.tblk-h h3{font-size:clamp(22px,2vw,30px);font-weight:500;letter-spacing:-.025em;line-height:1.15;margin:0}
+.tblk-h p{color:var(--soft);margin:0;max-width:36em}
+.tscroll{overflow-x:auto;border:1px solid var(--line2);background:color-mix(in srgb,var(--bg2) 55%,var(--bg))}
+.ctab{width:100%;min-width:820px;border-collapse:collapse;font-size:15px;line-height:1.45}
+.ctab th{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:left;vertical-align:bottom;padding:16px 18px;border-bottom:1px solid var(--line2);background:var(--bg2)}
+.ctab td{padding:18px;border-bottom:1px solid var(--line);vertical-align:top}
+.ctab th+th,.ctab td+td{border-left:1px solid var(--line)}
+.ctab tbody tr{transition:background .2s}
+.ctab tbody tr:hover{background:var(--bg2)}
+.ctab .ph-n{display:block;font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:4px}
+.ctab .phase{font-weight:500;min-width:190px}
+.ctab .how{color:var(--soft);font-size:14px}
+.ctab .how.none{color:var(--dim);font-family:var(--mono);font-size:12px}
+.ctab .num{text-align:right;font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ctab th.num{text-align:right;font-size:11px;white-space:normal}
+.ctab .save{color:var(--accent);font-weight:500}
+.ctab .pct{display:grid;justify-items:end;gap:8px}
+.ctab .bar{width:72px;height:4px;background:var(--line);position:relative;overflow:hidden}
+.ctab .bar::after{content:"";position:absolute;inset:0 auto 0 0;width:calc(var(--v) * 1%);background:var(--accent)}
+.ctab tfoot td{font-weight:500;border-top:1px solid var(--fg);border-bottom:0;background:var(--bg2)}
+.ctab tfoot .num{font-size:15px}
+.tnote{display:grid;grid-template-columns:auto 1fr;gap:14px;margin:18px 0 0;color:var(--soft);max-width:60em}
+.tnote::before{content:"";width:6px;height:6px;margin-top:9px;background:var(--accent)}
+.tsum{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line2)}
+.tsum>div{padding:24px 22px;display:grid;gap:10px;align-content:start}
+.tsum>div+div{border-left:1px solid var(--line2)}
+.tsum .mono{color:var(--mute)}
+.tsum b{font-size:clamp(36px,4vw,60px);font-weight:500;letter-spacing:-.04em;line-height:1}
+.tsum b small{font-size:.4em;letter-spacing:0;color:var(--mute);margin-left:4px}
+.tsum p{margin:0;color:var(--soft);font-size:14px}
+.tsum .hi{background:var(--fg);color:var(--bg)}
+.tsum .hi .mono,.tsum .hi p,.tsum .hi b small{color:color-mix(in srgb,var(--bg) 70%,var(--fg))}
+@media (max-width:700px){
+  .tscroll{overflow:visible;border:0;background:none}
+  .ctab{min-width:0;display:block}
+  .ctab thead{display:none}
+  .ctab tbody,.ctab tfoot,.ctab tr{display:block}
+  .ctab tr{border:1px solid var(--line2);background:var(--bg2);margin-bottom:10px}
+  .ctab tbody tr:hover{background:var(--bg2)}
+  .ctab td,.ctab td+td{display:grid;grid-template-columns:42% 1fr;gap:12px;align-items:center;padding:10px 16px;border:0;border-top:1px solid var(--line);text-align:right}
+  .ctab td::before{content:attr(data-label);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:left}
+  .ctab td.phase{display:block;text-align:left;border-top:0;padding-top:16px;font-size:16px}
+  .ctab td.phase::before,.ctab td:empty{display:none}
+  .ctab td.how{text-align:left;align-items:start}
+  .ctab .pct{justify-items:end}
+  .ctab tfoot tr{border-color:var(--fg)}
+  .ctab tfoot td{border-top:1px solid var(--line);background:none}
+  .ctab tfoot td:first-child{display:block;text-align:left;border-top:0;padding-top:16px}
+  .ctab tfoot td:first-child::before{display:none}
+}
+@media (max-width:900px){.tblk-h{grid-template-columns:1fr}.tsum{grid-template-columns:repeat(2,minmax(0,1fr))}.tsum>div:nth-child(3){border-left:0}.tsum>div:nth-child(n+3){border-top:1px solid var(--line2)}}
+@media (max-width:480px){.tsum{grid-template-columns:1fr}.tsum>div+div{border-left:0;border-top:1px solid var(--line2)}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
   html{scroll-behavior:auto}
@@ -335,7 +451,7 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <body>
 <header class="nav" id="top">
   <div class="wrap nav-in">
-    <a class="logo" href="#top" aria-label="BlackBriar home"><img src="data:image/png;base64,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" alt="" width="36" height="28"><span>BlackBriar</span></a>
+    <a class="logo" href="#top" aria-label="Linx home"><img src="/assets/img/linx-logo.png" alt="" width="32" height="32"><span>Linx</span></a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="ov"><span class="roll"><span>Menu</span><span aria-hidden="true">Menu</span></span><i><b></b><b></b></i></button>
     <div class="nav-r"><a class="btn" href="#pricing"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a></div>
   </div>
@@ -345,12 +461,13 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
   <ol class="wrap">
     <li><a href="#problems"><span class="mono">001</span><span data-scramble>Where cases stall</span></a></li>
     <li><a href="#features"><span class="mono">002</span><span data-scramble>Capabilities</span></a></li>
-    <li><a href="#workspace"><span class="mono">003</span><span data-scramble>The workspace</span></a></li>
+    <li><a href="#workspace"><span class="mono">003</span><span data-scramble>The Board</span></a></li>
     <li><a href="#showcase"><span class="mono">004</span><span data-scramble>Interface</span></a></li>
-    <li><a href="#pricing"><span class="mono">005</span><span data-scramble>Licensing</span></a></li>
-    <li><a href="#faq"><span class="mono">006</span><span data-scramble>Before you deploy</span></a></li>
+    <li><a href="#roadmap"><span class="mono">005</span><span data-scramble>Roadmap</span></a></li>
+    <li><a href="#pricing"><span class="mono">006</span><span data-scramble>Licensing</span></a></li>
+    <li><a href="#faq"><span class="mono">007</span><span data-scramble>Before you deploy</span></a></li>
   </ol>
-  <div class="wrap mono muted">Local inference · Zero egress · Zero tokens billed</div>
+  <div class="wrap mono muted">Runs locally · Every link sourced · Zero egress</div>
 </div>
 
 <main>
@@ -358,17 +475,19 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <section class="hero2">
   <div class="hero-l light">
     <div class="copy">
-      <div class="eyebrow mono"><span class="dot"></span><span data-scramble>Offline language models for defense investigators</span></div>
-      <h1><span class="ln"><span>The analyst that</span></span><span class="ln"><span>never leaves</span></span><span class="ln"><span>the room.</span></span></h1>
-      <p class="lede">Case files, interagency records, interview transcripts, field reports. BlackBriar runs language models trained for investigative work directly on your workstation's own GPU. Every query stays on hardware you control, and nothing is metered by the token.</p>
+      <div class="eyebrow mono"><span class="dot"></span><span data-scramble>Local link analysis for investigators and analysts</span></div>
+      <h1><span class="ln"><span>Every network has</span></span><span class="ln"><span>a missing link.</span></span><span class="ln"><span>Linx finds it first.</span></span></h1>
+      <p class="lede">Bring your data. Linx maps every connection, shows its work, and tells you what's still missing.</p>
+      <ul class="uses mono" aria-label="Use cases"><li>Unravel illicit networks</li><li>Trace outbreaks</li><li>Vet acquisitions</li><li>Run compliance reviews</li><li>Uncover fraud</li></ul>
+      <p class="hold">Analysis that holds up in the boardroom, the courtroom, and the war room.</p>
       <div class="ctas">
         <a class="btn" href="#pricing"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a>
         <a class="link" href="#problems"><span class="roll"><span>Learn more</span><span aria-hidden="true">Learn more</span></span> ↓</a>
       </div>
     </div>
     <div class="stat mono" aria-label="System status">
-      <span>Model: BB-INVEST 14B</span><span>Compute: local GPU</span><span>Network: <b>air-gapped</b></span><span>Tokens billed: <b>0</b></span>
-      <span>Audit: <b>on</b></span><span>Agencies linked: 07</span><span>Egress: <b>none</b></span><span id="utc">UTC --:--:--</span>
+      <span>Deployment: on-prem</span><span>Compute: local GPU</span><span>Network: <b>offline</b></span><span>Tokens billed: <b>0</b></span>
+      <span>History: <b>on</b></span><span>Links sourced: <b>all</b></span><span>Egress: <b>none</b></span><span id="utc">UTC --:--:--</span>
     </div>
   </div>
   <div class="hero-r" role="img" aria-label="Concentric rings of text rotating around a center point; they scatter under the cursor">
@@ -380,30 +499,68 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 
 <!-- PROBLEMS -->
 <section class="sec light" id="problems">
-  <div class="wrap split">
-    <div>
-      <div class="label mono" data-scramble>Where cases stall</div>
-      <ul class="probs mono">
-        <li><span class="n">001</span><span class="t">Records request routed between agencies</span><span class="h">~72 HRS</span></li>
-        <li><span class="n">002</span><span class="t">Reading 4,000 pages of discovery by hand</span><span class="h">~40 HRS</span></li>
-        <li><span class="n">003</span><span class="t">Matching names across incompatible databases</span><span class="h">~16 HRS</span></li>
-        <li><span class="n">004</span><span class="t">Transcribing and indexing interview audio</span><span class="h">~12 HRS</span></li>
-        <li><span class="n">005</span><span class="t">Translating foreign-language evidence</span><span class="h">~10 HRS</span></li>
-        <li><span class="n">006</span><span class="t">Finding the prior case that fits the pattern</span><span class="h">~8 HRS</span></li>
-        <li><span class="n">007</span><span class="t">Rewriting one summary for three chains of command</span><span class="h">~6 HRS</span></li>
-        <li><span class="n">008</span><span class="t">Rebuilding a timeline from scattered logs</span><span class="h">~6 HRS</span></li>
-        <li><span class="n">009</span><span class="t">Chain-of-custody notes for every derived file</span><span class="h">~3 HRS</span></li>
-        <li><span class="n">010</span><span class="t">Cloud AI blocked for controlled information</span><span class="h">∞ HRS</span></li>
-        <li class="tot"><span>Estimated time lost: <span id="totHrs">~173</span> hours per case</span><span class="h">(≈ 4 work weeks)</span></li>
-      </ul>
-      <div class="note mono">Illustrative figures · placeholder data</div>
+  <div class="wrap">
+    <div class="split stall-head">
+      <div>
+        <div class="label mono" data-scramble>Where cases stall</div>
+        <h2>Most of a case isn't analysis. It's everything around it.</h2>
+      </div>
+      <div class="body">
+        <p>A typical case runs about 400 analyst hours. Only a quarter of that is link charting and analysis. The rest goes into gathering data, cleaning it into shape, rebuilding charts when a source changes, writing the report and reworking it through review.</p>
+        <p>Linx works on the stages where those hours go. Imports can be re-specified without starting over, charts update when the data does, reports draft themselves from the chart, and every change is kept in the project history.</p>
+        <p>The two tables below break a typical case down phase by phase: first what the Linx workspace saves on its own, then what the built-in AI saves on top of it.</p>
+      </div>
     </div>
-    <div class="body">
-      <h2>The paperwork outlasts the investigation. Every single case.</h2>
-      <p>It's rarely the interview or the arrest that eats the calendar. It's the records request that sits in another agency's queue for three days. The binder of discovery nobody has time to read twice. The same subject spelled four ways across four systems that were never built to talk to each other.</p>
-      <p>And the tools that could help are usually off the table. Commercial AI means sending case material to someone else's servers, and paying per word to do it.</p>
-      <p>This is the part nobody budgets for and every unit absorbs. Weeks gone before the actual analysis starts.</p>
+
+    <div class="tblk">
+      <div class="tblk-h">
+        <div><span class="mono">Table 01 · The workspace</span><h3>Where a 400-hour case goes, and what Linx saves</h3></div>
+        <p>Each phase's share of a typical case, the Linx tools that apply to it, and the hours they save.</p>
+      </div>
+      <div class="tscroll" tabindex="0" role="region" aria-label="Table 01: hours saved by the Linx workspace">
+        <table class="ctab">
+          <thead><tr><th scope="col">Phase</th><th scope="col" class="num">% of case</th><th scope="col" class="num">Hours per case</th><th scope="col">Linx tools</th><th scope="col" class="num">Linx savings</th><th scope="col" class="num">Hours saved</th></tr></thead>
+          <tbody>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">001</span>Research and data gathering</td><td data-label="% of case" class="num">35%</td><td data-label="Hours per case" class="num">140 h</td><td data-label="Linx tools" class="how none">Not changed by Linx</td><td data-label="Linx savings" class="num"><div class="pct"><span>0%</span><span class="bar" style="--v:0" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">0 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">002</span>Data import, cleaning and structuring</td><td data-label="% of case" class="num">15%</td><td data-label="Hours per case" class="num">60 h</td><td data-label="Linx tools" class="how">Bulk import, changing import specs without restarting, editing and undo</td><td data-label="Linx savings" class="num"><div class="pct"><span>40%</span><span class="bar" style="--v:40" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">24 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">003</span>Link charting and analysis</td><td data-label="% of case" class="num">25%</td><td data-label="Hours per case" class="num">100 h</td><td data-label="Linx tools" class="how">Simplified multi-degree visualization, clear directionality, data layering</td><td data-label="Linx savings" class="num"><div class="pct"><span>30%</span><span class="bar" style="--v:30" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">30 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">004</span>Visualization and report writing</td><td data-label="% of case" class="num">15%</td><td data-label="Hours per case" class="num">60 h</td><td data-label="Linx tools" class="how">Automated reports with key insights and an executive summary</td><td data-label="Linx savings" class="num"><div class="pct"><span>50%</span><span class="bar" style="--v:50" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">30 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">005</span>Collaboration, review and edits</td><td data-label="% of case" class="num">10%</td><td data-label="Hours per case" class="num">40 h</td><td data-label="Linx tools" class="how">Sharing, a review chain and change history, so no step is recreated</td><td data-label="Linx savings" class="num"><div class="pct"><span>40%</span><span class="bar" style="--v:40" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">16 h</td></tr>
+          </tbody>
+          <tfoot><tr><td data-label="Phase">Total</td><td data-label="% of case" class="num">100%</td><td data-label="Hours per case" class="num">400 h</td><td data-label="Linx tools"></td><td data-label="Linx savings" class="num"><div class="pct"><span>25%</span><span class="bar" style="--v:25" aria-hidden="true"></span></div></td><td data-label="Hours saved" class="num save">100 h</td></tr></tfoot>
+        </table>
+      </div>
+      <p class="tnote">At 1,800 to 2,000 working hours a year, an analyst handles four to five cases. Saving 100 hours per case is a conservative estimate; in practice the workload drops by 25 to 35 percent, which makes room for one or two more cases per year.</p>
     </div>
+
+    <div class="tblk">
+      <div class="tblk-h">
+        <div><span class="mono">Table 02 · The AI</span><h3>Then add the built-in AI</h3></div>
+        <p>Starting from the hours left after Table 01, how the AI helps in each phase and what it saves on top.</p>
+      </div>
+      <div class="tscroll" tabindex="0" role="region" aria-label="Table 02: additional hours saved by the AI">
+        <table class="ctab">
+          <thead><tr><th scope="col">Phase</th><th scope="col" class="num">Hours with Linx</th><th scope="col">How the AI helps</th><th scope="col" class="num">AI savings</th><th scope="col" class="num">Hours saved with AI</th></tr></thead>
+          <tbody>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">001</span>Research and data gathering</td><td data-label="Hours with Linx" class="num">140 h</td><td data-label="How the AI helps" class="how">Suggested threads and flagged gaps mean more targeted research and fewer dead ends</td><td data-label="AI savings" class="num"><div class="pct"><span>10%</span><span class="bar" style="--v:10" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">14 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">002</span>Data import and structuring</td><td data-label="Hours with Linx" class="num">36 h</td><td data-label="How the AI helps" class="how">The AI builds out connections automatically instead of the analyst mapping them</td><td data-label="AI savings" class="num"><div class="pct"><span>30%</span><span class="bar" style="--v:30" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">11 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">003</span>Link charting and analysis</td><td data-label="Hours with Linx" class="num">70 h</td><td data-label="How the AI helps" class="how">Asking questions of the data, AI-drawn connections, surfacing missed items</td><td data-label="AI savings" class="num"><div class="pct"><span>50%</span><span class="bar" style="--v:50" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">35 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">004</span>Report writing</td><td data-label="Hours with Linx" class="num">30 h</td><td data-label="How the AI helps" class="how">AI-identified insights feed directly into the narrative</td><td data-label="AI savings" class="num"><div class="pct"><span>20%</span><span class="bar" style="--v:20" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">6 h</td></tr>
+          <tr><td data-label="Phase" class="phase"><span class="ph-n">005</span>Review and collaboration</td><td data-label="Hours with Linx" class="num">24 h</td><td data-label="How the AI helps" class="how">Reviewers can ask questions of the data directly</td><td data-label="AI savings" class="num"><div class="pct"><span>25%</span><span class="bar" style="--v:25" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">6 h</td></tr>
+          </tbody>
+          <tfoot><tr><td data-label="Phase">Total</td><td data-label="Hours with Linx" class="num">300 h</td><td data-label="How the AI helps"></td><td data-label="AI savings" class="num"><div class="pct"><span>24%</span><span class="bar" style="--v:24" aria-hidden="true"></span></div></td><td data-label="Hours saved with AI" class="num save">72 h</td></tr></tfoot>
+        </table>
+      </div>
+      <p class="tnote">That is 72 additional hours per case, on top of the 100 the workspace already saves.</p>
+    </div>
+
+    <div class="tsum" aria-label="Summary">
+      <div><span class="mono">Today</span><b>400<small>h</small></b><p>A typical case with existing tools.</p></div>
+      <div><span class="mono">With Linx</span><b>300<small>h</small></b><p>100 hours saved by the workspace (−25%).</p></div>
+      <div><span class="mono">With Linx AI</span><b>228<small>h</small></b><p>72 more hours saved by the AI.</p></div>
+      <div class="hi"><span class="mono">Total saved</span><b>172<small>h</small></b><p>About 43% of the case, compared with existing tools.</p></div>
+    </div>
+    <div class="note mono" style="color:var(--dim);margin-top:14px">Estimates for a typical 400-hour case · conservative</div>
   </div>
 </section>
 
@@ -413,46 +570,46 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
     <div class="feat-head">
       <div>
         <div class="label mono" data-scramble>Capabilities</div>
-        <h2>A model that knows the work. On a machine that never phones home.</h2>
+        <h2>Your data never leaves the building. Not even for us.</h2>
       </div>
       <div class="body" style="align-self:end">
-        <p>BlackBriar ships the models, the retrieval index and the case workspace as one installation. It runs from the workstation's own processor and memory. No subscription meters, no API keys, no traffic leaving the building unless an administrator opens a specific, logged connection to a partner agency.</p>
+        <p>Linx runs entirely on your own hardware. One installation includes everything, and every query stays on hardware you control. No cloud platform, no vendor access, and no data pooled with other customers. No API keys, no tokens and no usage meters, so costs don't grow with the work. Nothing leaves the building unless your administrator opens a logged connection.</p>
       </div>
     </div>
     <ul class="feats">
       <li><span class="glyph" aria-hidden="true">┌─┐
 │▓│
 └─┘</span><h3><span class="mono">001 / Local compute</span>Runs on your hardware</h3><p>Inference happens on the workstation's GPU. No per-token invoices, no usage caps, no queue behind someone else's traffic. The model file sits on disk next to the case, and the thousandth question costs what the first one did: electricity.</p></li>
-      <li><h3><span class="mono">002 / Domain models</span>Trained for investigative work</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">003 / Interagency link</span>Connected, on your terms</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">004 / Isolation</span>Air-gapped by default</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">005 / Provenance</span>Every line cites its source</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">006 / Audio &amp; language</span>Transcripts and translation</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">007 / Case graph</span>People, places, links</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">008 / Accountability</span>An audit trail on every query</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">009 / Access</span>Role- and case-based permissions</h3><p class="ph">Placeholder text / placeholder text</p></li>
+      <li><h3><span class="mono">002 / Import</span>Structured and unstructured data import</h3><p>Linx handles the full range of data you work with, in whatever file types you have: tables, spreadsheets, notes and reports. You bring it; Linx handles it.</p></li>
+      <li><h3><span class="mono">003 / Manage</span>Non-destructive data management</h3><p>Map data however you want to visualize it. Change your mind? Update how the data is processed and watch the chart change in real time.</p></li>
+      <li><h3><span class="mono">004 / Plot</span>Dynamic link analysis charts</h3><p>Link charts grow with your data, and visualization tools help make sense of the noise. Organize and filter your data with one click.</p></li>
+      <li><h3><span class="mono">005 / Edit</span>Robust source control</h3><p>Enable and disable sources as needed. Source changes are reflected across the data at every level, and chart elements adjust their sourcing without manual review.</p></li>
+      <li><h3><span class="mono">006 / Analyze</span>Ask questions of the data</h3><p>Analytics help you find connections faster. Ask questions of the data directly, review suggested links and quickly address data that was overlooked.</p></li>
+      <li><h3><span class="mono">007 / Collaborate</span>Collaborate across projects</h3><p>Data can be shared across projects and brought into your workspace. See suggested connections across all your projects without manually importing project files.</p></li>
+      <li><h3><span class="mono">008 / Review</span>Version control and accountability</h3><p>Every project keeps a history that follows every change. Audit your work across the project timeline and see how the chart changed. Review goes faster, and no work gets repeated.</p></li>
+      <li><h3><span class="mono">009 / Release</span>Dissemination made easy</h3><p>Generate reports and charts directly from the project. Quickly remove confidential data and produce versions for public release.</p></li>
     </ul>
   </div>
 </section>
 
-<!-- INTEL -->
+<!-- GAPS -->
 <section class="intel" id="intel">
   <div class="bgtext" id="bgIntel" aria-hidden="true"></div>
   <div class="wrap intel-in">
     <div class="body">
-      <div class="label mono" data-scramble>One index, every jurisdiction</div>
-      <h2>Every lead has an address. Every address has a file.</h2>
-      <p>Cities, grid references, units, task forces and partner agencies, resolved into one searchable index on the workstation. Ask about a place and get back every document that touches it, with the page it came from.</p>
+      <div class="label mono" data-scramble>Find the gaps</div>
+      <h2>Know what you know. Find what you don't.</h2>
+      <p>Linx flags missing links, unverified connections and blind spots in your analysis, then shows you how to close them. Close the gaps. Every single one.</p>
       <ul class="pts">
-        <li><h3>001 / Place-aware search</h3><p>Query by city, installation, or raw coordinates. Results come back ranked, each tied to the line that mentions it.</p></li>
-        <li><h3>002 / Entity resolution</h3><p>The same agency, unit or group written five different ways across five systems resolves to a single record.</p></li>
-        <li><h3>003 / Jurisdiction map</h3><p>See which partner holds which records before the request goes out, not three days after.</p></li>
-        <li><h3>004 / Offline gazetteer</h3><p class="ph">Placeholder text / placeholder text</p></li>
-        <li><h3>005 / Watch terms</h3><p class="ph">Placeholder text / placeholder text</p></li>
-        <li><h3>006 / Cross-case links</h3><p class="ph">Placeholder text / placeholder text</p></li>
+        <li><h3>001 / Sourced links</h3><p>Every link comes with its source, so you can see exactly where it came from.</p></li>
+        <li><h3>002 / Missing links</h3><p>When something doesn't add up, Linx tells you what's missing and where to look next.</p></li>
+        <li><h3>003 / Unverified connections</h3><p>Connections resting on a single or weak source are marked, so nothing reaches the report unchecked.</p></li>
+        <li><h3>004 / People, places, events</h3><p>Linx reads your material, finds the people, places and events inside and maps how they connect.</p></li>
+        <li><h3>005 / Cross-project suggestions</h3><p>See possible connections to your other projects without importing their files.</p></li>
+        <li><h3>006 / Defensible output</h3><p>Charts and reports trace every conclusion back to the evidence, so the work stands up to review.</p></li>
       </ul>
     </div>
-    <div class="fp" id="fp" role="img" aria-label="A fingerprint drawn from the names of cities, coordinates, agencies and task forces; letters scatter and decode under the cursor">
+    <div class="fp" id="fp" role="img" aria-label="A fingerprint drawn from the names of entities, sources and connections; letters scatter and decode under the cursor">
       <canvas id="fpc"></canvas>
       <div class="fp-lab mono" id="fpLab">SCAN</div>
       <div class="fp-read mono" id="fpRead">Hover to scan</div>
@@ -463,16 +620,20 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <!-- WORKSPACE -->
 <section class="sec" id="workspace">
   <div class="wrap">
-    <div class="label mono" data-scramble>This is the actual workspace</div>
+    <div class="label mono" data-scramble>The Board</div>
+    <div class="feat-head" style="margin-bottom:clamp(28px,4vw,48px)">
+      <h2>Your entire investigation in one place.</h2>
+      <div class="body" style="align-self:end"><p>Bring everything you have: spreadsheets, call records, photos, reports, news articles, research papers, even weather data. Linx reads it, finds the people, places and events inside, and maps how they connect. Every link comes with its source, so you can see exactly where it came from. And when something doesn't add up, Linx tells you what's missing.</p></div>
+    </div>
     <div class="ws" id="ws">
       <div class="ws-bar mono">
         <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
-        <span class="muted">~/blackbriar · local · offline</span>
+        <span class="muted">~/linx · board · local · offline</span>
         <div class="keys"><kbd>⌘ J</kbd><kbd>⌘ K</kbd></div>
       </div>
       <nav class="tree" id="tree" aria-label="Workspace files"></nav>
       <div class="viewer">
-        <div class="tab mono"><span id="tabName">BRIEFING.md</span><span class="path" id="tabPath"></span></div>
+        <div class="tab mono"><span id="tabName">BOARD.md</span><span class="path" id="tabPath"></span></div>
         <div class="code"><div class="gutter" id="gutter" aria-hidden="true"></div><div class="src" id="src"></div></div>
       </div>
       <div class="term" id="term" aria-live="polite"></div>
@@ -486,8 +647,8 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
     <div class="bgtext" id="bgShow" aria-hidden="true"></div>
     <div class="wrap inner">
       <div class="label mono" data-scramble>Interface</div>
-      <h2>The screens that hold up in review.</h2>
-      <p>Every view below runs offline on a single workstation. The heavy lifting happens on local silicon, so the effort goes where it shows: a case an investigator can follow and a supervisor can sign. <a href="#faq">Read the deployment notes</a>.</p>
+      <h2>See the link. See the logic. Defend both.</h2>
+      <p>Every view below runs offline on your own hardware. Each element on the chart traces back to its source, so a reviewer can follow the reasoning from the first document to the final report. <a href="#faq">Read the deployment notes</a>.</p>
     </div>
   </div>
   <div class="wrap grid-show">
@@ -499,13 +660,13 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
         </button>
         <input type="file" id="shotInput" accept="image/*" hidden>
       </div>
-      <div class="cap mono"><span>Case workspace</span><span>Main view</span></div>
+      <div class="cap mono"><span>The Board</span><span>Main view</span></div>
     </div>
-    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="radar" data-fs="8"></pre></div><div class="cap mono"><span>Watchlist monitor</span><span>Alerts</span></div></a>
-    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="graph" data-fs="8"></pre></div><div class="cap mono"><span>Case graph</span><span>Entities</span></div></a>
-    <a class="card wide" href="#features"><div class="frame"><pre class="ascii" data-scene="wave" data-fs="8"></pre></div><div class="cap mono"><span>Transcripts</span><span>Audio → text</span></div></a>
-    <a class="card wide" href="#features"><div class="frame"><pre class="ascii" data-scene="topo" data-fs="8"></pre></div><div class="cap mono"><span>Geospatial</span><span>Terrain overlay</span></div></a>
-    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="globe" data-fs="7"></pre></div><div class="cap mono"><span>Interagency link</span><span>Mesh</span></div></a>
+    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="radar" data-fs="8"></pre></div><div class="cap mono"><span>Gap finder</span><span>Missing links</span></div></a>
+    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="graph" data-fs="8"></pre></div><div class="cap mono"><span>Link chart</span><span>Entities</span></div></a>
+    <a class="card wide" href="#features"><div class="frame"><pre class="ascii" data-scene="wave" data-fs="8"></pre></div><div class="cap mono"><span>Import</span><span>Any file type</span></div></a>
+    <a class="card wide" href="#features"><div class="frame"><pre class="ascii" data-scene="topo" data-fs="8"></pre></div><div class="cap mono"><span>Data layers</span><span>Overlay</span></div></a>
+    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="globe" data-fs="7"></pre></div><div class="cap mono"><span>Cross-project</span><span>Shared data</span></div></a>
   </div>
 </section>
 
@@ -513,9 +674,9 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <section class="sec" style="border-top:1px solid var(--line)">
   <div class="wrap quotes">
     <div class="slides" id="slides">
-      <div class="slide on"><blockquote>“Placeholder text / placeholder text. Placeholder text / placeholder text, placeholder text.”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Unit</span></div></div></div>
-      <div class="slide"><blockquote>“Placeholder text / placeholder text. Placeholder text / placeholder text.”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Unit</span></div></div></div>
-      <div class="slide"><blockquote>“Placeholder text / placeholder text, placeholder text / placeholder text.”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Unit</span></div></div></div>
+      <div class="slide on"><blockquote>“[Placeholder text, lorem ipsum]”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Organization</span></div></div></div>
+      <div class="slide"><blockquote>“[Placeholder text, lorem ipsum]”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Organization</span></div></div></div>
+      <div class="slide"><blockquote>“[Placeholder text, lorem ipsum]”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Organization</span></div></div></div>
     </div>
     <div>
       <div class="ctrl">
@@ -523,8 +684,35 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
         <div class="count" aria-live="polite"><span class="dig" id="d1"></span><span class="dig" id="d2"></span><span style="color:var(--dim)">/03</span></div>
         <button id="next" aria-label="Next quote">&gt;</button>
       </div>
-      <div class="trust mono"><div class="avs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>Placeholder: fielded by 00+ units</div>
+      <div class="trust mono"><div class="avs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>Placeholder: used by 00+ teams</div>
     </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="sec" id="roadmap">
+  <div class="wrap">
+    <div class="label mono" data-scramble>Roadmap</div>
+    <div class="rm-head">
+      <div>
+        <h2>What has shipped, and what comes next.</h2>
+        <p>Every release is delivered as a signed offline package and installed on your own hardware. Select a milestone to see what it contains.</p>
+      </div>
+      <div class="rm-side">
+        <ul class="rm-legend mono" aria-label="Legend">
+          <li class="s-done"><i></i>Released</li><li class="s-now"><i></i>In progress</li><li class="s-next"><i></i>Planned</li><li class="s-locked"><i style="border-style:dashed"></i>Later</li>
+        </ul>
+        <div class="rm-nav mono">
+          <button type="button" id="rmPrev" aria-label="Previous milestone">&lt;</button>
+          <span class="rm-count" id="rmCount" aria-live="polite"></span>
+          <button type="button" id="rmNext" aria-label="Next milestone">&gt;</button>
+        </div>
+      </div>
+    </div>
+    <div class="rm-scroll" id="rmScroll">
+      <div class="rm" id="rm" role="list" aria-label="Release timeline"></div>
+    </div>
+    <div class="rm-foot mono"><span>Example data · placeholder releases and dates</span><span>Drag or use ← → to browse</span></div>
   </div>
 </section>
 
@@ -532,34 +720,34 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <section class="sec light" id="pricing">
   <div class="wrap">
     <div class="label mono" data-scramble>Licensing</div>
-    <h2>Pay for the hardware once. Ask it anything, forever.</h2>
+    <h2>One license. Costs that don't grow with the work.</h2>
     <div class="price">
       <div class="plan">
         <div class="plan-top"><h3>Workstation</h3><span class="avail mono"><span class="dot"></span>Available now</span></div>
         <div class="amt">$ —<small>Price: placeholder · one-time</small></div>
-        <ul class="mono"><li><span>001</span><span>One analyst, one GPU workstation</span></li><li><span>002</span><span>For investigators, not data scientists</span></li></ul>
+        <ul class="mono"><li><span>001</span><span>One analyst, one GPU workstation</span></li><li><span>002</span><span>For analysts, not data scientists</span></li></ul>
         <a class="btn" href="#faq"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a>
       </div>
       <div class="plan">
         <div class="plan-top"><h3>Enclave</h3><span class="avail mono"><span class="dot"></span>Available now</span></div>
         <div class="amt">$ —<small>Price: placeholder · one-time</small></div>
-        <ul class="mono"><li><span>001</span><span>On-prem server shared across a unit</span></li><li><span>002</span><span>For task forces and joint cells</span></li></ul>
+        <ul class="mono"><li><span>001</span><span>On-prem server shared across a team</span></li><li><span>002</span><span>For shared projects and review chains</span></li></ul>
         <a class="btn" href="#faq"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a>
       </div>
       <div class="plan">
         <div class="plan-top"><h3 style="font-size:20px">Every edition includes</h3></div>
         <ul class="mono">
           <li><span>001</span><span>No tokens, no metered usage</span></li>
-          <li><span>002</span><span>Runs fully air-gapped</span></li>
+          <li><span>002</span><span>Runs fully offline</span></li>
           <li><span>003</span><span>Perpetual license</span></li>
-          <li><span>004</span><span>Model updates as signed offline packages</span></li>
-          <li><span>005</span><span>Audit log on every query</span></li>
-          <li><span>006</span><span>Placeholder text / placeholder text</span></li>
-          <li><span>007</span><span>Placeholder text / placeholder text</span></li>
+          <li><span>004</span><span>Updates as signed offline packages</span></li>
+          <li><span>005</span><span>Per-project change history</span></li>
+          <li><span>006</span><span>[Placeholder text, lorem ipsum]</span></li>
+          <li><span>007</span><span>[Placeholder text, lorem ipsum]</span></li>
         </ul>
       </div>
     </div>
-    <p class="fine">Pricing, procurement vehicles and pilot terms: placeholder text / placeholder text.</p>
+    <p class="fine">Pricing, procurement and pilot terms: [Placeholder text, lorem ipsum]</p>
   </div>
 </section>
 
@@ -572,18 +760,18 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
       <a class="btn" href="#pricing"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a>
     </div>
     <ul class="faq" id="faqList">
-      <li><button class="q" aria-expanded="true"><h3><span class="mono">Q.001</span>Does any data leave the machine?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>No. Inference, indexing and search all run locally. The software makes no outbound connections unless an administrator enables a specific interagency connector, and every connection it makes is written to the audit log.</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.002</span>Why local instead of a cloud AI service?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Control and cost. Case material never touches a third-party server, so there's no question of where it went. And there is no per-token billing: once the workstation is paid for, heavy weeks and quiet weeks cost the same.</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.003</span>What hardware does it need?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>A workstation with a modern discrete GPU, plenty of system memory and fast local storage. The Enclave edition runs on a rack server inside your facility.</p><p class="ph">Exact specification: placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.004</span>Does the model make decisions?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>No. It reads, drafts, summarizes, retrieves and cites. Conclusions stay with the investigator, and every generated line links back to the document it came from.</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.005</span>How does the interagency link work?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.006</span>Which models ship with it?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.007</span>How are updates delivered to an air-gapped system?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.008</span>Is it accredited for our network?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.009</span>Can it work with foreign-language material?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.010</span>Can we run a pilot first?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.011</span>Do you offer support?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.012</span>What is this not?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>It is not a cloud service, not a surveillance platform and not an autonomous decision-maker. It is a set of local tools that gets an investigator to the actual analysis faster.</p><p class="ph">Placeholder text / placeholder text</p></div></div></li>
+      <li><button class="q" aria-expanded="true"><h3><span class="mono">Q.001</span>Does any data leave the building?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>No. Import, analysis and search all run on your own hardware. Linx makes no outbound connections unless your administrator opens a specific connection, and every connection it makes is logged. There is no vendor access and no data pooled with other customers.</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.002</span>Why local instead of a cloud service?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Control and cost. Your material never touches a third-party server, so there is no question of where it went. And there is no per-token billing or usage meter: a heavy month costs the same as a quiet one.</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.003</span>What hardware does it need?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>A workstation with a modern discrete GPU, plenty of system memory and fast local storage. The Enclave edition runs on a server inside your facility.</p><p class="ph">Exact specification: [Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.004</span>Does the AI make decisions?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>No. It suggests connections, answers questions about the data and flags gaps. Conclusions stay with the analyst, and every link on the chart traces back to its source.</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.005</span>What kinds of data can I bring in?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Structured and unstructured: tables, spreadsheets, call records, notes, reports, photos, news articles, research papers, even weather data.</p><p class="ph">Supported file formats: [Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.006</span>What happens if I change how the data is mapped?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Nothing is lost. Data management is non-destructive: update how a source is processed and the chart updates with it, and the project history keeps every earlier version.</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.007</span>Can I bring in charts from the tools I use today?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.008</span>How are updates delivered to an offline system?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.009</span>Is it accredited for our network?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.010</span>Can we run a pilot first?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.011</span>Do you offer support and training?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.012</span>What is this not?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>It is not a cloud service, not a surveillance platform and not an autonomous decision-maker. It is a local link analysis workspace that gets an analyst from raw data to a defensible chart faster.</p></div></div></li>
     </ul>
   </div>
 </section>
@@ -597,7 +785,7 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <div class="flogo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAFoCAAAAAAAn7FAAABKsklEQVR42u19d9wcVbn/8zznzL5JSEgBkhs6JKFLVYqgoqhIVYoYUASk2dFrxXux3qugeLH8QFApIgSRThJABBURvFIFBUW4hCohtCSkvTvnnO/vj9kyfWd2Z/d9g5nPB97s7syZc85znt6YeryYiJD5MeMZFBqrp2lVMU7G2rj1J/I3elfKWrjxFz2ugIkImkbgwur9CtAouDStufp6hfGyyksGvxIeyGb1dQU88gdCDQxAnL7DXGTrq9wpzgcJF/2249QLrD9z6JEkleiFM/SRjYwKDvWvweN4YJtd6j35gmt80ow0QbP7hVXN40YD+e836+TRMA/uw6DoVUPjIjdXqPT1pselPxTX8pgIod1GRxEUNNJ6HL9m+EoFJJ+r2pQBAG4N1PpItzP4PyP1Yypbbp6h5lCc+rFSSaOUXSt3iYWJc+skclytRvLODNrIudQSxdYig8IK9AH/8BpEfBS8SXWDo5xzUhp/ufl3tdiv4rOMqdfcga2XUNz7z+MYr1WulcUZGlQvQ94LiZGULWgSqj3DXEqkR0fROS5BI5fFDECkLyP3t9k0gZVDDHBp7ArpgItyQLSU3NaZ77SZyEHkQagDqxduIoRlysT2HVnrQ8pSUx5h4sKSGTrfucatk7Ev/rtOZWZqogg480CmGJM5gnyBVMDQi45+pTO9LEiFdDeSdT+k9VGjIjfgts/la1c+/CJdDO2LYKZOOUJIl3uKkeei9hJGFjcsLz2k38rFVDOEVowWvr3jl2v7zJzAtIQOFnzhJLbxERgE/zlZifAeMzLRC+lLDBPlESOVXXl9KrOt519efd8rJliVYjBHlvxfRMQXKTn5vKOnS95flADGcWOUiilIm56u7//LtYxGCX2LKzq+iWOSeYN0fi1XO9ecF40Ol5A2775yLaNGgkWXcBzpVIbEcbEJKYeEc8xtnPXQwHQHUDGjH8V5rfYPm1OzOn37uBK4ZG5ebG9Tjk5bfKqY6HT2Jo1GUhmB2/t+7pWjk30TxfM2UUYO2UeF/B9XwpR/9KXa6pGbf9ETL9VtQbAJzbClkuFL/bu5DOhYmQ9dJE6N3EEqvEidojYUE7qROjYC6oz+HlkGVeNZj7owuDZ8/E/6H2uax0qYkP1reMW6F/kA2YJ1WZGsvGutD0KfGj7hxxiBGOGiqhY66HEjPd/ByuFte6Q2J//IMUdsRBmmo87kB/0VmiOA41wkJUT/mZWmw1Q8GKAX7EMv5CkeigUGi/n4Dx1LGAYAuNCb0Xb+CFp25mhwA4efz9iejq4zjCqMGzHdoW16BHv1U75nhcOY48Dl5RTblkm5m3UWNDKtces05cn6Z860EtlqgOTL99QcNYhpho2ipcEC5NTS7f5H93hCS7OKnAyE0E8huZ+Td2T8OgoUtrTZtpQW0fQ5GIvIZa07qfSL/u1+GIe0y+KpdSi0i+UgkPpQfBndDN6MIQpBuJDKW2LehWAQOzmcpVdGPoqmU2Ej++2c7+zxpJXSWmutYn8bV/OT0trTnh6iGY/BAhmAeyIbcK3PRezG7Zv7Arjy2vPIAI5JNP1HHE+cMfYE0hIM0Ryq9bdxNT8RswjXaMajMMgG3JTOgCtiLogDrqektAbgRo5A5tNozrWX0Jfhx+ibb91xpCV+HhNvCX3v0czHUEcO4CZX4mrhBH9KX1wx82MZwPUFul0DjoX+K4W/4VjS7W0pADhNWy3AsMsB3IJOgCsGVi5OgziDNWYLJ4MTN4qRyrR5BaROKTo9Ried8539AHmhN0XpY2w4FiH2aKsFcTrpnMsAXDk2lL7ESgE3cvJiOuDypsfMzKLpzDiddMaaI8njwoBjlhpt+0QCbsauAVz1gGMiJqXorAR/M64+m2qSowDFAUcebbsAfoI4rj4YtxqQyvBfUfTDGNwcrFv1XvJCYmc+4JiZPdouATdncctSuP4CLnXTm/dFxZR80CR/5Z5gE51A+tvCNIwyaVqaBUEU/b/YfjvnuxWHROhkh9Mjwh5t+3iMTjq/jm/OXBYB3JPrUEif6Ho/wpuaDzgqThMrxbj+Ao5ICf8owd/qbvnBbbgVARzXaPun4vzNrsI5tMPKCOCeXq8qwOWK58V0+T4CjjsibVgLjkkS2RpIC8RK1E8S8rtxrx5ANSXFAcce7fwMhmP8rY5ziHdcHgHcM+uRVLZHmaJSJ7NjuWIuhSHF6TPMml7EgJGYdYJPhbmFx97FcT0ABq++i7zO5p/GJcxco53/Gedvto5zSdF2K6KAmxrncV1tV5TO5AhiAwNcBnb1B3CK9aVJ/obF7wjRyc6AE67RLs/F6aQZxnkktTjgGqRyYIArQxQHC7gY6OKA4+wxRGjoioR9qo4lbydPitMp5hrt/mJCfxvGj9nTCYx7et2BAo5HL8Z1DzjFY67CKhfXuxbvQ56UAZxHb3whKt845+r4MYnSugk455wDLJ5atxXQ0jvgUnemtRfpQh3HnAw9CDNFrJgpVvlur+Zwmoauie+39bFkb9KUlE6zLmGP9nypgW+uNVAd57FSRELbrkhTBwoDjrmTbbNLwMXl7ColyT4CTtjjcXMT8oSPl/aiWpadKwVswh69+aWm/60JIePjfBJNfQVcloKeamkYoKU/k/wWx6nY3ZHN0jThxgR/G8ai3ahW4k0sNdrn5RZ/c03FGxexp4XTADelrG61BnBhwHk05VbUY34cg+d2Jk+YigPOo/2XtOlt46+PnxErUWmAe6JCwOkmaBBhW4QAJJ0j7XJKPqMCsonA0Vmo8FEe7Q3dqYYnX/Nm40VXYfULB9031peOr+BWNK7U33PpOKcjL4LxLj6O2TaHzSuI3XnySAQoxWsppvnke4376R0Vmy+uOpR/ndsS9mDf/n3z0uMctsLZhN59iRbVWLnQNsuzMK5nk9eoCs9Lj8hV9vBdlxEcE5FrnsUIEQmjBXPMcROq7wgmYlU/8PW+FzvaLP84YqLheC1INN4Vmh6IwcTMGHfSGCcxvPXmHAtxAwvFHi0Yl6pIajoGFV9x/xucs10Mk3jIxy88EZaBYhyHy6IE9LpZioDjFJaLpC92ceriFeZAJMo/5nzrCiViFE1GZJ1EdYYrPd1YMj6sd+XRRpmUQnnNB9IKgJVAz56TPgZECUBEun78jwmaqwRcOjR75qSmdu0HjHI5O5WKZV1uZis/jlNKS0YzpjB46LHUTz7XkjgZ/Rmupnb9bD8XbpXunozoYjs5T8R+4lzLimW0Qw1kvLlHDLMZWAKLDh0BDvO4RuWEEHPjZAkrVAE5ZH0ryv/ct41IWyTsQBSzW6HEHgZnk1V0Y7tztjZ/9rCyVATjKkmnHZVnGQCIWPxTv+0LFZcaCoawd+z2UX7Gtjb/iJXaDlAaGJWACyzcYk77pq9Wi/INfm3+ESuUG+RcdcQsFClF1q6QklGTrdw80/KFU+oyNhI7mdh+/TQjgrjJFEUb8vTCXcvxN+fNnb1SWXAHgxaQREUmFFALkvZDXUTu72O1lixuJWL++0u+4tWhYIpTN79vlTKdCSO6/5GLqAPFBuUeSjRQp6roTObbn7OKsRrADerJo1Z6pis7V+FNxGrB44jZnfk5w6tHpx5HCxezpap6exblcRxVB1Kgm1FeoWenDVKHJgJphx98woiE2KgjcgH+gUsJbCBilYm4cEjfNHBYeQg+NsV4RI1mTJ6Uhhun4lxOzYv4b6MxeV+A//dRIxQrPN79VJFdILQalxG6eaI3ajLqAAcScj862Y9OjJ3QBa9ohDhjsjAjkvvIDLV00w9m26l+9vyQizLchIGPw78wEZE/+eTaaNCZ4snNGWptxfUUsgIChdVPMWwiOYGw1h3f7YvG/Mb56V4bB39GV0NOeTXkrjG4V1NaRrfQVstygoW4cA5B2m06Wvs5zWGDLMWtp+CERDHtxqsEcv4xRktY+2GrcPyFNSDEB8OeJ7Qqm3LE9MUgNbzBvB2czqx5NlmLy20FR9FSUCAmdlNUdBtQFEniQgN3TYlLFWHrd0MjEAn0he+P0Ulyyh4zp+ZHbAQRwMU9iK2IT1m14dwdTA4/sKYbwLmRr6OqS8MHVeBbplziape8149SHjbaHHNZzSQq+UTpBFL0Q+VvMvd18TiFcoeLU0Xrfh7f1VE4UXbMZe/xdVSXtdo/6irPoNxpYTC0v9ncbU0/ljhCWdMhB6lOU9zQ4HWpfQtielwVR7Glv5lxV+5nvEi0DqyuH3mN56fiQEvIiaMGWOA8f8a8rayObDQ4/dX5cnu4ExWI420cuJyO271bJ1SZUOcbyAZKy5UZf+0+RsU0ZG/Ve+eNGS5NgxzX6ltcv6VV8e8lUpAQxegZukPAPm7fqDF5AcpOnLtPPRpewk4tO2ze0HAX46n6FvO2rMfgZkUFQGvI1wNuhYfBAG5wHf5ARMpOmbu3XwuvDmT0q++9wfO7qCrq+bPmz4rGKwNW/eOJ8sZg7tpHwQPCuHYKavR8cKQYPlpOuiBCtEfwMjOIoO26c99kvAgJg6+XHHaT54cMiswce2NIoW7dJOz5s26caXWkBRx89ff9Ho+aXLgQMUi4NjjrThSMWGztYuA0Lgbr8OA6KbQkjzf6h/HNNysz7drdY4K7c96SQ3/jmY6yepwhsej61vM3i+sBpva3fZ9ea2BcqKicyIUn1JA5MGp4HEPZ6dfvXo9ttNNLDv9NzZanN5D6627arK7jcHto36e9+mDtif1TwJnKdoYrLGsV5wGev+F1O5tadHinlxx2q/YjGUM5sZ2hjuaev8P8DWLDsdEP7v+s9lXaCNEC4ZylHlFus+HoXJCPP6H1gEp6U5mo1Qd8ZOVJ8Teet3NMUXZWvXLorZ4pz0G55u9y4wY2hm91ff8Bz9bM4OT1Pg8/8pYTkDabXb9dfKOhXzrkds92YaLS9Tdc/29xe4mt3XfAwi7jC0blNQowTpmZ87eLkzCrXzz4ds90sc/a321uAm5G333gwppJ8pzVFpAaKbYb7i4DlFHm1+YeajNr3hbWo1aEABHg9KID79YGUctTJx1JCND+rtdPdeEAbXJivLsOfl7Xqa1XRAX6qFsBGc3vEKp20An1uYOskt99gzoPL5USvfJPQJmtbtgiapgCfP3cfnc3/AElJDOAPP+Nc6eGsrKYmcX37jr4eWWKzB2FXCOjIIZJJ9WEbMxB1WBleP428zaLETY2Q8/t/+eaHxUWCzE47e91zbpx/c3W7jxkkbZcOKyRO2mylYn56Hpnq+sf19VTnr9zisLlPbv/nz2/iyG1/9br17UJ/nb7wYuUKZhWUOjXooDro80wrMd16H6aT4dRGsoM8upvmDvN1ihkQ3NsvKcPekD7je0BU6wlXYsncPwI6vpbr5noYmTX1H576GJtMnJHOG1pyLiTs39K/5BtcuolWwdEGFF1AF59j+vWizle2HpPH/jgUKtwRXtnmaN2rkRQk6q/7Zq141nHpvbbQ5ZoW45yjSAmrQZ6HDx/r2vXSTAk+csBT9NwN7tq33H1+KT+9pv3vKpdCUqQFROP0IkZBUrECAJO+2+5eoqJB4SIuO9MtETSqgXToqwcde1yFPeY3J7jYnCD1TcftkzZ6ibNKIOaXIkg0FGPyzAIhrSHSk4aN+H29qvWtuGkEyIwCe2wQ/dIHIGbc672q8OXaZOzpflB9xzpogpiIkbQcCyTFkSoOYe0NETD8zi10WsRbGbqELrQT9Mb6/o7r1i7wd9ijo0QYUNmZnCKjotYFiS72g3vW6ZdBdNFVLUusRHcp7AGXdwwUuXFqv6uX05ID8AKx/OXAxzH+dvcI5erLjK1kL4hXL7ZMqcQ9hxzEheNgSmlx1VEoJmYofwDr5hg+8pgndHXzl6urHPVqs4okarEOYjI1WFcB/0NPUErTPwxNHzAZeObChe41NlAuDxPdv4UrHf5B42yMY8bUpNsY05Jyloxd3CzcSFUjkb9lyOfTCPpAfeGD75ivO3vq33vsqNNf/Lpqxiz10idEQGcqh96+RhTZTHDZJCOHbroGCO2L9bgSnJPqySVGcl2ZXPwOKU6aSh/RlT9iJ/XnC5BELPPfLoJGmS8808iNh2xJprl1cHkhfb/OVNjKmhhScSBc0G1oKlDSKHDhMqIDJOuH3lprb8hE7DeT06S9FmjV9zuUwBQQW7XzwbuyFYtAKkNH30RrOor3Ezt3I+WKtuGFOW5l+VzF+AqLqcwBs/jWIaP/xn6jG+u9v8+IuhPPTRmYPQ4UvuQ/JUynDiImJPOQyxjvmV1alChLC0X0bq7SHKm4Curv/dpgUsaorLnyVFhO3U/wDnsL/SPYkDtyq0Trm4+QCOzY1b+x39oQ4VVQ2TFuUTp1MZuxcND0oSWtivRkfetL3mwXZG37kv/FFTfKsa4wVwQ8T9zps1g7qoitqfoG1/Wjl47cXiDA1zWngn7XzjdkqRZKZyaf9VYC6RaKSKBGaGCmu03tc1Q0C9drzqkXoRCvWLBP6V4Bgrp422iwtUDrtrTiZgm0py2mC+c3qjRG3XvMxPRnRdWdnBs/kFKQXkk9DjO5DFhn0/z2OVIleG3lY0Ri6bCRkNMBkYqmc1/fsNmC+njdNPfyWkyNaKBj+GytdQsn8ggJnK2Ct6EPt49qnlcXPMXMl/7cl6klTOBQMEJ+FAkbT9SfTjxdV+jCqrkmxitgEvA0X7ri1ahyk1D4pj0CWwDEHTKv6JfgAtzbgYr/1tftMI5vsQMS12j+gMjzcgRl7RTsq7QYXfCTh+EpYg0m0Y7gCEHfbiQXhDnfKl6HbIqhQ5Gj2OQ8s/4vBlseeUUyxMqOoyvVXUgqb+R/53PGuE0O0gfiXNfxsxPbAQNzBymS+JOebGEhOz3PxkzKwfmyswceOpEnHpGkbxIlE7bn12EoXOmaijpGxkUveOmgirO1kl/o8Ce+0mrovzN0apHSrQh6qbBUoYWzj28sT2k9IaxPR9BlJtBIYSL7hfEuQtPrsde40g+dC1bLvzGythLvjetWO0PdKhpUSIqgYvePPBi2uzkkmPrieKKctJlk3sPPxqxi0e+YE3lwkm0dqg4ffFs40VMXI6ET7hAbDiwN5XBhC1ELctJU1gHp8v/GfiZdTdy7yrI47iccIKOvI07lDvpszogEFu75PB6rH6xE5xwYYnyXOD+Us8R0Qw6Jb52tCX0E3BO7NCcQ+LpOM4zx1zqufINXjhdruURACJGCt6DAZyyY+a8J97WyMnwcZd5hap/5hXcxYgArEcAoGhiY2fbHVehx6XWU2BiO+7Sd7fTqMBEIMvmA1d6JpnYkePdahAORDspxQsw5ycTxZPzE251Liq3MyEzsCfu2IiUWQCBCwopnQkpVZGtk2pPY/HH/+IAP94nXbljrkwtX8IltAKkczsMDom6iRfh6igESmJcKTuXP+mX7/AT5YLcMb+oFQ0swEiRwI7TQ5dJH6sBjxOzztVvjnMyJ/YDl2tf2A1MESt2REZLhEqJeegqB24SA3HKrHfNnsm6TObIKz2fLHW2P7ZatKJh3gNnpI3GXOKdzEzp7Ik7j9WOgemsZXUiIamrZxTEyL5VzwM8M/X6PRPlS2R49pVjbJlCQXitx2p1b1zpS1F+qa93XbJsqBqefV2jXFCR+WOU7ecAu9aPCOAYpMy0uW/wvajA7dTyI27QfhvFUdnhG71XPysLleFpnXgniFggZoO5O9m4HqCXH3GDNtQMZeOOSQ7tyHRK1EAIO/XzlYGsmsecqlh0RgSO62dJDSv8N7Z/nIdYZQI6O/njuqiHB202/dVO8Xr/Ri074oahSNWfgZHC1yKfLFUSqhCZZ6lved2WiXZU3vLZN3g+uxJHKq1zTL/ZDVafc6K7nlHa1hK0v828zWLlguDUsiNu9EyIcnAaTYwzt5gBqY9uAc7deI5FfEkO90XeWED8jaUbYfQlsZEF2t9u/sbxsthOL3vvTV2U6cWooUujcF7VVogVf8cE3MjqVw+9acjSqLxW35rMlZ4Cf+frNzCRWj5g6y0+9Le6zl30tHktSBb9itjTXauZMUlXLGt/t2umR8sFgXzvpYPv1PG8XhC1UkbBBZQ29B3jkKNDRHcou7F8wq0T1Rzy1YHOOleYgVZFKuFY+3tdPz1ZNvTF/e+s2UI7GGHr/TF3ccmmGinqDnP/UbTAj7oys47y33R1so61XnTwXZ4RmyEbRU5TPD9gENElq611pioex2L2+eWUhFyinj/4rloXbVb6x9/QG+A42iae+3SaUApwPW2UrZ3VgFtLNoHVzx18j1dPabAa1oaikXJoR79ldFMoRRhiY8SfZC4NQm7m0HIBHOYqDlfqmnSVx0TidPLZd9/rWe5GgcvBOIw618EArxafqQ5wcDEIWf3MgQ/UyrfJxGqweT3L/j2nEVQIuDjtVE8c/BfP5+4KseTwuVEAWq74vvK73AwWqigXt616w+oFB/9VGyCN3UROZrxkT07xAy7TbpDbONDIROFQpmurUCmnpj+GZwdqtWsKPFeWuRigREocyOKnE8RNHlf5GXby2CF/rRl0daQy9dQup6lA0giGSdQ5jLQcTqluxtFCT4GxYBQ0b9P9oUEg+dRfvXr3CYncK7hCla/bfawckYkQCLcCKUadToeSVhU8ed32HSgAib6F52GJuO42vGL8Z2UOP9I10/bctiGUYtIXviquUWGGQ5o/WmiGcGG4AP3YjZeu2BcXMmwVxLiQFtXjWLF+1tqpXNEC2ceQK4Fh8Cal6u+9pJYYvYmMe1Yuq3SmFYiy29KKXMVNkfoYtdsTvtVnX+QNt6WEWA0B1x0dlvS1d1AHUOHu6NVeq+qwvvrsi7X1Mi3D0o8z2wZPpnDVcyKBRpR+oCK04WhlMo4as/qAkxxqmNSqF8raf/+FqkfzUKJCdnb5FA5LV8jbzcowDpWfu46JEyW0gm4lJF1//0WqkoYi3c1nQHGVvUk6FVoJ0M1hSmls6tWPvEi5/lLDaiZfOY/rYfN7i1SuQivQ9aMuZjeSyjL3GXANDoQqValsR3E+X0aX6kCcvwm0//5LHKlUvtRkXE1rVqv2MzgaMRO143Drb6QhEFLK3yMf7bgHu0JcqnpNuUpA2j/256gE37oNo+hQxmaUkspcI1RVZCjnROv6sRfAqareVCnzrsQ0NQByPBKXqp/wU0Chou2uvDxwNU2RKlHeCtfsj4tdHasuNCh7rIEQOBsJRfkn/NiRalt7ASIJUL7BuNp/glCElChBhLhg+0eOGfecUFYABHfU45jSaxNznrmMBtswIl/vKNOrodPJEuWfdJ6NRlIwGdd6O4dkMY7r1Wh31ECi0hRHK6ATEVm23VJZRldoMGAe154POiwyPeYERRdNyj/pPMfxvDivX1SZJnYrAiGWgVSiR2r/AMflj1lVKo7/4R/FndSO5X+e8NBiWVGPWdAmup1CiRYLasZzIXTmEMtelIVu8CK5rhqbWmcptQlpg4+AKaskdYoeF8I+RmZphBZ90/6Hf2Shwt41diSn/KDfijaHCnJ3OsuxluvlzS0DIpWl6/bkhufl7qFX/+jZTb27bcVRHz+75tLGKtCjEpH6YQmMIyJbkOZwlxsycoAr5x7iHtQpXf/o2X7M6cZQHzunZl1MMKO0+iZhZsNtqTKShB4V/bjwaeXeLSeDF05isdulWicX1byZWPxTvmdFInkIjtTHz9F+8SOVESrCvdGaUduGLNLqLV6aOVZGFUQusekxsHD+IUYSliJkPvsdy9KOzHLEjtQpZ2uTkaGMOFhKf0QGX08Ci0clqeQOsmPb6srdlaorEH6l/C+cbiNxBeIc9Ck/8PyO3LRzfHJKh458F2sUWNXapvrm9Mg2onLf3IvaP/V0S5HoMoD0J36gHb3WLl2ZYsWcUQsmQ7KnjupAxK4RfzbuhGJmNqd93bKEbCEgx3Lyj7XtTtChVDLZso5liqQZpbpjG4JeaBs0jZQ/hwtvZbHilsL2K19t8beGMcqRnPQTzx99CLO6qAP9Vy+Y7de+bKLB+uKYT7ig5ve4w8XP1AB760jB9IU+sNcSRLizD4TFfuPLVqKqsCM+8YJuEhgGsqbiHCgV49C7vpyO/Mhq4cDZtc0p1iwuwtiix5kR5W/2m6dG5EkQWVYnXaDrEamvs1GGM11MzV52IZ2A8xfO3PPJz3KkSH8ocB80ztxjqezpp0YbeQKO5KSfaPOa4mwdeRx6fy9TB5Grl9XHxhD/jM/7sVw0y/qkn3imv1AotxZUaEZZTYWTmC5qzvyMUZH4LHKsPnRhzb5mk8UrtJxw/COns874SY21RuJOmgJHmSEL2bM+5evQ+xyxY/nQhQ3+ljJ0hrkkJS4wxW6JaK4jEYXD9VCERvWc/jfQKC+A+yCiMtlzPuInGtTRB3/ujRB/K7Ay8OjBuLLMuaJEICZ33kkmCjexbI+dU6tXudWUmWea3uGM+6w9reY8jhn0k+N9HT0EVuzRl4+UvaRzgZpKTIy62FyKNKCMcYV4B+6w4hUJVcwgG9FoKnBMTwIzwMrJT4+N8DeArZhjL2/435jCHuxw/yQO1VFot6Vo+bo5rpkhPBkEWV2tNTXYQNx6yekfuTNva/lqkQGJQoArTJHBHQDR2ZbATSYl0X2IqN4cNHeFOP7pscPxBgdij51T8zlD8gmGpvjQHM0xjpNDF9F4uaGFt55ohbpHmzdyfi5/AaaSaabWpYbpcFNnAOfY9uAQsTs4YgLS7OxoxMOCrXf+0b6O9ZITfGiO56e7XNEcOqZRoREqh+ztcmGggGI3uzirA5EDkGWyGkV6XGySCBuQkHYco2SgVYoEqd1tOJozwyAiwfifzK57Uf0NtPLDl3g2TN6j6TdIly2QH50V4xbNaGYO29JimE1iI4ELSDGsdYjOyHH+jKxwwm0d+ri3edwMFUazTWALBVkQQ1MQsZn8Oqs5Sg7B/uyTo9354lib9BqGIhk4axs5LjrGdDGERY8G4MYOhchktUJmPwCHrPUjp2Luppt28ypfJ0W2ifuPHqnXuao7cvQTcNzdEqN0louIRFApNzkXck6HxNhAVEgGRVZ1WJvOgjKVk7vPIdWVacNIJTQgzhZMwndLKhcHd5BpEz9yu+1Mk9xK+nOh/NKSK+XCd6TemohUTOQEI7l7UeWqXYStf1o++omnHZ8a4bS/DBcJ9757FZbLKDoPHhVbOmhW0Fkv+pcyea2mgM90GmAEABf3dLRsC+Eo/AxpOpePlDrg4GKYwV3ZMzLRp1iIAlK5e0jRYS7Yyw4VBsSip6Kn/2JX7zsho3dqgzpQq+clAz1Ua1CuMsFID4YmxErvcDhbJy+EszMjBHfgLlxghmE/C/ewm52MDIlgIaZEBGKqXh4vz8p9rbqAHn4dnGzej3CKvm9ldRVik23jOwHGOSBcgSK2d2iWtSDKFjAD/x+4WMMcJEu5hkNvETrWqbmm6Ch4Rcxp8bWlVYHKCPErcKj1iJ37IZGEnzMpr8d+shJz4jA54ZIxI5SuCnCWZlNokZxB5sMPja1QotAVgAypDgHOWRoI9KNf+SplK1xLDWydXdd4jR6e/J1pNtqSmo1e+rnnvKhnz1FqOjenco22Gbp9/EMZVEhCF0UL3XLM/7vq1di2jQKJjcn7MywAwAFwcHsmWi+0r7yqiDlXbb4zzqF1Oed8LNl3dRQKiz+RsVO6ismgDCFpXkq5hv2e03gKONrHhZS/3nW7O4littWvHHFLpA5GlJFx0jvBSGJcUr4M35X0vaRhXAjFQ95rbv2TiWHTMK47Ca8CwAXVzEASjcXKiuhtbo1zHaTziDWJpb7etbv7OhZnrl867DbtI0GJwzJOmmspI5UbxIGKkduwO2V6SOMfEXjGaGy3BTBbR6OqQtPFj0oHD1JWOlh96nW7+140bsXqhYffkZKP00OtdXS/rUXGrm7gkazJnFcjJkaeVH36Nbv5OmJChtXPvPu+VtxriumWO35ErlSeqURFpldMXa3wLDB6MXl19GBWFx0DUmb9ubsZHR0wgNuoyn8b4KWLgQidjiFSWrQk8InjIY65VUNacVeszPrzd4zRSTj97MH3R+sFIWuOSJ9yqnelkB2hQ6Ibegm8K2Y/7B+prG4kz58+f8dow2PADD1z4APKjJZJFh0aA8S4LkkpZ6mjKLd+Vv4GN2wfj8OzQ08c+JD+V6WT1E+3TlWXMhvftH28wbirLdjvIc9WoO3m5E4VHyO1FFRq5j6XraKdWXWhoJ5WSNIJp00wJ8hyVBsJUXvOpiOszGbztzaxduV+7fED/q7K5VFl5L9UYHroQBM5rXQcio6VUScQoz1YSPubzt/aj+TjOLa1fxzwWGc6iSJyebmvuxH1y91VlINIEWQq5f0HSpvlsltpKH/zeVsbL2LTEuM9cuBj/8r8rd88rnc9TpnN529rdLRkjan9fb9HPcsVvpwrWNeAnbBFeFwx3AWiDJHTOuKls35ON1WxV591/Va+pmi+qff3AxeE+Fu6ZsSh8gjopJOWVas4fwzOeWNxPa4DL+4fj+tdBlD1ra+bFZMn4Q89dNCCNDqJVIkKVU9qtKiKuvJpckX9bFiZba6f4etoww479OC7n+iCv1XRWo1pFMWpVQw4rq7okTLbzdvEeNGubaZ2/7ufTocbF6m8zQNHu5LQLhw1rCt+dbxcdEqaGzjix4p5t5qt0r369nM3Nir8u2Pj3XfQP2N2LqTnksbCvVGIImQulVO6O8QU0owjiyhIOulxyPfYlay6MCjaHjpuqr79DRv40fZvXB+656CFyfolHRTrAmyuo6qFHOqCsrQod+VFtb0+9tYRKYtx7ROs6jveMN33XMQB5w/de+Dz2tKaq1JSXnsgEixkduppvF0Wwm+M1QgLcnXctR7pUBHPcPBR63N3s899MPyGxt/mD68Z4aRNGNyMJcpG0FtippX24qORIEJiNr94WtyPY2t/fM8LIf6WiC56zXWdHBk9Tl9S55QKJ2GxJXWzmdkRJpCRaMECM3T7IS+VqKs2wvRnte0DzqgN9fC4c4oiVRLN0O8PebmpB3AqxEcR4NAT0NE74Moo04mGikWfTa2JokLFshyTqf3m0CUtOgkK14FJn3XZJuK5NerTJan2zBm9qGQlgM4DyNbhnu6MOvD82q+PaLLMEUWSbpw//bFw6L6hfIV7amq/et+STnoAija975l4oZuHqj1epXLAR4qJwNZuOmKJNmvSWbsVTriTPxhoVT8rduA4OWyoJk9Qq8g5b/7sZWJidimEI2i5rwQCA3topKTKoIUvStehyMmPA+Bd9/4VYf62BvPCWnH1UklvZoUW4ll99ezlr8H+b6MQcNWRKBCcd8VRq6J+nK4NW/+qPK4XvSxPPUo+1ShtB4jxrjjKiMmaR0oIebZnpmsam10DoRLBPjpmUdV5NGMci+/94iirXFX4uzpcqB7jOu8MSmlQmcpR0+EIV7vkOJuld+e0nO3zXlYRnMG94nCFgFOsSgmTmZVlmgI+y4UngA31Yd9WjytvpRVWz1uy3EqBXNCAmTX6LXCc4aHd+M/JFScTuzTFr0jE3chTsxJjlG/7Vpl8Jjx1LJhzbMsodbbAoCdYbIaWUEVDqNUbG6vTvavXtSQx5r8u4ApWT+qGrbTsJnkNSFt10zhorsFtahdt5hDoA1mHLRKjXK6UAaOjONAj9c0KdK70eFXZoiXU7yF7IISBgnaJFMSrEvQZi7CaK/Hch/EwUKLRDMXEqNlRdE20SrGRgcN2zTUqMC7lsHdx/nM7qkV7wHHMttVZ+S592LtCYO6NLZaMFh8tGanIj/noxH95lCxhgOR61KQSr/Gy9R9wnJlRXkYcjxSzY+omFWNUsWAefBZQaf1tpK2FHE3qzChsWEJGjRUS62k+6cXIeuaBcTlCvQbkKq5sqCqc9ln129cI5/HN5tHhFO9Au6qen1Q1Ua5gdfl4wNVv52p8ZHX3ukXMZMh5pt/umAenFctNFi7gnFmj0BsyimWWm3WutwkVQ653Pa5YtcCuYrVHXEMYzSpKFeXrC5xOTlY1zsFH7v3Av+YvVQXg0lheO22z8b9YuGWnljgpYiPnipOJcZm7FQs4fRF9lV4GjnGFk85jrWTT68mUo1Qd3pnd2XvNNUhBm/tyclfXS9ZswWpufiguOhQSTmIye7Ex0n5CthEp9035D+ULTT1pBxkvrlp2qozHrbnWkMrBkJrVnFVWpsetbtfqTim4T2N2jGZgdOSmCd7CJfhllNV064hKrxlazkOTkSZQMGe3j92sXstY0o9oc6YS+iX6ZjmpEot59SAsaVggwjxQeUGP8k0quIklSGH17ntGM8dBXPVHoowexxLr293gFkE2vROksBohCBGY2bpCb81hV4WdLczNEoouLSM1aV1r9thq3xGEwQcVjJL9jYvMVgiEXd63Rf1/L1mk4fIzY7tSiitCGaVVY9MiXV+lBKbFCwkmf065K+Wh9tMSHzo0TuGVsedx+dmKCJ02DABP7kdKUuaRMlax/SkHJHGf33tV7LBaIrJm5dKFTz3+6OIgjSYhAtbO3MwI2XF//GqIYnAna0dvGKe+v7kRmLG//2YzISuGcZHRtTn4w3UgnEwCIhCsv/yF5x5/dAGRiEXZ2Yo9+VxnmO3Q0j3+ljYPopKuqu4wTtH1yL7qT1z9sU2IVLyqp3BtQXDHbWGtPv/c9YhxTN6jwTtvaElZMYyLTNOjz+WsDK/86Yy3MJHiuMOo02wnPumMg3PDuKglNMRvzh+j2Js6Am6OWWWyLgB4+fydiLRESSV5D5i6McNmfllzDHPp4igNUJLcE7zziizxOLIFmk4xw37WyhwAd8cHFdUUlel4rWivRo9r5xZMGEQfEGZO32NR2Rec8Sd/6I/fXcsoQdSA1HysB2WndGmExiuLHhXOWRnBGbzxZ7e/ud4oel5wLkxTWv+cNGFU2CoTxCQ45drV1b/fsplPWc2jB6sjo5uXp62MRZExe9z6RcvldIbnG3l+wMuLB6ICIaN6Xiu6KnaRNdYxEdfE3/3mWZZTSUBp6RLlGEBj36lZ9o05x3oUAyva7e2ilzPGOiIWbeRb33WqxCIcP/AIWwAw/OsVCqk8DulsvHtTTJ4C7vxoFQtRiogssVMi/swr3rZYRkuNrbK1VYxpdk1CQHBFiKwRZmiYf3/xW17xroJOr/rSNXqYxdUWfqdoWnPPFEqnqe4usKUte+9CaRxRR8RKrTV9m13fMJmsEJE3vMNZx6iRNrKjjKmhda+TMy4fMq6V+MxqzKRZO++6NVkIESvzjbtvKV6PVpy69rjvrEtEfz35/9QIHmVFc+A7OLw8LeXXTT//LOoA4Iaxf0iWY/IehAUMbiouVWar1kW10nuCd15RyOiq6RMwDjA4NuXXcW+/BjAA4OOBccXtCcKiaaOPnnv20RPJEymmQ/cjZl7RHPiAw+JNRUn7UkppJUTTfwljnYPBn3RIZyLvL8Em3pgBuL4E+KcBjrMB93EYAAYnS00kujZFRIe9AAvA+jiB0tlcyiKYWrZ6RYNZeZY60CIpkctaa6wT77kjLlAOTAq77oOR9qB3SaqdS6zNslJXvetFBpEwTq45LjEFK0opxQNsHyNld8UZjz9yt3YgsnToqAx96BKYsHbMvR9ulGPZZddy8ZjOWmsHxPCZkV9MO53zw+r6V4mJSOjNY/xE5PBqcWVscV1fdYNYIrL8jlEevymFbc8hnONbHlKOiGnzmYmGcUk7X6BKEBOz0kprrbUSZs5/Cwf6h9btB0pFOwcmsabsk9BQ01/uiM8jchChHSIZeMzMJCwMgJi4MTHVMtWJBGl6Kou/K+1pT3taqYx3swgzMwtzYExkrbXWntZxbwfQQY/LkrWh6rdtCyJ2tZl/LabKgUXBhEpzicB2eIKFQiUPlThXDqdaHJyNpAA4dXEWdy6aGpxJz2+b9FgIJAzX+OTic1cgJkJ6521RMJGPbNPm0/CCsiMCkWLTfEjQWY8rdpyZHm7oQ+sWRWzlOxq72abT1xnCqqWLnn7meUeJ0njRJ8Q4mrz5xlMne2bl8088/rwlYVeGNLTvlhLM5+VHpkKIaNJai9HW1GyIDihDMmPmxutof9nTNw0Hqq/Jng6LdTS06YwNp4xV/tJFC5581lGqGNM8mEJEiixN2HLL6RNp2aL7H0gzwOnuOMRCCrr6DRXiBCzWTdnnwF1mNvsk4Z+P/O6Ge62Q44zyq8q6qQcctNOmza8X/vVXNzxMyqGwFVGb9x+9QoHIrvv9q4uq0xC3KLCLeW2ax3b6DzwLkuWfWcTszIZHHbrdWkREtHzWc8oSQ3131koQ1vrVDxMESBs7+S0H7DZzbPOLRQ/dOu8BSixd3PGHLWdyY287U1tlaY+j37plsLfzDio4+5Ye9/KGGWBRtB8sAB8fb/ufWnpcQgHXmjb8+gIAsNYYY6wFgPoN+xJpSfFRMyuhDf776dATALD8F7sSqZh61dDjfhlRoZiIPTqk3jAgXz2x8Za2An5y1okVmoM64PDspNYyhGY12g/OoBrpzz/fmFfdLJxGQsSk/hbc8MvosMJKaIOvPN5eiLEOwKrr9yWKOdsVnROM8SvSHm1wkQFgjTHD9tpUQaRLcd5rbNCyIgfB2E/de9qmxjoEmq4IwVq1302XbWR0GnVWlj9175c2tNZR4wly1o573x/OXs8WMf+CSPsHX6aNtWYlzTl0SZml1YIRlq4KcQq31Bpr7GJL9XWvO2Oqsc2VNG941datHbYr4sKA5U/d99XNbOsBJQRragfdNGdDP66tr7DD1tbtElL+2+88RqwL/GSiSutxnP3Deo2HF3bm+squP++sqcaIEiY45xxArBSMmf37N9VVGqQ3nnfWNN8GGxPY90Up+Oqjv9sl9kDGHD1/v8tq0Eph7DXHiiqsqbDjfyMhAj21KkzKWj67KXP3rzsJNZ9Eg4enuQXFTJ971tS6UUpRY+lEgfPoyD+8zai4HBA4PGl4/+s29tHBx1heHWAmoq3JEYGXP9KxLqy22/9uf98qxXDGsYgIs7EgpZS/6fVvMxJVAJmVef1v3+VbT0AwFoHTxQGkyd/mlv193TmQxvPfcfk4JyDj3fx+wxau2PqEaPJMYgD4e4rNC6Dzd69rYSLnnHXI0V5ZSNnX/W4/4zxFMLaxdLKWiJT4m1y7r1WpB563vnic0Qw4Z51zGYYAnaUJcFhUiOhAAue9OXjT35/qLCJse9N0XxPYQQstfWExxq0zVZMlxeT5k+a88fGoQZ3F7DJv2nCNiWA8TTTsZEiEDAuz+JN+ecBtXkSaBhIl3Lz63ldMcAow3h2zV2oTOV0c+3c4hAfK7jHNMYj5jhRtSBaf/J7hITjHDaC6bA8Es7LbzN/I94jIWY9oyQtLnTdtPU2WmMgzEy7Z+6GI8whNjeTsdXwNOC3BWTIJCHSSKjNKc0P5b3+9U0SQm2yoe0qqCuPWuWq6rxlsPHrqmlsefLEOPWHmHkfsTk6ItD/tnAOiLxKz8ZXT/BoRgbwVt/z2r8+vUlNm7PmuTchoIl0fd+kezwii6lrsTOr6m6+e6ITIevcd+krNlPD8ME4mp9jJ879LWf6KGV932jkttHzRKyv1pI3GqUydySmse8VGwx4RWfGevurXf3mpDjV+5p6H7UlGGNpf98dvjUiWjX++8q63Gu2glfvnc8tp/Hobr0WFg18ubbh1NoxQ0qYRRCnvDld3cHbl1u32zkz6waR3QOgCDFvr3DBWfW1q+8TLEU/CAs76OCJyeFh7t2KVsw4W5uytW99P/ujTMIC1w7iWQqJoindA0xtfgg/Ax8Prkw7xCk2faHoHgpfG48jG0OHOOlgfPwg1rhaasQwODk9dDGPrWPWLI7ecwMRjtjh87cAGo+6BAXz8PDQNRZdi2DrAYvl/rBNa4uGPY9g5oI6TQktX9G34zhlcd6fzDfDwf+4xRYhkylsOEC7mC1J0aUMd2CAQdtu+CSZSHtG5MM6hjrNDfKANuBvagFP0VtdwAT3+RiIdBPWxaKHNHggkc3enJ60OEUSKPoe6cw4+ntiHSLRSIqIV0YbzYZxzzuDA0PbcHQcce7TbSzBwzsdjm5EO08bAreNgcDJ54TguZmZiJfTGl511sHbJTA6fvhnLGt3NnbW4dvuEZU3uDgB3SXtDFL0TvoVzPv5vN6KG0Y6VFtr0z/Dh4Lu/jWtDQtG34QfOQPh49dMT2uZfTtJ5TgfcJQHgXtpIPCWtkC8R5SlFtP4VsADqWDBVQlpqGuCE5to6AIsntooqLh5t86I1AJzZNRQTqWTzxcYCMHhsq7CWx5qGroEPwOD3ISRKAK5Gb3gRBs7V8fR2gWyfBjgZoxp+OFESGB6J6LjFzjoHH58O64UtwME5H/9JpIOJsTRbm8hdTcC1Zix0s/XhnO8e34JqKrL0zZ91DnAG+7Vf0wIcbB2P7UakpKXTFhQeW4B7YZ2UXzf5bOABN87fOyx4pQFO0Z6A9X1jV7yhofq1BT/6bAMOXw0FkSr6KeoOcO7lHcijsHlV0+SHnQVg7Zva642TSkW7LIQBUMfCnUhLBuCOTVnZuP1uAnwHV8clrDkNcDD4AikvlpfTBtylIaV9b8D5vjHL3kBelMbV6OSG/eLsFMA5H09tSUOd+JrOUQZkixcZ7cAo8Sb829Zv3GMK+R6R0f4Hf9fZFLPs5zttpYnoy3fHZARYvvjz64GJaFdqDSN2m9lOwAT57AO1eoTxm9orn5kXqLVH3J4lQGmz09xpRhNZb/HB93smSwiZvvlQSDRlNXbdzXd505ZkWJFz3twTyaXboNUvz6j5LiuqPirJ/GLHWZqI/uvumh9NhjMy50sbOwHR7ik7CPKPe6SrTvWKLglCL9yrS19d2r5eXRkcOgv4Bv98F+moZJ1CKolo3A4nX/rEHZ4k8i+EroMBLP6+VitkzguOnfNxY3T0YHvpN65uTN38ZWxrn+4KYxxr2u7ZBn9b+uYYjlM7dAFYsXhpeGXLg7NuHJwP/LgWBYPQ5svgAGvdog1ZpVSilD8FGDcnYnkbv/2JP19w39i4lY5Y0RwYOIPnpxMnedyPMmR97iicNACXvKwxDnAO+MWmpLkz4EQTEU2clIbrfGZDBmrNXnjtx5wFrB3ejRK0nT06oTGP3VobFAGcpq0WwADOt8veScnMG00fy1qZM8YGK1twbBx9moBzPr5ONckB3GXh6ClFRDRpHUo8wJpPDc7s8A4hthIAzrmXNyuSIpkanpepyEngOHLXfeVBGjOcbN2Q1GYgwliSmrGHl4Mnxk14rvGzmDfNgBBZ7+Y/pcS5Wbp9gVqxctkyMyZVe1Jmixs3NZrIiX/0zbl9VZMZOYqI4PjxM35CNWsz/JDLL2aXZx/kKDMQwWJSKUZBLA7+1sal6H9XLSjiDdB5C+L0NQPTjljnd6u0K3A3wRJJmvuJpWE2UKE5vIOsImK6lJMOWhA9upM1gX/RpRlpZt64qe8ROaLjrvFMeTMss4zfc+wNj1H6zkHueCwjHghpw8I5YpXCLTkAP4O9cNG4Bm5clWMjbgMoIwQ9iIs1xtjIFXgliPf4j9/85u3GCXVE6oAO2aQnX2k3oRno3vzW6N2JmaGfvxUmaYgBuSXLVplYDmVzzzwz86bNjQfnoE66zPORFrvTyvczfmxpzjiQ0LRjvn/X6etanR4m8SBJqo8bjeD2WCw8ABiHkBmMmFiURjN+QuKHCfzKg5lRvuF3S/Z5BGutowktWomzRGJ8t/evvz82ur5iyessWmlha1dufhjiYvX0bUgRgX7/QobTmpmZkSbyKX/m/BlGEzun/v18rwOxUdqLLU20WN8RjD/5C386wKTHw66kXi4WpZQWZ1bV3p1SULdxBBavLBSmprNdBjz8u2HVOEiNXautO/XfFBlRBEOffN37XvBKGAKZieAQWOqnbbvf+6cnALfFBDAR6I+UEcqdHRs0PPOGWUYROVanntWhbzj4L094LhQ3JKLGr7P+WCKrFDm7+dx//542ZWCCfHuiMBHQiLIZt/lbjn19bkBqES+/zlndive/lDipU7fc991bkxVS8N967X7LwnEjyANaE00mrjdto022mDVzOpFLeL9nktVEih4u20VQYfN5s3zNBMh3Ttcuf+VOff/8xJcTNtrxwP0nklMshs+i7ynLKOHtyvydhRrlDMZPnrL+xjO3mjHTIyc5zKUQQPO8AzL+laBjaatlEdvnnvvdN9972qa+sIh543lH6s7LYlYwRLXNtpyx+cYbTpk8scG5m/ay0Ew3Ck7MqidKpN8wEdGSdeZvaTwigrrn87pzPNiQaBPUXGht16sPPzxnxic/qq04BXPWo/MT4O/cAIiJo44wFlhLvOmMLTadMX2dKZOC7bJhrpLSihFp/465jXQOQYJ1jBDPC8Ij+dUL5p/7HkNE2p/96wvaAhgyfbU+bbz323bbcHzjvLtGEmHytVODQZa8VJJ5YNa8rawGE4l93VFzOieAWNcALoemyfR/p9xw8VQrRKDzdn4xxevTGeOiEUAwNG3vfd6wyeSWehQY9qJSTSmsLuePQxuPWdTzh19+mNFE4r523UvtE5MOOWXpbR/abwoRWcdEQoHtAUByf9cKohOXriwXRi7Yk2xDX+La2ff/rWOwp2szhJYjFUQe/+qAX6/tmJS/wamfTnLKzoCLRKFpn/Y44YBpROQsE5OAJVATVM9h0rmhCwnaABCR85U77m/KESm34dGUH9DByr7+hlvfP8UaC/GUUsLkrDFooxy3O9Y2bE1+2eQJdk6BnCWQuEm/mFyiF3nk2Bm/ds8pAmZR7rjNTOlIqlgMhr/lFX/40DTrW8eeVkoxwxnjWFrSuCusYxYEXLREdjwb1+pXTwssBThStep6wKVxZvvvt+3nfKe0IrLWWRPEb/PiO075H4qTq0aiZIlaN01jmRCcUpZAymx/buaJ5gym0NCQgLq+5FbtmMRNPKp89kAoB1tE2Q/84XAYKE+YnLW+cSyitax86Jv/TQ6UkQKNdMUt9lHnCvBZvxiZ+5fXOSGmHbd7ICdOmMX+4BPOV0qInAvqMbjFLz/12N8efug5e2Ij5b0NcBN840n5M+6cvgRHG2HS5oi7zywnzUeo6A/2CVThA/7bdlv3C8RQ/tdPo2Gticg5DvZ55ZLnHn3ooYcfHz4gpXheuXd1WYRN1W98HYjEr+3xQFMjSEn6YPvNTxj2AIBE6NnHHnnsiWeffX4VEdEQj0kAYUUQCTB+zHJGOcA56O99evwu2xghUuZb9/0m396XPbql25/Z0AkJb73hMz0UbBP/U6cZqjGRI6XohaceeezJZ559/iUQkVa9V9XQZdWSJk+//fNBptX22fIRKfuOU42wY7aaHrr2pr+91EREhnPGNnpKtyH+QjDG+LVf6jCfuKAOwSd/qJd94PdrOSawuuCN/1Rw3ayM1Cv3bwgiwsQtn+GYbsUdDkK7iKjY13/bihDYKnrs2lsefI5aRN2xscUOU04dqS4xDniiXgMT0YxsXZmd/joRg2C9v3/j6lWByE2OGiaEBpUP7cZTJESMcRsuKMdenFp6/JU1493/2XONIpb6Jhft32WBQ4h9NDCcehuUZnJtjz3kq57vEZHRT339yiVNwxHgXKY5vnepsmP3DoAWLyWAmNbJBpzCXrtBSNh5V+8xZ5XS4py1FlnDgx4PSjzwrHJb5mThfleOsc6vnXeBZ5isNu/4puk6WbapwK3b7QAMdjvs6xQROX3zrucv0Z7AWWtdCyF7JpVdj2BNcHLGSs7JOYCtEBl92+zFNXG2Y+2PR1YKiEC7lGx7xb+9c2jYiVj59P01R8xS/9z7/O6q34JWNf41tuukZBI6SFsBWXnwvc/XxBgX3/ZeO8fkYpzk0ASvEUDlOCyERsRXR68nIYYyX/R1PV66qZXG3LL/gJ59nEAktFfNpmXxEIsopb2k00WLBZyzvPQDSxnC7OHc7YxOrZDQERpDCSMIcweTV7tKZKAmGdqVhNgxn7bUq7u44YrGpQyFpIEmvcIZM3eLs8w0ce1g/FdtVq9SduPWDwjZX+4Rk7JfkxL5ISvvB4gY2+wc9xEh4BHWGuPX/SR1bhAhqx4+RRyI2Uz62dpdnuppjdUMU/e0cswMYgLJ47eySc6C1ymMu1lMq9uazDxTOyECLWoVIk7Ob8Lawd97jUqb07ZxjzHTbz/ARFyvHfm/qarpWl+bsNLZeu2aO7OMWlZftPMnjCZS/s4/OFa70tSOHW3VsGk8W6RXWsa11hRiIid/Xi5I5m5ih6LSSBrk0APggH0oANw/MoU3Rk0HFOfF1A2a/KY4vju6ZclEMGkcefrCKGgYRNru+png0x05grn6wuv3sIpY+cfc+8MSJbkab2GsvysJEWvzOHVf30nrYLhXSCVNAW7tvXqu6ZDB4zhOUilWvGDKISREjuiBNo+KFecE2QaBTKibIqxx0EaWoxQc8tRvyILErPfpUH4Yc+AsYRxuVxlTN4vuip9EhBTolccsYgMWbb/zJl/HKkc36v2jPXTYRiTCCkdOMUwEeu6RhE2hE2NpVWEg4xMAploK8BUO2thJS0NLCnVI7jxXIlWyZ7+wvhUi0q/+kWwmIV68LFj16+KzB4sb97lkUInQBWCCU+4TO/lxe6Mym8yWIa1F/eU5yVEea49+RAAipqGLpxuhwiHcRCDtb/gZCBE53LlEStPZ1jgrFgefZyTDwtiN+Syy58DFNLtuAKd4+MhPWyEC8IfHM9VcyIong/Yor98m9h5A2y9tZxORk1Zu/JNyxIwx56/lx/M78Y0pjonA1+dIHcymdvUZniUiqW/6EyXsilD+RkEU5Y+/eLoVImK+uvsm7CwrnyAwCXaYFQ1tYiJt/2NHJ9Rjud/cykLtUtTNPCQRpcjikz9rOHP4IpJMhVrofwO3+bjPNwlfI2RZ1PD7vmhSQC72jKAOodnpZ9rqkCrAnn/S0UaInHrl2jzmA2fUab/3LIE8c8BX0rU5aZfZbpYaFa3F+tvd9FYjRLDyyHzumsVB0f0EENm1PuNUqOckQzz/g18KjAMZhZ16cOtw02zfSHUIBfw6a2sH3Px9TUxEVt13fXt1CYMe6NdOABLzweN98YQbJXq0cv6JF7dZY6juq5Fr52nLRNocdtlEoz1mYjBzDf4x51hhkJU5T+lsIuJAjv0PviAWxMr9536+F92NJl+NL8wZY7c84497Oi1wsHz6ctUp5iTBeaSxCXD0KxIwK3fikXWlqVn7W3nOP/FC4mbLDU6lsxTb0rTqxbluHVFNJzADxKTHTJg6a9e3b0eWAw7vvrAqJ3TB8R/v39kqYsa5E/+HSAUM2Rja5MsfAqBS22p8aq+JTgjiH77Zp28nIsWAo+HJX/y8hRBb9fKZnXiP9Z48+UowmEHn77lAXDI5RFqwZ4CIaxPW2Xj7t+41nqwiItjary/RHcvh5Bwf/uP9O1ohJrpo8jmNbWYYRxt/5UPOKU6NzUt5B8p7Bxjjb6lLyJfK5E0YM14TOQTpu8b71i1heTthQlf1785p2Oa+u+/3blsRwFhvf+Qx61mIemFy8u3O+7+PzrHMIGV2ue2qi+56wRLRmFkHHzvTQcBw3pef0B085Gy8a8441feIxE7/2TsSNFnoPz6imiafoKjD0KRx44jIiAoEnIUfMbr7PtQENfzty1xgaD/7wLP+0AjIrG1/xDFTHSt+aZJkdxft3q3TUAf0zLSzZBULOSYH79LT8r1eRi4/Zl9fE4PtO9/56D0PL1ylps14/faafAV55LvnIGmCMvqyzf/LCEPEyuGHL3rkn8vU5C1maTJKEcF4l5+jQkZPTj/vVn11t7cZDRL/Td/9eDvsq8Fjaf31U1ZtSWkCA9Z75b3/J7YwfsUVTiKy6oqjDvI9x+Lcfvv9465/PD88dtrmO20rNFyz+pHTf5ptrOS2ZpzTWFXnHR8XmXRAkoWZyJFzHp3zaRcJjkmJC8CJd2xU94hYWZk1q61raaNwokplVU79t/cVZ5UjBStTpzYeYQ1ybGq/Tc1dS8TGSP24P00zzCz+x+66uBY38kabtARLC7zUcCDv6aP+oGxK80LpLDG0Cz9/ZLvN6ppIyMoWWzS/9aVmlDnWqcw6ptJTzElTH41dDRnTWau850/8WJ0Q72gYPZlOnn7PP2s+iEix9Y21xhgHxcbjk26fkMbi4aC++mFfG0fEimGtMdZBCREc1eYd8mqho++8p04MSuCKPXvHekLxSFla8Jxjra9+0x88lzwXXGQ3mzdZefbgJ4MDo8gZY41tLf3E/52UUyClF8tJWqcIAhpFcJ143sIz3/BTJUh9LmI6vO+d99YCjSFIKNda2Drv5cN+Kg6uUW0nRrK88978R087Cwoii5QwEYzzzNcPWaKQ/8rmm2vzvqkN4ODGXzjBcNbKGktDsDSIlt+/+7AntUksLSiJlKkIxqfBqP31bX+oKQMiZq1FRCsmZ72XD79I6ggE9vgYzvVQRV3RZci/Fs4/fjrFKu8Ie39rVhGTyGhrn7kMMHXfWuecNb7vgPlb0BjavzHc6+LHhxUNffgRAMYPkmqM7xsAN+8WO2lM9wdDXJWk+az0r5oTviKImtZ0SoeV4R9nv4VIJHLuFW0RpNXjB6nlspn47uD330fwSNHYbywBTN1Y1176jVvTEO3deN3erXkr+k7w1aJpBQuDp1xLXxhO6ygAOH/5K089+OeHniPSiew/WTTZCJyKxotYWfrZiz/2nqmqPRF32zlXwjM0vNASgRJJWAQrw+deeuBRe00Kfbno1otuJhU7kfzCi0Zga4uT0wXsCfOmWQY5+/YTfhwYyVYsqmsK2SvbQWLWX/HS4/fe8/CrxNqPW+PNU2Mck6m9nLWN/1zkC1v9ModFDqtWnnbpxw5dP7R0uuPsX0D5NPy8YyKo4dCLFi8c1uT4ZU6LRC5EUXnSGIfkcww4W19JFJRrjbNuqMkKRMz1V2J+P+3TBm95+9YbTh7j7PJ/Pv6nm++DYsfwJgdelyX1NB3SEm28265brj95DK185blH/nDXc8kESaF1PQcitWJJijGFMWGCBUGg5Nngm3FrBwW4Yu3pQOTM8EoiIo8SrkOBNymI91yxLGMjpww5BthfHHF6CrRPU9+8z9abrFtTZvnCJ/50091BW86hKSBip14MLX3CWo7IEZb6RYJlUlsQulxDJREcOLm6LAsRk2KfSCZPWItWLVuyioiVIwrdnzbRZmXf2lhN/qo6EWlKMBkO98xMmatNl9Wz9qJxHuMLYWkFjGUMkCG/M5GwIaJJE8cqf/ni5USisjqRtsdgdAk44lgMfGRn8pKpKKhLnCrj2pao2sy4ajhrsg2P0gqPFkF6tF0jTixjqRy2jjTPFzo5LVNfEzQTR/bSkTEECzf1ThHXqpMYaMsutn2gtHRudC98VnA14zZKukq4hPI7Wi+mmOORijeBH3nArbmyyHxXgJM1OzhSF9Zswb8iuq651lxrrjXXmmvgxLK7nvH/0tu/ZrvWYNyaIzTQ7cdqB+U115przbXmWsMG11xrrjXXmmvNteZac625Sl//H+Jo9NLx9eS7AAAAAElFTkSuQmCC" alt="BlackBriar logo" width="220" height="180"></div>
+      <div class="flogo"><img src="/assets/img/linx-logo.png" alt="linxai logo" width="200" height="200"></div>
       <div style="display:grid">
         <form class="sub" id="subForm" novalidate>
           <label for="subEmail" class="mono" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email</label>
@@ -607,13 +795,13 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
         <div class="sub-msg mono" id="subMsg"></div>
       </div>
     </div>
-    <div class="mark" role="img" aria-label="BlackBriar wordmark in ASCII characters"><pre class="ascii" data-scene="mark" data-fs="7"></pre></div>
+    <div class="mark" role="img" aria-label="Linx wordmark in ASCII characters"><pre class="ascii" data-scene="mark" data-fs="7"></pre></div>
     <div class="foot-bot mono">
-      <span>© BlackBriar</span>
-      <nav aria-label="Footer"><a href="#features">Capabilities</a><a href="#workspace">Workspace</a><a href="#pricing">Licensing</a><a href="#faq">FAQ</a></nav>
+      <span>© Linx</span>
+      <nav aria-label="Footer"><a href="#features">Capabilities</a><a href="#workspace">The Board</a><a href="#roadmap">Roadmap</a><a href="#pricing">Licensing</a><a href="#faq">FAQ</a></nav>
       <span><span id="tokCount">0</span> tokens billed · all compute local</span>
     </div>
-    <p class="disc">Independent concept project. Not affiliated with, endorsed by, or operated by the U.S. Department of Defense or any government agency. Figures, quotes and prices on this page are placeholders.</p>
+    <p class="disc">Time savings are estimates based on a typical 400-hour case. Quotes and prices on this page are placeholders.</p>
   </div>
 </footer>
 
@@ -622,7 +810,7 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- background text rows ---------- */
-const PHR=["Local inference","Zero tokens billed","Chain of custody intact","Air-gapped by default","Every line cites its source","Records, not rumors","From case file to brief","Runs on your hardware","Nothing leaves the room","Signed offline updates","Audit log on every query","Interagency link, logged"];
+const PHR=["Every network has a missing link","Every link sourced","See the link. See the logic.","Find the gaps","Runs on your hardware","Nothing leaves the building","Zero tokens billed","Non-destructive by design","Change history on every project","From raw data to report","Built to stand up to any regulator","Close the gaps. Every single one."];
 function fillBg(el,rows,L=PHR){ if(!el) return; let h=''; for(let r=0;r<rows;r++){ let s=''; for(let k=0;k<14;k++){ s+=L[(r*5+k*7)%L.length]+'  ·  '; } h+=`<div style="animation-duration:${90+ (r*37)%70}s">${s}${s}</div>`; } el.innerHTML=h; }
 fillBg(document.getElementById('bgShow'),18);
 
@@ -710,7 +898,7 @@ const SCENES={
     b[j*C+i]=val; }
  },
  mark(b,C,R,t,v){ if(!v.mask||v.mask.length!==b.length){ const cv=document.createElement('canvas'); cv.width=C; cv.height=R; const g=cv.getContext('2d'); g.fillStyle='#fff'; g.textBaseline='middle';
-    const fam=getComputedStyle(document.body).getPropertyValue('--sans'); let fs=R*v.aspect; g.save(); g.scale(1,1/v.aspect); g.font=`900 ${fs}px ${fam}`; const w=g.measureText('BLACKBRIAR').width; fs=fs*Math.min(1,(C*.98)/w); g.font=`900 ${fs}px ${fam}`; const w2=g.measureText('BLACKBRIAR').width; g.fillText('BLACKBRIAR',(C-w2)/2,R*v.aspect/2); g.restore();
+    const fam=getComputedStyle(document.body).getPropertyValue('--sans'); let fs=R*v.aspect; g.save(); g.scale(1,1/v.aspect); g.font=`900 ${fs}px ${fam}`; const w=g.measureText('LINX').width; fs=fs*Math.min(1,(C*.98)/w); g.font=`900 ${fs}px ${fam}`; const w2=g.measureText('LINX').width; g.fillText('LINX',(C-w2)/2,R*v.aspect/2); g.restore();
     const d=g.getImageData(0,0,C,R).data; v.mask=new Float32Array(C*R); for(let k=0;k<C*R;k++) v.mask[k]=d[k*4+3]/255; }
   for(let j=0;j<R;j++) for(let i=0;i<C;i++){ const k=j*C+i, m=v.mask[k]; b[k]= m>.4 ? .55+.45*(.5+.5*Math.sin(i*.12-t*1.6+j*.35)) : (vnoise(i*.3+t*.8,j*.5)>.86?.12:0); }
  }
@@ -724,13 +912,13 @@ function loop(now){ const dt=Math.min(.1,(now-last)/1000); last=now; acc+=dt; if
 (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{ measure(); document.querySelectorAll('pre[data-scene]').forEach(mk); if(!RM) requestAnimationFrame(loop); });
 
 /* ---------- intel words ---------- */
-const INTEL=["Arlington VA","38.8719 N 77.0563 W","FBI","Fort Meade","39.1086 N 76.7713 W","DIA","Norfolk","NCIS","Tampa","SOCOM","CENTCOM","Colorado Springs","NORTHCOM","Honolulu","INDOPACOM","21.3470 N 157.8920 W","Ramstein","EUCOM","49.4369 N 7.6003 E","Stuttgart","AFRICOM","Djibouti","11.5470 N 43.1590 E","Manama","NAVCENT","Seoul","USFK","Okinawa","26.3344 N 127.8056 E","Quantico","DCIS","Army CID","AFOSI","NSA","NGA","NRO","DHS","CISA","DEA","ATF","USSS","JTTF","NCTC","CYBERCOM","Five Eyes","NATO","Interpol","Europol","Lyon","45.7640 N 4.8357 E","The Hague","Brasilia","15.7939 S 47.8828 W","Sao Paulo","Bogota","Panama City","Miami","SOUTHCOM","Guantanamo Bay","El Paso","San Diego","Anchorage","Guam","13.4443 N 144.7937 E","Rota","Sigonella","Incirlik","Diego Garcia","7.3195 S 72.4229 E","Kabul","Baghdad","Erbil","Kyiv","Warsaw","Vilnius","Tallinn"];
+const INTEL=["Shell company","Wire transfer","Beneficial owner","Call record","Subscriber","Index case","Contact trace","Exposure site","Cluster 04","Acquisition target","Subsidiary","Board member","Registered agent","Invoice","Shipment","Manifest","Port of entry","Account holder","Alias","Address","Phone number","Email","Vehicle","Meeting","Travel record","Payment","Contract","Supplier","Licence","Sanctions list","Court filing","News article","Research paper","Weather data","Photo","Report","Spreadsheet","Source 0412","Link unverified","Missing link","Second-degree","Third-degree","Direction: outbound","Direction: inbound","Layer: finance","Layer: travel","Layer: comms","Timeline","Gap flagged","Source verified"];
 fillBg(document.getElementById('bgIntel'),40,INTEL);
 const SGL='!<>/\\[]{}=+*#%01';
 
 /* ---------- hero rings ---------- */
 (()=>{ const cv=document.getElementById('rings'); if(!cv) return; const g=cv.getContext('2d'); let W=0,H=0,D=1; const m={x:-999,y:-999,tx:-999,ty:-999};
- const TXT="BLACKBRIAR · LOCAL INFERENCE · ZERO EGRESS · CHAIN OF CUSTODY · ";
+ const TXT="LINX · EVERY LINK SOURCED · FIND THE MISSING LINK · ZERO EGRESS · ";
  const fam=()=>getComputedStyle(document.body).getPropertyValue('--mono');
  function size(){ const r=cv.getBoundingClientRect(); D=Math.min(2,devicePixelRatio||1); W=r.width; H=r.height; cv.width=W*D; cv.height=H*D; }
  new ResizeObserver(size).observe(cv); size();
@@ -789,24 +977,23 @@ const SGL='!<>/\\[]{}=+*#%01';
 })();
 
 /* ---------- workspace ---------- */
-const PH='# Placeholder\n\nPlaceholder text / placeholder text\n';
+const PH='# Placeholder\n\n[Placeholder text, lorem ipsum]\n';
 const FILES={
- 'BRIEFING.md':`# BlackBriar\n\nOffline language models for investigators. The model, the index\nand the case workspace install together and run on this machine.\n\n## What it does\n\n- Reads case material: PDFs, scans, spreadsheets, email exports\n- Answers questions with a citation on every line\n- Transcribes and translates interview audio\n- Builds a case graph of people, places, accounts and events\n- Drafts briefs for each chain of command from one source of truth\n\n## What it does not do\n\n- Send anything off this workstation\n- Bill by the token\n- Decide anything. Conclusions stay with the investigator.\n\n## Getting started\n\n1. Open a case folder in cases/\n2. Drop evidence into evidence/ and let the indexer run\n3. Ask your first question in the workspace\n\nSee SECURITY.md for the network posture and MODELS.md for\nhardware requirements.\n`,
- 'SECURITY.md':`# Security posture\n\nnetwork.egress      = none        # default, enforced at install\nconnectors          = disabled    # enable per partner, per case\naudit.log           = on          # every query, every export\nstorage             = encrypted at rest\nupdates             = signed offline packages only\n\n## Placeholder\n\nPlaceholder text / placeholder text\n`,
- 'MODELS.md':`# Models\n\n| name              | params | quant  | vram   |\n|-------------------|--------|--------|--------|\n| bb-invest         | 14B    | Q4_K_M | ~10 GB |\n| bb-transcribe     | --     | fp16   | ~4 GB  |\n| bb-translate      | --     | Q5     | ~6 GB  |\n| bb-embed          | --     | fp16   | ~1 GB  |\n\n# All sizes are placeholders.\n# Tokens billed per query: 0\n`,
- 'briar.config.toml':`# BlackBriar workstation config\n\n[runtime]\ndevice        = "gpu:0"\ncontext       = 32768\nthreads       = "auto"\n\n[network]\negress        = false\nconnectors    = []\n\n[audit]\nenabled       = true\npath          = "logs/audit.log"\n\n[billing]\ntokens        = 0        # there is no meter\n`,
- 'REQUEST-ACCESS.md':`# Request access\n\nLicensing is one-time, per workstation or per enclave.\n\n→ See the Licensing section below.\n`,
+ 'BOARD.md':`# The Board\n\nYour entire investigation in one place.\n\nBring everything you have: spreadsheets, call records, photos,\nreports, news articles, research papers, even weather data.\nLinx reads it, finds the people, places and events inside,\nand maps how they connect.\n\n## On this board\n\n- Every link carries its source\n- Imports stay editable: change a spec, the chart follows\n- Sources can be switched on and off without rework\n- Gaps and unverified links are flagged, not hidden\n- Every change is kept in the project history\n\n## What it does not do\n\n- Send anything off this machine\n- Bill by the token\n- Decide anything. Conclusions stay with the analyst.\n`,
+ 'GAPS.md':`# Gaps · EXAMPLE DATA\n\nmissing    who paid invoice 7781?           [src 0412 p.3]\nmissing    second owner of vessel "Corvina" [src 1187 p.1]\nunverified A. Reyes -> Harbor Freight Ltd   [1 source]\nunverified call 03-14 22:41, subscriber     [1 source]\n\n# 2 missing links · 2 unverified · 0 resolved today\n`,
+ 'SOURCES.md':`# Sources · EXAMPLE DATA\n\n| source                 | type         | status   |\n|------------------------|--------------|----------|\n| bank_1187.xlsx         | spreadsheet  | on       |\n| calls_q1.csv           | call records | on       |\n| manifest_0412.pdf      | report       | on       |\n| port_photos/           | photos       | off      |\n| news_clippings/        | articles     | on       |\n\n# Toggle a source and every link that depends on it updates.\n`,
+ 'linx.config.toml':`# Linx workstation config\n\n[runtime]\ndevice        = "gpu:0"\nthreads       = "auto"\n\n[network]\negress        = false\nconnectors    = []         # opened only by an administrator, logged\n\n[history]\nenabled       = true\n\n[billing]\ntokens        = 0          # there is no meter\n`,
+ 'REQUEST-ACCESS.md':`# Request access\n\nLicensing is per workstation or per enclave.\n\n→ See the Licensing section below.\n`,
  'LICENSE.md':PH,
- 'cases/OP-2291-HARBOR/brief.md':`# OP-2291 HARBOR · working brief\n\n# EXAMPLE DATA\n\nsubjects          3\ndocuments         4,112 indexed\naudio             11 h 40 m transcribed\nopen questions    7\n\n## Summary\n\nPlaceholder text / placeholder text\n`,
- 'cases/OP-2291-HARBOR/timeline.md':`# Timeline · EXAMPLE DATA\n\n2026-03-02  shipment manifest filed          [doc 0412 p.3]\n2026-03-09  account opened, second name     [doc 1187 p.1]\n2026-03-14  interview, witness A            [audio 04 12:31]\n2026-03-21  records received, partner agency [conn log 88]\n\n# Placeholder text / placeholder text\n`,
- 'logs/audit.log':`2026-09-18T14:02:11Z user=a0417 case=OP-2291 action=query   egress=none tokens_billed=0\n2026-09-18T14:02:49Z user=a0417 case=OP-2291 action=cite    doc=0412    tokens_billed=0\n2026-09-18T14:07:03Z user=a0417 case=OP-2291 action=export  fmt=pdf     tokens_billed=0\n2026-09-18T15:31:20Z user=s0022 case=OP-2304 action=query   egress=none tokens_billed=0\n# EXAMPLE DATA\n`,
+ 'projects/HARBOR/board.md':`# HARBOR · board summary\n\n# EXAMPLE DATA\n\nentities          214\nlinks             587, all sourced\nsources           5 active, 1 off\nlayers            finance · travel · comms\nopen gaps         4\n\n## Summary\n\n[Placeholder text, lorem ipsum]\n`,
+ 'projects/HARBOR/timeline.md':`# Timeline · EXAMPLE DATA\n\n2026-03-02  shipment manifest filed          [src 0412 p.3]\n2026-03-09  account opened, second name     [src 1187 p.1]\n2026-03-14  call, 22:41, unknown subscriber [src calls_q1]\n2026-03-21  vessel re-registered            [src news 07]\n\n# Placeholder: [Placeholder text, lorem ipsum]\n`,
+ 'history/changes.log':`2026-09-18T14:02:11Z user=a0417 project=HARBOR action=import  src=calls_q1.csv  egress=none\n2026-09-18T14:05:40Z user=a0417 project=HARBOR action=remap   spec=calls.v2     links=+38\n2026-09-18T14:07:03Z user=a0417 project=HARBOR action=source  src=port_photos   state=off\n2026-09-18T15:31:20Z user=s0022 project=HARBOR action=review  note="gap 2 checked"\n# EXAMPLE DATA\n`,
 };
 const TREE=[
- {d:'.briar',c:[{d:'models',c:['bb-invest.gguf','bb-transcribe.bin','bb-translate.gguf','bb-embed.bin']},{d:'policies',c:['retention.yml','export.yml']},{d:'prompts',c:['brief.tmpl','timeline.tmpl']}]},
- {d:'cases',open:1,c:[{d:'OP-2291-HARBOR',open:1,c:[{d:'evidence',c:['manifest_0412.pdf','bank_1187.xlsx']},{d:'transcripts',c:['witness_a.txt','witness_b.txt']},'brief.md','timeline.md']},{d:'OP-2304-CINDER',c:['brief.md','timeline.md']}]},
- {d:'connectors',c:['partner-a.yml','partner-b.yml','partner-c.yml']},
- {d:'logs',c:['audit.log']},
- 'BRIEFING.md','MODELS.md','SECURITY.md','briar.config.toml','LICENSE.md','REQUEST-ACCESS.md'
+ {d:'projects',open:1,c:[{d:'HARBOR',open:1,c:[{d:'sources',c:['bank_1187.xlsx','calls_q1.csv','manifest_0412.pdf']},{d:'exports',c:['report_draft.pdf','chart_public.pdf']},'board.md','timeline.md']},{d:'CINDER',c:['board.md','timeline.md']}]},
+ {d:'history',c:['changes.log']},
+ {d:'.linx',c:[{d:'models',c:['linx-analyze.gguf','linx-extract.bin']},{d:'import-specs',c:['calls.v2.yml','bank.v1.yml']}]},
+ 'BOARD.md','GAPS.md','SOURCES.md','linx.config.toml','LICENSE.md','REQUEST-ACCESS.md'
 ];
 const treeEl=document.getElementById('tree'), srcEl=document.getElementById('src'), gutEl=document.getElementById('gutter');
 function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
@@ -822,20 +1009,60 @@ function openFile(p,btn){ let txt=FILES[p]; const name=p.split('/').pop(); if(tx
   const lines=txt.replace(/\n$/,'').split('\n'); srcEl.innerHTML=lines.map(hl).join('\n'); gutEl.textContent=lines.map((_,i)=>i+1).join('\n');
   document.getElementById('tabName').textContent=name; document.getElementById('tabPath').textContent=p.includes('/')?' · '+p.slice(0,p.lastIndexOf('/')):'';
   treeEl.querySelectorAll('button.on').forEach(x=>x.classList.remove('on')); (btn||treeEl.querySelector(`[data-path="${CSS.escape(p)}"]`))?.classList.add('on'); }
-openFile('BRIEFING.md');
+openFile('BOARD.md');
 
 const term=document.getElementById('term');
-const TL=[['~/blackbriar > ','briar status'],['','loading bb-invest.gguf ........ <span class="ok">ok</span>'],['','device gpu:0 · egress <span class="ok">none</span> · audit <span class="ok">on</span>'],['','tokens billed this session: <span class="ok">0</span>']];
+const TL=[['~/linx > ','linx status'],['','project HARBOR · 587 links · <span class="ok">all sourced</span>'],['','device gpu:0 · egress <span class="ok">none</span> · history <span class="ok">on</span>'],['','gaps flagged: 4 · tokens billed: <span class="ok">0</span>']];
 let typed=false;
 function typeTerm(){ if(typed) return; typed=true; term.innerHTML=''; let li=0;
-  const next=()=>{ if(li>=TL.length){ const d=document.createElement('div'); d.className='tl'; d.innerHTML='<a href="#pricing">~/blackbriar &gt; <b>request-access</b> <span style="color:var(--dim)"># one-time license · on-prem</span></a> <span class="caret"></span>'; term.append(d); return; }
+  const next=()=>{ if(li>=TL.length){ const d=document.createElement('div'); d.className='tl'; d.innerHTML='<a href="#pricing">~/linx &gt; <b>request-access</b> <span style="color:var(--dim)"># on-prem license</span></a> <span class="caret"></span>'; term.append(d); return; }
     const [pr,cmd]=TL[li++]; const d=document.createElement('div'); d.className='tl'; term.append(d);
     if(pr){ let k=0; d.innerHTML=pr; const tick=()=>{ d.innerHTML=pr+'<b>'+cmd.slice(0,++k)+'</b>'; if(k<cmd.length) setTimeout(tick,RM?0:45); else setTimeout(next,RM?0:300); }; tick(); }
     else { d.innerHTML=cmd; setTimeout(next,RM?0:260); } };
   next(); }
-term.innerHTML=TL.map(([p,c])=>`<div class="tl">${p}${p?'<b>'+c+'</b>':c}</div>`).join('')+'<div class="tl"><a href="#pricing">~/blackbriar &gt; <b>request-access</b></a></div>';
+term.innerHTML=TL.map(([p,c])=>`<div class="tl">${p}${p?'<b>'+c+'</b>':c}</div>`).join('')+'<div class="tl"><a href="#pricing">~/linx &gt; <b>request-access</b></a></div>';
 new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ typeTerm(); o.disconnect(); } }),{threshold:.4}).observe(document.getElementById('ws'));
 addEventListener('keydown',e=>{ if(!(e.metaKey||e.ctrlKey)) return; const k=e.key.toLowerCase(); if(k==='j'){ e.preventDefault(); term.hidden=!term.hidden; } if(k==='k'){ e.preventDefault(); document.getElementById('workspace').scrollIntoView(); treeEl.querySelector('button.on')?.focus(); } });
+
+/* ---------- roadmap ---------- */
+// Edit releases here. status: done | now | next | locked
+const ROADMAP=[
+ {m:'May 2026',v:'v0.1',status:'done',title:'Private alpha',items:['Single-workstation install, fully offline','Spreadsheet and CSV import','First link charts','Per-project change history']},
+ {m:'Jun 2026',v:'v0.2',status:'done',title:'Non-destructive import',items:['Import specs you can change without starting over','Editing and undo on imported data','Directional links','One-click filters']},
+ {m:'Jul 2026',v:'v0.3',status:'done',title:'Sources and layers',items:['Unstructured import: notes and reports','Enable and disable sources','Data layering on charts']},
+ {m:'Aug 2026',v:'v0.4',status:'done',title:'Find the gaps',items:['Multi-degree visualization','Missing-link flags','Unverified connection markers']},
+ {m:'Sep 2026',v:'v0.5',status:'done',title:'Review and release',items:['Report and chart export','Redaction for public release','Review chain']},
+ {m:'Oct 2026',v:'v0.6',status:'now',title:'Ask the data',items:['Ask questions of the data','Suggested connections','Cross-project sharing']},
+ {m:'Nov 2026',v:'v0.7',status:'next',title:'Enclave',items:['Shared on-prem server for teams','[Placeholder text, lorem ipsum]']},
+ {m:'2027',v:'',status:'locked',title:'Coming later',items:['[Placeholder text, lorem ipsum]']},
+];
+(()=>{ const rm=document.getElementById('rm'), sc=document.getElementById('rmScroll'); if(!rm) return;
+ const LAB={done:'Released',now:'In progress',next:'Planned',locked:'Later'};
+ const n=ROADMAP.length, cur=Math.max(0,ROADMAP.findIndex(r=>r.status==='now'));
+ rm.style.setProperty('--n',n); rm.style.setProperty('--p',cur);
+ rm.innerHTML='<div class="rm-axis" aria-hidden="true"><div class="rm-prog"></div></div>'+ROADMAP.map((r,i)=>{ const st='s-'+r.status, pos=i%2?'bot':'top', vars=`--c:${i+1};--i:${i+1}`;
+   return `<button type="button" class="rm-node ${st}" style="${vars}" data-i="${i}" aria-label="${esc(r.m)}: ${LAB[r.status]}"><span class="rm-dia"></span><span class="mono">${esc(r.m)}</span></button>`+
+   `<article class="rm-card ${pos} ${st}" style="${vars}" data-i="${i}" role="listitem"><div class="rm-tag mono"><span class="st">${LAB[r.status]}</span><span class="v">${esc(r.v)}</span></div><h3>${esc(r.m)}</h3><p class="sub">${esc(r.title)}</p><ul>${r.items.map(t=>`<li>${esc(t)}</li>`).join('')}</ul></article>`; }).join('');
+ const nodes=[...rm.querySelectorAll('.rm-node')], cards=[...rm.querySelectorAll('.rm-card')], cnt=document.getElementById('rmCount'), pv=document.getElementById('rmPrev'), nx=document.getElementById('rmNext');
+ let sel=cur;
+ function select(i,scroll){ sel=Math.max(0,Math.min(n-1,i)); nodes.forEach((x,k)=>{ x.classList.toggle('on',k===sel); x.setAttribute('aria-pressed',k===sel); }); cards.forEach((x,k)=>x.classList.toggle('on',k===sel));
+  cnt.innerHTML=`<b>${String(sel+1).padStart(2,'0')}</b> / ${String(n).padStart(2,'0')}`; pv.disabled=sel===0; nx.disabled=sel===n-1;
+  if(scroll && sc.scrollWidth>sc.clientWidth){ const c=cards[sel]; const left=c.offsetLeft-(sc.clientWidth-c.offsetWidth)/2; sc.scrollTo({left:Math.max(0,left),behavior:RM||scroll==='instant'?'auto':'smooth'}); } }
+ let moved=false;
+ rm.addEventListener('click',e=>{ if(moved) return; const t=e.target.closest('[data-i]'); if(t) select(+t.dataset.i,true); });
+ pv.onclick=()=>select(sel-1,true); nx.onclick=()=>select(sel+1,true);
+ sc.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft'||e.key==='ArrowRight'){ e.preventDefault(); select(sel+(e.key==='ArrowRight'?1:-1),true); nodes[sel].focus({preventScroll:true}); } });
+ // drag to scroll (mouse only; touch scrolls natively)
+ let sx=0, sl=0, down=false;
+ sc.addEventListener('pointerdown',e=>{ if(e.pointerType!=='mouse'||sc.scrollWidth<=sc.clientWidth) return; down=true; moved=false; sx=e.clientX; sl=sc.scrollLeft; });
+ addEventListener('pointermove',e=>{ if(!down) return; const dx=e.clientX-sx; if(Math.abs(dx)>4){ moved=true; sc.classList.add('drag'); } sc.scrollLeft=sl-dx; });
+ addEventListener('pointerup',()=>{ if(!down) return; down=false; sc.classList.remove('drag'); setTimeout(()=>moved=false,0); });
+ const axis=rm.querySelector('.rm-axis');
+ function fitProg(){ rm.style.setProperty('--ph',(nodes[cur].offsetTop+nodes[cur].offsetHeight/2-axis.offsetTop)+'px'); }
+ new ResizeObserver(fitProg).observe(rm);
+ select(cur,'instant');
+ new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ rm.classList.add('in'); o.disconnect(); } }),{threshold:.25}).observe(rm);
+})();
 
 /* ---------- screenshot insert ---------- */
 const sb=document.getElementById('shotBtn'), si=document.getElementById('shotInput'), sf=document.getElementById('shotFrame');
@@ -858,7 +1085,7 @@ document.querySelectorAll('.q').forEach(q=>q.addEventListener('click',()=>{ cons
 
 /* ---------- subscribe ---------- */
 document.getElementById('subForm').addEventListener('submit',e=>{ e.preventDefault(); const i=document.getElementById('subEmail'), m=document.getElementById('subMsg');
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value)){ m.style.color='var(--accent)'; m.textContent='Enter a full email address, like name@unit.mil'; return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value)){ m.style.color='var(--accent)'; m.textContent='Enter a full email address, like name@organization.com'; return; }
   m.style.color='var(--ok)'; m.textContent='Noted. Demo form: nothing was sent.'; i.value=''; });
 })();
 </script>
