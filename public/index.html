@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>linxai</title>
-<meta name="description" content="BlackBriar runs language models trained for investigative work on your own workstation. Local inference, zero egress, zero tokens billed.">
+<meta name="description" content="Linx is a link analysis workspace that runs entirely on your own hardware. Bring your data: Linx maps every connection, shows its work, and tells you what's still missing.">
 <meta name="theme-color" content="#141414">
 <meta property="og:type" content="website">
 <meta property="og:title" content="linxai">
-<meta property="og:description" content="Offline language models for investigators. Local inference, zero egress, zero tokens billed.">
+<meta property="og:description" content="Every network has a missing link. Linx finds it first. Local link analysis, every link sourced, nothing leaves the building.">
 <style>
 /* Base reset: reproduces the defaults the page was designed against */
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -157,6 +157,12 @@ h2{font-size:clamp(32px,4.4vw,64px);line-height:1;letter-spacing:-.035em;font-we
 .probs .tot{grid-template-columns:1fr auto;color:var(--fg);border-bottom:0;padding-top:20px}
 .probs .tot .h{color:var(--accent)}
 .note{color:var(--dim);margin-top:10px}
+.probs .t small{display:block;margin-top:4px;color:var(--mute);font-size:12px;line-height:1.45;letter-spacing:0}
+.probs .hd{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding-block:10px}
+.probs .hd:hover{background:none;padding-inline:0}
+.uses{list-style:none;margin:-14px 0 28px;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.uses li::before{content:"→ ";color:var(--dim)}
+.hold{font-size:clamp(15px,1.15vw,17px);color:var(--fg);max-width:34em;margin:0 0 32px;font-weight:500}
 
 /* features */
 .feat-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);margin-bottom:clamp(40px,6vw,80px)}
@@ -191,7 +197,7 @@ kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line2);padding
 .tab{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:9px 14px;color:var(--fg)}
 .tab .path{color:var(--dim)}
 .code{flex:1;overflow:auto;display:grid;grid-template-columns:auto 1fr;font-family:var(--mono);font-size:13px;line-height:1.7;padding-block:14px}
-.gutter{color:var(--dim);text-align:right;padding-inline:16px 14px;user-select:none;border-right:1px solid var(--line);font-variant-numeric:tabular-nums}
+.gutter{white-space:pre;color:var(--dim);text-align:right;padding-inline:16px 14px;user-select:none;border-right:1px solid var(--line);font-variant-numeric:tabular-nums}
 .src{padding-inline:18px;white-space:pre;color:#c8c7c1;min-width:0}
 .src .h1{color:var(--fg);font-weight:500}.src .cm{color:var(--dim)}.src .k{color:var(--accent)}.src .ok{color:var(--ok)}
 .term{grid-column:1/-1;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;padding:12px 16px;min-height:132px;background:var(--bg)}
@@ -336,7 +342,7 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <body>
 <header class="nav" id="top">
   <div class="wrap nav-in">
-    <a class="logo" href="#top" aria-label="BlackBriar home"><img src="/assets/img/linx-logo.png" alt="" width="32" height="32"><span>BlackBriar</span></a>
+    <a class="logo" href="#top" aria-label="Linx home"><img src="/assets/img/linx-logo.png" alt="" width="32" height="32"><span>Linx</span></a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="ov"><span class="roll"><span>Menu</span><span aria-hidden="true">Menu</span></span><i><b></b><b></b></i></button>
     <div class="nav-r"><a class="btn" href="#pricing"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a></div>
   </div>
@@ -346,12 +352,12 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
   <ol class="wrap">
     <li><a href="#problems"><span class="mono">001</span><span data-scramble>Where cases stall</span></a></li>
     <li><a href="#features"><span class="mono">002</span><span data-scramble>Capabilities</span></a></li>
-    <li><a href="#workspace"><span class="mono">003</span><span data-scramble>The workspace</span></a></li>
+    <li><a href="#workspace"><span class="mono">003</span><span data-scramble>The Board</span></a></li>
     <li><a href="#showcase"><span class="mono">004</span><span data-scramble>Interface</span></a></li>
     <li><a href="#pricing"><span class="mono">005</span><span data-scramble>Licensing</span></a></li>
     <li><a href="#faq"><span class="mono">006</span><span data-scramble>Before you deploy</span></a></li>
   </ol>
-  <div class="wrap mono muted">Local inference · Zero egress · Zero tokens billed</div>
+  <div class="wrap mono muted">Runs locally · Every link sourced · Zero egress</div>
 </div>
 
 <main>
@@ -359,17 +365,19 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <section class="hero2">
   <div class="hero-l light">
     <div class="copy">
-      <div class="eyebrow mono"><span class="dot"></span><span data-scramble>Offline language models for defense investigators</span></div>
-      <h1><span class="ln"><span>The analyst that</span></span><span class="ln"><span>never leaves</span></span><span class="ln"><span>the room.</span></span></h1>
-      <p class="lede">Case files, interagency records, interview transcripts, field reports. BlackBriar runs language models trained for investigative work directly on your workstation's own GPU. Every query stays on hardware you control, and nothing is metered by the token.</p>
+      <div class="eyebrow mono"><span class="dot"></span><span data-scramble>Local link analysis for investigators and analysts</span></div>
+      <h1><span class="ln"><span>Every network has</span></span><span class="ln"><span>a missing link.</span></span><span class="ln"><span>Linx finds it first.</span></span></h1>
+      <p class="lede">Bring your data. Linx maps every connection, shows its work, and tells you what's still missing.</p>
+      <ul class="uses mono" aria-label="Use cases"><li>Unravel illicit networks</li><li>Trace outbreaks</li><li>Vet acquisitions</li><li>Run compliance reviews</li><li>Uncover fraud</li></ul>
+      <p class="hold">Analysis that holds up in the boardroom, the courtroom, and the war room.</p>
       <div class="ctas">
         <a class="btn" href="#pricing"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a>
         <a class="link" href="#problems"><span class="roll"><span>Learn more</span><span aria-hidden="true">Learn more</span></span> ↓</a>
       </div>
     </div>
     <div class="stat mono" aria-label="System status">
-      <span>Model: BB-INVEST 14B</span><span>Compute: local GPU</span><span>Network: <b>air-gapped</b></span><span>Tokens billed: <b>0</b></span>
-      <span>Audit: <b>on</b></span><span>Agencies linked: 07</span><span>Egress: <b>none</b></span><span id="utc">UTC --:--:--</span>
+      <span>Deployment: on-prem</span><span>Compute: local GPU</span><span>Network: <b>offline</b></span><span>Tokens billed: <b>0</b></span>
+      <span>History: <b>on</b></span><span>Links sourced: <b>all</b></span><span>Egress: <b>none</b></span><span id="utc">UTC --:--:--</span>
     </div>
   </div>
   <div class="hero-r" role="img" aria-label="Concentric rings of text rotating around a center point; they scatter under the cursor">
@@ -385,25 +393,21 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
     <div>
       <div class="label mono" data-scramble>Where cases stall</div>
       <ul class="probs mono">
-        <li><span class="n">001</span><span class="t">Records request routed between agencies</span><span class="h">~72 HRS</span></li>
-        <li><span class="n">002</span><span class="t">Reading 4,000 pages of discovery by hand</span><span class="h">~40 HRS</span></li>
-        <li><span class="n">003</span><span class="t">Matching names across incompatible databases</span><span class="h">~16 HRS</span></li>
-        <li><span class="n">004</span><span class="t">Transcribing and indexing interview audio</span><span class="h">~12 HRS</span></li>
-        <li><span class="n">005</span><span class="t">Translating foreign-language evidence</span><span class="h">~10 HRS</span></li>
-        <li><span class="n">006</span><span class="t">Finding the prior case that fits the pattern</span><span class="h">~8 HRS</span></li>
-        <li><span class="n">007</span><span class="t">Rewriting one summary for three chains of command</span><span class="h">~6 HRS</span></li>
-        <li><span class="n">008</span><span class="t">Rebuilding a timeline from scattered logs</span><span class="h">~6 HRS</span></li>
-        <li><span class="n">009</span><span class="t">Chain-of-custody notes for every derived file</span><span class="h">~3 HRS</span></li>
-        <li><span class="n">010</span><span class="t">Cloud AI blocked for controlled information</span><span class="h">∞ HRS</span></li>
-        <li class="tot"><span>Estimated time lost: <span id="totHrs">~173</span> hours per case</span><span class="h">(≈ 4 work weeks)</span></li>
+        <li class="hd"><span></span><span>Phase · hours per case</span><span class="h">Today → Linx → Linx AI</span></li>
+        <li><span class="n">001</span><span class="t">Research and data gathering<small>AI-suggested threads and flagged gaps mean more targeted research and fewer dead ends</small></span><span class="h">140 → 140 → 126</span></li>
+        <li><span class="n">002</span><span class="t">Data import, cleaning and structuring<small>Bulk import, import specs you can change without starting over, editing and undo</small></span><span class="h">60 → 36 → 25</span></li>
+        <li><span class="n">003</span><span class="t">Link charting and analysis<small>Multi-degree visualization, clear directionality, data layering, questions asked of the data</small></span><span class="h">100 → 70 → 35</span></li>
+        <li><span class="n">004</span><span class="t">Visualization and report writing<small>Automated reports with key insights and an executive summary</small></span><span class="h">60 → 30 → 24</span></li>
+        <li><span class="n">005</span><span class="t">Collaboration, review and edits<small>Sharing, a review chain and change history, so no step gets recreated</small></span><span class="h">40 → 24 → 18</span></li>
+        <li class="tot"><span>Hours per case: 400 → 300 → <span id="totHrs">228</span></span><span class="h">(≈ 43% fewer)</span></li>
       </ul>
-      <div class="note mono">Illustrative figures · placeholder data</div>
+      <div class="note mono">Estimates for a typical 400-hour case · conservative</div>
     </div>
     <div class="body">
-      <h2>The paperwork outlasts the investigation. Every single case.</h2>
-      <p>It's rarely the interview or the arrest that eats the calendar. It's the records request that sits in another agency's queue for three days. The binder of discovery nobody has time to read twice. The same subject spelled four ways across four systems that were never built to talk to each other.</p>
-      <p>And the tools that could help are usually off the table. Commercial AI means sending case material to someone else's servers, and paying per word to do it.</p>
-      <p>This is the part nobody budgets for and every unit absorbs. Weeks gone before the actual analysis starts.</p>
+      <h2>Most of a case isn't analysis. It's everything around it.</h2>
+      <p>A typical case runs about 400 analyst hours. Only a quarter of that is link charting and analysis. The rest goes into gathering data, cleaning it into shape, rebuilding charts when a source changes, writing the report and reworking it through review.</p>
+      <p>Linx works on the stages where those hours go. Imports can be re-specified without starting over, charts update when the data does, reports draft themselves from the chart, and every change is kept in the project history. Conservatively, that saves around 100 hours per case.</p>
+      <p>The built-in AI takes off roughly another 70 hours by drawing connections, answering questions about the data and pointing out what was missed. With 1,800 to 2,000 working hours in a year, that is room for one or two more cases per analyst.</p>
     </div>
   </div>
 </section>
@@ -414,46 +418,46 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
     <div class="feat-head">
       <div>
         <div class="label mono" data-scramble>Capabilities</div>
-        <h2>A model that knows the work. On a machine that never phones home.</h2>
+        <h2>Your data never leaves the building. Not even for us.</h2>
       </div>
       <div class="body" style="align-self:end">
-        <p>BlackBriar ships the models, the retrieval index and the case workspace as one installation. It runs from the workstation's own processor and memory. No subscription meters, no API keys, no traffic leaving the building unless an administrator opens a specific, logged connection to a partner agency.</p>
+        <p>Linx runs entirely on your own hardware. One installation includes everything, and every query stays on hardware you control. No cloud platform, no vendor access, and no data pooled with other customers. No API keys, no tokens and no usage meters, so costs don't grow with the work. Nothing leaves the building unless your administrator opens a logged connection.</p>
       </div>
     </div>
     <ul class="feats">
       <li><span class="glyph" aria-hidden="true">┌─┐
 │▓│
 └─┘</span><h3><span class="mono">001 / Local compute</span>Runs on your hardware</h3><p>Inference happens on the workstation's GPU. No per-token invoices, no usage caps, no queue behind someone else's traffic. The model file sits on disk next to the case, and the thousandth question costs what the first one did: electricity.</p></li>
-      <li><h3><span class="mono">002 / Domain models</span>Trained for investigative work</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">003 / Interagency link</span>Connected, on your terms</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">004 / Isolation</span>Air-gapped by default</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">005 / Provenance</span>Every line cites its source</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">006 / Audio &amp; language</span>Transcripts and translation</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">007 / Case graph</span>People, places, links</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">008 / Accountability</span>An audit trail on every query</h3><p class="ph">Placeholder text / placeholder text</p></li>
-      <li><h3><span class="mono">009 / Access</span>Role- and case-based permissions</h3><p class="ph">Placeholder text / placeholder text</p></li>
+      <li><h3><span class="mono">002 / Import</span>Structured and unstructured data import</h3><p>Linx handles the full range of data you work with, in whatever file types you have: tables, spreadsheets, notes and reports. You bring it; Linx handles it.</p></li>
+      <li><h3><span class="mono">003 / Manage</span>Non-destructive data management</h3><p>Map data however you want to visualize it. Change your mind? Update how the data is processed and watch the chart change in real time.</p></li>
+      <li><h3><span class="mono">004 / Plot</span>Dynamic link analysis charts</h3><p>Link charts grow with your data, and visualization tools help make sense of the noise. Organize and filter your data with one click.</p></li>
+      <li><h3><span class="mono">005 / Edit</span>Robust source control</h3><p>Enable and disable sources as needed. Source changes are reflected across the data at every level, and chart elements adjust their sourcing without manual review.</p></li>
+      <li><h3><span class="mono">006 / Analyze</span>Ask questions of the data</h3><p>Analytics help you find connections faster. Ask questions of the data directly, review suggested links and quickly address data that was overlooked.</p></li>
+      <li><h3><span class="mono">007 / Collaborate</span>Collaborate across projects</h3><p>Data can be shared across projects and brought into your workspace. See suggested connections across all your projects without manually importing project files.</p></li>
+      <li><h3><span class="mono">008 / Review</span>Version control and accountability</h3><p>Every project keeps a history that follows every change. Audit your work across the project timeline and see how the chart changed. Review goes faster, and no work gets repeated.</p></li>
+      <li><h3><span class="mono">009 / Release</span>Dissemination made easy</h3><p>Generate reports and charts directly from the project. Quickly remove confidential data and produce versions for public release.</p></li>
     </ul>
   </div>
 </section>
 
-<!-- INTEL -->
+<!-- GAPS -->
 <section class="intel" id="intel">
   <div class="bgtext" id="bgIntel" aria-hidden="true"></div>
   <div class="wrap intel-in">
     <div class="body">
-      <div class="label mono" data-scramble>One index, every jurisdiction</div>
-      <h2>Every lead has an address. Every address has a file.</h2>
-      <p>Cities, grid references, units, task forces and partner agencies, resolved into one searchable index on the workstation. Ask about a place and get back every document that touches it, with the page it came from.</p>
+      <div class="label mono" data-scramble>Find the gaps</div>
+      <h2>Know what you know. Find what you don't.</h2>
+      <p>Linx flags missing links, unverified connections and blind spots in your analysis, then shows you how to close them. Close the gaps. Every single one.</p>
       <ul class="pts">
-        <li><h3>001 / Place-aware search</h3><p>Query by city, installation, or raw coordinates. Results come back ranked, each tied to the line that mentions it.</p></li>
-        <li><h3>002 / Entity resolution</h3><p>The same agency, unit or group written five different ways across five systems resolves to a single record.</p></li>
-        <li><h3>003 / Jurisdiction map</h3><p>See which partner holds which records before the request goes out, not three days after.</p></li>
-        <li><h3>004 / Offline gazetteer</h3><p class="ph">Placeholder text / placeholder text</p></li>
-        <li><h3>005 / Watch terms</h3><p class="ph">Placeholder text / placeholder text</p></li>
-        <li><h3>006 / Cross-case links</h3><p class="ph">Placeholder text / placeholder text</p></li>
+        <li><h3>001 / Sourced links</h3><p>Every link comes with its source, so you can see exactly where it came from.</p></li>
+        <li><h3>002 / Missing links</h3><p>When something doesn't add up, Linx tells you what's missing and where to look next.</p></li>
+        <li><h3>003 / Unverified connections</h3><p>Connections resting on a single or weak source are marked, so nothing reaches the report unchecked.</p></li>
+        <li><h3>004 / People, places, events</h3><p>Linx reads your material, finds the people, places and events inside and maps how they connect.</p></li>
+        <li><h3>005 / Cross-project suggestions</h3><p>See possible connections to your other projects without importing their files.</p></li>
+        <li><h3>006 / Defensible output</h3><p>Charts and reports trace every conclusion back to the evidence, so the work stands up to review.</p></li>
       </ul>
     </div>
-    <div class="fp" id="fp" role="img" aria-label="A fingerprint drawn from the names of cities, coordinates, agencies and task forces; letters scatter and decode under the cursor">
+    <div class="fp" id="fp" role="img" aria-label="A fingerprint drawn from the names of entities, sources and connections; letters scatter and decode under the cursor">
       <canvas id="fpc"></canvas>
       <div class="fp-lab mono" id="fpLab">SCAN</div>
       <div class="fp-read mono" id="fpRead">Hover to scan</div>
@@ -464,16 +468,20 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <!-- WORKSPACE -->
 <section class="sec" id="workspace">
   <div class="wrap">
-    <div class="label mono" data-scramble>This is the actual workspace</div>
+    <div class="label mono" data-scramble>The Board</div>
+    <div class="feat-head" style="margin-bottom:clamp(28px,4vw,48px)">
+      <h2>Your entire investigation in one place.</h2>
+      <div class="body" style="align-self:end"><p>Bring everything you have: spreadsheets, call records, photos, reports, news articles, research papers, even weather data. Linx reads it, finds the people, places and events inside, and maps how they connect. Every link comes with its source, so you can see exactly where it came from. And when something doesn't add up, Linx tells you what's missing.</p></div>
+    </div>
     <div class="ws" id="ws">
       <div class="ws-bar mono">
         <div class="lights" aria-hidden="true"><i></i><i></i><i></i></div>
-        <span class="muted">~/blackbriar · local · offline</span>
+        <span class="muted">~/linx · board · local · offline</span>
         <div class="keys"><kbd>⌘ J</kbd><kbd>⌘ K</kbd></div>
       </div>
       <nav class="tree" id="tree" aria-label="Workspace files"></nav>
       <div class="viewer">
-        <div class="tab mono"><span id="tabName">BRIEFING.md</span><span class="path" id="tabPath"></span></div>
+        <div class="tab mono"><span id="tabName">BOARD.md</span><span class="path" id="tabPath"></span></div>
         <div class="code"><div class="gutter" id="gutter" aria-hidden="true"></div><div class="src" id="src"></div></div>
       </div>
       <div class="term" id="term" aria-live="polite"></div>
@@ -487,8 +495,8 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
     <div class="bgtext" id="bgShow" aria-hidden="true"></div>
     <div class="wrap inner">
       <div class="label mono" data-scramble>Interface</div>
-      <h2>The screens that hold up in review.</h2>
-      <p>Every view below runs offline on a single workstation. The heavy lifting happens on local silicon, so the effort goes where it shows: a case an investigator can follow and a supervisor can sign. <a href="#faq">Read the deployment notes</a>.</p>
+      <h2>See the link. See the logic. Defend both.</h2>
+      <p>Every view below runs offline on your own hardware. Each element on the chart traces back to its source, so a reviewer can follow the reasoning from the first document to the final report. <a href="#faq">Read the deployment notes</a>.</p>
     </div>
   </div>
   <div class="wrap grid-show">
@@ -500,13 +508,13 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
         </button>
         <input type="file" id="shotInput" accept="image/*" hidden>
       </div>
-      <div class="cap mono"><span>Case workspace</span><span>Main view</span></div>
+      <div class="cap mono"><span>The Board</span><span>Main view</span></div>
     </div>
-    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="radar" data-fs="8"></pre></div><div class="cap mono"><span>Watchlist monitor</span><span>Alerts</span></div></a>
-    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="graph" data-fs="8"></pre></div><div class="cap mono"><span>Case graph</span><span>Entities</span></div></a>
-    <a class="card wide" href="#features"><div class="frame"><pre class="ascii" data-scene="wave" data-fs="8"></pre></div><div class="cap mono"><span>Transcripts</span><span>Audio → text</span></div></a>
-    <a class="card wide" href="#features"><div class="frame"><pre class="ascii" data-scene="topo" data-fs="8"></pre></div><div class="cap mono"><span>Geospatial</span><span>Terrain overlay</span></div></a>
-    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="globe" data-fs="7"></pre></div><div class="cap mono"><span>Interagency link</span><span>Mesh</span></div></a>
+    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="radar" data-fs="8"></pre></div><div class="cap mono"><span>Gap finder</span><span>Missing links</span></div></a>
+    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="graph" data-fs="8"></pre></div><div class="cap mono"><span>Link chart</span><span>Entities</span></div></a>
+    <a class="card wide" href="#features"><div class="frame"><pre class="ascii" data-scene="wave" data-fs="8"></pre></div><div class="cap mono"><span>Import</span><span>Any file type</span></div></a>
+    <a class="card wide" href="#features"><div class="frame"><pre class="ascii" data-scene="topo" data-fs="8"></pre></div><div class="cap mono"><span>Data layers</span><span>Overlay</span></div></a>
+    <a class="card" href="#features"><div class="frame"><pre class="ascii" data-scene="globe" data-fs="7"></pre></div><div class="cap mono"><span>Cross-project</span><span>Shared data</span></div></a>
   </div>
 </section>
 
@@ -514,9 +522,9 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <section class="sec" style="border-top:1px solid var(--line)">
   <div class="wrap quotes">
     <div class="slides" id="slides">
-      <div class="slide on"><blockquote>“Placeholder text / placeholder text. Placeholder text / placeholder text, placeholder text.”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Unit</span></div></div></div>
-      <div class="slide"><blockquote>“Placeholder text / placeholder text. Placeholder text / placeholder text.”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Unit</span></div></div></div>
-      <div class="slide"><blockquote>“Placeholder text / placeholder text, placeholder text / placeholder text.”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Unit</span></div></div></div>
+      <div class="slide on"><blockquote>“[Placeholder text, lorem ipsum]”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Organization</span></div></div></div>
+      <div class="slide"><blockquote>“[Placeholder text, lorem ipsum]”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Organization</span></div></div></div>
+      <div class="slide"><blockquote>“[Placeholder text, lorem ipsum]”</blockquote><div class="who"><div class="av">NS</div><div><b>Name Surname</b><span>Title, Organization</span></div></div></div>
     </div>
     <div>
       <div class="ctrl">
@@ -524,7 +532,7 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
         <div class="count" aria-live="polite"><span class="dig" id="d1"></span><span class="dig" id="d2"></span><span style="color:var(--dim)">/03</span></div>
         <button id="next" aria-label="Next quote">&gt;</button>
       </div>
-      <div class="trust mono"><div class="avs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>Placeholder: fielded by 00+ units</div>
+      <div class="trust mono"><div class="avs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>Placeholder: used by 00+ teams</div>
     </div>
   </div>
 </section>
@@ -533,34 +541,34 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 <section class="sec light" id="pricing">
   <div class="wrap">
     <div class="label mono" data-scramble>Licensing</div>
-    <h2>Pay for the hardware once. Ask it anything, forever.</h2>
+    <h2>One license. Costs that don't grow with the work.</h2>
     <div class="price">
       <div class="plan">
         <div class="plan-top"><h3>Workstation</h3><span class="avail mono"><span class="dot"></span>Available now</span></div>
         <div class="amt">$ —<small>Price: placeholder · one-time</small></div>
-        <ul class="mono"><li><span>001</span><span>One analyst, one GPU workstation</span></li><li><span>002</span><span>For investigators, not data scientists</span></li></ul>
+        <ul class="mono"><li><span>001</span><span>One analyst, one GPU workstation</span></li><li><span>002</span><span>For analysts, not data scientists</span></li></ul>
         <a class="btn" href="#faq"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a>
       </div>
       <div class="plan">
         <div class="plan-top"><h3>Enclave</h3><span class="avail mono"><span class="dot"></span>Available now</span></div>
         <div class="amt">$ —<small>Price: placeholder · one-time</small></div>
-        <ul class="mono"><li><span>001</span><span>On-prem server shared across a unit</span></li><li><span>002</span><span>For task forces and joint cells</span></li></ul>
+        <ul class="mono"><li><span>001</span><span>On-prem server shared across a team</span></li><li><span>002</span><span>For shared projects and review chains</span></li></ul>
         <a class="btn" href="#faq"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a>
       </div>
       <div class="plan">
         <div class="plan-top"><h3 style="font-size:20px">Every edition includes</h3></div>
         <ul class="mono">
           <li><span>001</span><span>No tokens, no metered usage</span></li>
-          <li><span>002</span><span>Runs fully air-gapped</span></li>
+          <li><span>002</span><span>Runs fully offline</span></li>
           <li><span>003</span><span>Perpetual license</span></li>
-          <li><span>004</span><span>Model updates as signed offline packages</span></li>
-          <li><span>005</span><span>Audit log on every query</span></li>
-          <li><span>006</span><span>Placeholder text / placeholder text</span></li>
-          <li><span>007</span><span>Placeholder text / placeholder text</span></li>
+          <li><span>004</span><span>Updates as signed offline packages</span></li>
+          <li><span>005</span><span>Per-project change history</span></li>
+          <li><span>006</span><span>[Placeholder text, lorem ipsum]</span></li>
+          <li><span>007</span><span>[Placeholder text, lorem ipsum]</span></li>
         </ul>
       </div>
     </div>
-    <p class="fine">Pricing, procurement vehicles and pilot terms: placeholder text / placeholder text.</p>
+    <p class="fine">Pricing, procurement and pilot terms: [Placeholder text, lorem ipsum]</p>
   </div>
 </section>
 
@@ -573,18 +581,18 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
       <a class="btn" href="#pricing"><span class="lab"><span class="roll"><span>Request access</span><span aria-hidden="true">Request access</span></span></span><span class="plus">+</span></a>
     </div>
     <ul class="faq" id="faqList">
-      <li><button class="q" aria-expanded="true"><h3><span class="mono">Q.001</span>Does any data leave the machine?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>No. Inference, indexing and search all run locally. The software makes no outbound connections unless an administrator enables a specific interagency connector, and every connection it makes is written to the audit log.</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.002</span>Why local instead of a cloud AI service?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Control and cost. Case material never touches a third-party server, so there's no question of where it went. And there is no per-token billing: once the workstation is paid for, heavy weeks and quiet weeks cost the same.</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.003</span>What hardware does it need?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>A workstation with a modern discrete GPU, plenty of system memory and fast local storage. The Enclave edition runs on a rack server inside your facility.</p><p class="ph">Exact specification: placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.004</span>Does the model make decisions?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>No. It reads, drafts, summarizes, retrieves and cites. Conclusions stay with the investigator, and every generated line links back to the document it came from.</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.005</span>How does the interagency link work?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.006</span>Which models ship with it?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.007</span>How are updates delivered to an air-gapped system?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.008</span>Is it accredited for our network?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.009</span>Can it work with foreign-language material?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.010</span>Can we run a pilot first?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.011</span>Do you offer support?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">Placeholder text / placeholder text</p></div></div></li>
-      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.012</span>What is this not?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>It is not a cloud service, not a surveillance platform and not an autonomous decision-maker. It is a set of local tools that gets an investigator to the actual analysis faster.</p><p class="ph">Placeholder text / placeholder text</p></div></div></li>
+      <li><button class="q" aria-expanded="true"><h3><span class="mono">Q.001</span>Does any data leave the building?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>No. Import, analysis and search all run on your own hardware. Linx makes no outbound connections unless your administrator opens a specific connection, and every connection it makes is logged. There is no vendor access and no data pooled with other customers.</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.002</span>Why local instead of a cloud service?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Control and cost. Your material never touches a third-party server, so there is no question of where it went. And there is no per-token billing or usage meter: a heavy month costs the same as a quiet one.</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.003</span>What hardware does it need?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>A workstation with a modern discrete GPU, plenty of system memory and fast local storage. The Enclave edition runs on a server inside your facility.</p><p class="ph">Exact specification: [Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.004</span>Does the AI make decisions?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>No. It suggests connections, answers questions about the data and flags gaps. Conclusions stay with the analyst, and every link on the chart traces back to its source.</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.005</span>What kinds of data can I bring in?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Structured and unstructured: tables, spreadsheets, call records, notes, reports, photos, news articles, research papers, even weather data.</p><p class="ph">Supported file formats: [Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.006</span>What happens if I change how the data is mapped?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>Nothing is lost. Data management is non-destructive: update how a source is processed and the chart updates with it, and the project history keeps every earlier version.</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.007</span>Can I bring in charts from the tools I use today?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.008</span>How are updates delivered to an offline system?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.009</span>Is it accredited for our network?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.010</span>Can we run a pilot first?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.011</span>Do you offer support and training?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p class="ph">[Placeholder text, lorem ipsum]</p></div></div></li>
+      <li><button class="q" aria-expanded="false"><h3><span class="mono">Q.012</span>What is this not?</h3><span class="pm" aria-hidden="true"></span></button><div class="a"><div><p>It is not a cloud service, not a surveillance platform and not an autonomous decision-maker. It is a local link analysis workspace that gets an analyst from raw data to a defensible chart faster.</p></div></div></li>
     </ul>
   </div>
 </section>
@@ -608,13 +616,13 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
         <div class="sub-msg mono" id="subMsg"></div>
       </div>
     </div>
-    <div class="mark" role="img" aria-label="BlackBriar wordmark in ASCII characters"><pre class="ascii" data-scene="mark" data-fs="7"></pre></div>
+    <div class="mark" role="img" aria-label="Linx wordmark in ASCII characters"><pre class="ascii" data-scene="mark" data-fs="7"></pre></div>
     <div class="foot-bot mono">
-      <span>© BlackBriar</span>
-      <nav aria-label="Footer"><a href="#features">Capabilities</a><a href="#workspace">Workspace</a><a href="#pricing">Licensing</a><a href="#faq">FAQ</a></nav>
+      <span>© Linx</span>
+      <nav aria-label="Footer"><a href="#features">Capabilities</a><a href="#workspace">The Board</a><a href="#pricing">Licensing</a><a href="#faq">FAQ</a></nav>
       <span><span id="tokCount">0</span> tokens billed · all compute local</span>
     </div>
-    <p class="disc">Independent concept project. Not affiliated with, endorsed by, or operated by the U.S. Department of Defense or any government agency. Figures, quotes and prices on this page are placeholders.</p>
+    <p class="disc">Time savings are estimates based on a typical 400-hour case. Quotes and prices on this page are placeholders.</p>
   </div>
 </footer>
 
@@ -623,7 +631,7 @@ footer{padding-block:clamp(64px,8vw,110px) 28px}
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- background text rows ---------- */
-const PHR=["Local inference","Zero tokens billed","Chain of custody intact","Air-gapped by default","Every line cites its source","Records, not rumors","From case file to brief","Runs on your hardware","Nothing leaves the room","Signed offline updates","Audit log on every query","Interagency link, logged"];
+const PHR=["Every network has a missing link","Every link sourced","See the link. See the logic.","Find the gaps","Runs on your hardware","Nothing leaves the building","Zero tokens billed","Non-destructive by design","Change history on every project","From raw data to report","Built to stand up to any regulator","Close the gaps. Every single one."];
 function fillBg(el,rows,L=PHR){ if(!el) return; let h=''; for(let r=0;r<rows;r++){ let s=''; for(let k=0;k<14;k++){ s+=L[(r*5+k*7)%L.length]+'  ·  '; } h+=`<div style="animation-duration:${90+ (r*37)%70}s">${s}${s}</div>`; } el.innerHTML=h; }
 fillBg(document.getElementById('bgShow'),18);
 
@@ -711,7 +719,7 @@ const SCENES={
     b[j*C+i]=val; }
  },
  mark(b,C,R,t,v){ if(!v.mask||v.mask.length!==b.length){ const cv=document.createElement('canvas'); cv.width=C; cv.height=R; const g=cv.getContext('2d'); g.fillStyle='#fff'; g.textBaseline='middle';
-    const fam=getComputedStyle(document.body).getPropertyValue('--sans'); let fs=R*v.aspect; g.save(); g.scale(1,1/v.aspect); g.font=`900 ${fs}px ${fam}`; const w=g.measureText('BLACKBRIAR').width; fs=fs*Math.min(1,(C*.98)/w); g.font=`900 ${fs}px ${fam}`; const w2=g.measureText('BLACKBRIAR').width; g.fillText('BLACKBRIAR',(C-w2)/2,R*v.aspect/2); g.restore();
+    const fam=getComputedStyle(document.body).getPropertyValue('--sans'); let fs=R*v.aspect; g.save(); g.scale(1,1/v.aspect); g.font=`900 ${fs}px ${fam}`; const w=g.measureText('LINX').width; fs=fs*Math.min(1,(C*.98)/w); g.font=`900 ${fs}px ${fam}`; const w2=g.measureText('LINX').width; g.fillText('LINX',(C-w2)/2,R*v.aspect/2); g.restore();
     const d=g.getImageData(0,0,C,R).data; v.mask=new Float32Array(C*R); for(let k=0;k<C*R;k++) v.mask[k]=d[k*4+3]/255; }
   for(let j=0;j<R;j++) for(let i=0;i<C;i++){ const k=j*C+i, m=v.mask[k]; b[k]= m>.4 ? .55+.45*(.5+.5*Math.sin(i*.12-t*1.6+j*.35)) : (vnoise(i*.3+t*.8,j*.5)>.86?.12:0); }
  }
@@ -725,13 +733,13 @@ function loop(now){ const dt=Math.min(.1,(now-last)/1000); last=now; acc+=dt; if
 (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{ measure(); document.querySelectorAll('pre[data-scene]').forEach(mk); if(!RM) requestAnimationFrame(loop); });
 
 /* ---------- intel words ---------- */
-const INTEL=["Arlington VA","38.8719 N 77.0563 W","FBI","Fort Meade","39.1086 N 76.7713 W","DIA","Norfolk","NCIS","Tampa","SOCOM","CENTCOM","Colorado Springs","NORTHCOM","Honolulu","INDOPACOM","21.3470 N 157.8920 W","Ramstein","EUCOM","49.4369 N 7.6003 E","Stuttgart","AFRICOM","Djibouti","11.5470 N 43.1590 E","Manama","NAVCENT","Seoul","USFK","Okinawa","26.3344 N 127.8056 E","Quantico","DCIS","Army CID","AFOSI","NSA","NGA","NRO","DHS","CISA","DEA","ATF","USSS","JTTF","NCTC","CYBERCOM","Five Eyes","NATO","Interpol","Europol","Lyon","45.7640 N 4.8357 E","The Hague","Brasilia","15.7939 S 47.8828 W","Sao Paulo","Bogota","Panama City","Miami","SOUTHCOM","Guantanamo Bay","El Paso","San Diego","Anchorage","Guam","13.4443 N 144.7937 E","Rota","Sigonella","Incirlik","Diego Garcia","7.3195 S 72.4229 E","Kabul","Baghdad","Erbil","Kyiv","Warsaw","Vilnius","Tallinn"];
+const INTEL=["Shell company","Wire transfer","Beneficial owner","Call record","Subscriber","Index case","Contact trace","Exposure site","Cluster 04","Acquisition target","Subsidiary","Board member","Registered agent","Invoice","Shipment","Manifest","Port of entry","Account holder","Alias","Address","Phone number","Email","Vehicle","Meeting","Travel record","Payment","Contract","Supplier","Licence","Sanctions list","Court filing","News article","Research paper","Weather data","Photo","Report","Spreadsheet","Source 0412","Link unverified","Missing link","Second-degree","Third-degree","Direction: outbound","Direction: inbound","Layer: finance","Layer: travel","Layer: comms","Timeline","Gap flagged","Source verified"];
 fillBg(document.getElementById('bgIntel'),40,INTEL);
 const SGL='!<>/\\[]{}=+*#%01';
 
 /* ---------- hero rings ---------- */
 (()=>{ const cv=document.getElementById('rings'); if(!cv) return; const g=cv.getContext('2d'); let W=0,H=0,D=1; const m={x:-999,y:-999,tx:-999,ty:-999};
- const TXT="BLACKBRIAR · LOCAL INFERENCE · ZERO EGRESS · CHAIN OF CUSTODY · ";
+ const TXT="LINX · EVERY LINK SOURCED · FIND THE MISSING LINK · ZERO EGRESS · ";
  const fam=()=>getComputedStyle(document.body).getPropertyValue('--mono');
  function size(){ const r=cv.getBoundingClientRect(); D=Math.min(2,devicePixelRatio||1); W=r.width; H=r.height; cv.width=W*D; cv.height=H*D; }
  new ResizeObserver(size).observe(cv); size();
@@ -790,24 +798,23 @@ const SGL='!<>/\\[]{}=+*#%01';
 })();
 
 /* ---------- workspace ---------- */
-const PH='# Placeholder\n\nPlaceholder text / placeholder text\n';
+const PH='# Placeholder\n\n[Placeholder text, lorem ipsum]\n';
 const FILES={
- 'BRIEFING.md':`# BlackBriar\n\nOffline language models for investigators. The model, the index\nand the case workspace install together and run on this machine.\n\n## What it does\n\n- Reads case material: PDFs, scans, spreadsheets, email exports\n- Answers questions with a citation on every line\n- Transcribes and translates interview audio\n- Builds a case graph of people, places, accounts and events\n- Drafts briefs for each chain of command from one source of truth\n\n## What it does not do\n\n- Send anything off this workstation\n- Bill by the token\n- Decide anything. Conclusions stay with the investigator.\n\n## Getting started\n\n1. Open a case folder in cases/\n2. Drop evidence into evidence/ and let the indexer run\n3. Ask your first question in the workspace\n\nSee SECURITY.md for the network posture and MODELS.md for\nhardware requirements.\n`,
- 'SECURITY.md':`# Security posture\n\nnetwork.egress      = none        # default, enforced at install\nconnectors          = disabled    # enable per partner, per case\naudit.log           = on          # every query, every export\nstorage             = encrypted at rest\nupdates             = signed offline packages only\n\n## Placeholder\n\nPlaceholder text / placeholder text\n`,
- 'MODELS.md':`# Models\n\n| name              | params | quant  | vram   |\n|-------------------|--------|--------|--------|\n| bb-invest         | 14B    | Q4_K_M | ~10 GB |\n| bb-transcribe     | --     | fp16   | ~4 GB  |\n| bb-translate      | --     | Q5     | ~6 GB  |\n| bb-embed          | --     | fp16   | ~1 GB  |\n\n# All sizes are placeholders.\n# Tokens billed per query: 0\n`,
- 'briar.config.toml':`# BlackBriar workstation config\n\n[runtime]\ndevice        = "gpu:0"\ncontext       = 32768\nthreads       = "auto"\n\n[network]\negress        = false\nconnectors    = []\n\n[audit]\nenabled       = true\npath          = "logs/audit.log"\n\n[billing]\ntokens        = 0        # there is no meter\n`,
- 'REQUEST-ACCESS.md':`# Request access\n\nLicensing is one-time, per workstation or per enclave.\n\n→ See the Licensing section below.\n`,
+ 'BOARD.md':`# The Board\n\nYour entire investigation in one place.\n\nBring everything you have: spreadsheets, call records, photos,\nreports, news articles, research papers, even weather data.\nLinx reads it, finds the people, places and events inside,\nand maps how they connect.\n\n## On this board\n\n- Every link carries its source\n- Imports stay editable: change a spec, the chart follows\n- Sources can be switched on and off without rework\n- Gaps and unverified links are flagged, not hidden\n- Every change is kept in the project history\n\n## What it does not do\n\n- Send anything off this machine\n- Bill by the token\n- Decide anything. Conclusions stay with the analyst.\n`,
+ 'GAPS.md':`# Gaps · EXAMPLE DATA\n\nmissing    who paid invoice 7781?           [src 0412 p.3]\nmissing    second owner of vessel "Corvina" [src 1187 p.1]\nunverified A. Reyes -> Harbor Freight Ltd   [1 source]\nunverified call 03-14 22:41, subscriber     [1 source]\n\n# 2 missing links · 2 unverified · 0 resolved today\n`,
+ 'SOURCES.md':`# Sources · EXAMPLE DATA\n\n| source                 | type         | status   |\n|------------------------|--------------|----------|\n| bank_1187.xlsx         | spreadsheet  | on       |\n| calls_q1.csv           | call records | on       |\n| manifest_0412.pdf      | report       | on       |\n| port_photos/           | photos       | off      |\n| news_clippings/        | articles     | on       |\n\n# Toggle a source and every link that depends on it updates.\n`,
+ 'linx.config.toml':`# Linx workstation config\n\n[runtime]\ndevice        = "gpu:0"\nthreads       = "auto"\n\n[network]\negress        = false\nconnectors    = []         # opened only by an administrator, logged\n\n[history]\nenabled       = true\n\n[billing]\ntokens        = 0          # there is no meter\n`,
+ 'REQUEST-ACCESS.md':`# Request access\n\nLicensing is per workstation or per enclave.\n\n→ See the Licensing section below.\n`,
  'LICENSE.md':PH,
- 'cases/OP-2291-HARBOR/brief.md':`# OP-2291 HARBOR · working brief\n\n# EXAMPLE DATA\n\nsubjects          3\ndocuments         4,112 indexed\naudio             11 h 40 m transcribed\nopen questions    7\n\n## Summary\n\nPlaceholder text / placeholder text\n`,
- 'cases/OP-2291-HARBOR/timeline.md':`# Timeline · EXAMPLE DATA\n\n2026-03-02  shipment manifest filed          [doc 0412 p.3]\n2026-03-09  account opened, second name     [doc 1187 p.1]\n2026-03-14  interview, witness A            [audio 04 12:31]\n2026-03-21  records received, partner agency [conn log 88]\n\n# Placeholder text / placeholder text\n`,
- 'logs/audit.log':`2026-09-18T14:02:11Z user=a0417 case=OP-2291 action=query   egress=none tokens_billed=0\n2026-09-18T14:02:49Z user=a0417 case=OP-2291 action=cite    doc=0412    tokens_billed=0\n2026-09-18T14:07:03Z user=a0417 case=OP-2291 action=export  fmt=pdf     tokens_billed=0\n2026-09-18T15:31:20Z user=s0022 case=OP-2304 action=query   egress=none tokens_billed=0\n# EXAMPLE DATA\n`,
+ 'projects/HARBOR/board.md':`# HARBOR · board summary\n\n# EXAMPLE DATA\n\nentities          214\nlinks             587, all sourced\nsources           5 active, 1 off\nlayers            finance · travel · comms\nopen gaps         4\n\n## Summary\n\n[Placeholder text, lorem ipsum]\n`,
+ 'projects/HARBOR/timeline.md':`# Timeline · EXAMPLE DATA\n\n2026-03-02  shipment manifest filed          [src 0412 p.3]\n2026-03-09  account opened, second name     [src 1187 p.1]\n2026-03-14  call, 22:41, unknown subscriber [src calls_q1]\n2026-03-21  vessel re-registered            [src news 07]\n\n# Placeholder: [Placeholder text, lorem ipsum]\n`,
+ 'history/changes.log':`2026-09-18T14:02:11Z user=a0417 project=HARBOR action=import  src=calls_q1.csv  egress=none\n2026-09-18T14:05:40Z user=a0417 project=HARBOR action=remap   spec=calls.v2     links=+38\n2026-09-18T14:07:03Z user=a0417 project=HARBOR action=source  src=port_photos   state=off\n2026-09-18T15:31:20Z user=s0022 project=HARBOR action=review  note="gap 2 checked"\n# EXAMPLE DATA\n`,
 };
 const TREE=[
- {d:'.briar',c:[{d:'models',c:['bb-invest.gguf','bb-transcribe.bin','bb-translate.gguf','bb-embed.bin']},{d:'policies',c:['retention.yml','export.yml']},{d:'prompts',c:['brief.tmpl','timeline.tmpl']}]},
- {d:'cases',open:1,c:[{d:'OP-2291-HARBOR',open:1,c:[{d:'evidence',c:['manifest_0412.pdf','bank_1187.xlsx']},{d:'transcripts',c:['witness_a.txt','witness_b.txt']},'brief.md','timeline.md']},{d:'OP-2304-CINDER',c:['brief.md','timeline.md']}]},
- {d:'connectors',c:['partner-a.yml','partner-b.yml','partner-c.yml']},
- {d:'logs',c:['audit.log']},
- 'BRIEFING.md','MODELS.md','SECURITY.md','briar.config.toml','LICENSE.md','REQUEST-ACCESS.md'
+ {d:'projects',open:1,c:[{d:'HARBOR',open:1,c:[{d:'sources',c:['bank_1187.xlsx','calls_q1.csv','manifest_0412.pdf']},{d:'exports',c:['report_draft.pdf','chart_public.pdf']},'board.md','timeline.md']},{d:'CINDER',c:['board.md','timeline.md']}]},
+ {d:'history',c:['changes.log']},
+ {d:'.linx',c:[{d:'models',c:['linx-analyze.gguf','linx-extract.bin']},{d:'import-specs',c:['calls.v2.yml','bank.v1.yml']}]},
+ 'BOARD.md','GAPS.md','SOURCES.md','linx.config.toml','LICENSE.md','REQUEST-ACCESS.md'
 ];
 const treeEl=document.getElementById('tree'), srcEl=document.getElementById('src'), gutEl=document.getElementById('gutter');
 function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
@@ -823,18 +830,18 @@ function openFile(p,btn){ let txt=FILES[p]; const name=p.split('/').pop(); if(tx
   const lines=txt.replace(/\n$/,'').split('\n'); srcEl.innerHTML=lines.map(hl).join('\n'); gutEl.textContent=lines.map((_,i)=>i+1).join('\n');
   document.getElementById('tabName').textContent=name; document.getElementById('tabPath').textContent=p.includes('/')?' · '+p.slice(0,p.lastIndexOf('/')):'';
   treeEl.querySelectorAll('button.on').forEach(x=>x.classList.remove('on')); (btn||treeEl.querySelector(`[data-path="${CSS.escape(p)}"]`))?.classList.add('on'); }
-openFile('BRIEFING.md');
+openFile('BOARD.md');
 
 const term=document.getElementById('term');
-const TL=[['~/blackbriar > ','briar status'],['','loading bb-invest.gguf ........ <span class="ok">ok</span>'],['','device gpu:0 · egress <span class="ok">none</span> · audit <span class="ok">on</span>'],['','tokens billed this session: <span class="ok">0</span>']];
+const TL=[['~/linx > ','linx status'],['','project HARBOR · 587 links · <span class="ok">all sourced</span>'],['','device gpu:0 · egress <span class="ok">none</span> · history <span class="ok">on</span>'],['','gaps flagged: 4 · tokens billed: <span class="ok">0</span>']];
 let typed=false;
 function typeTerm(){ if(typed) return; typed=true; term.innerHTML=''; let li=0;
-  const next=()=>{ if(li>=TL.length){ const d=document.createElement('div'); d.className='tl'; d.innerHTML='<a href="#pricing">~/blackbriar &gt; <b>request-access</b> <span style="color:var(--dim)"># one-time license · on-prem</span></a> <span class="caret"></span>'; term.append(d); return; }
+  const next=()=>{ if(li>=TL.length){ const d=document.createElement('div'); d.className='tl'; d.innerHTML='<a href="#pricing">~/linx &gt; <b>request-access</b> <span style="color:var(--dim)"># on-prem license</span></a> <span class="caret"></span>'; term.append(d); return; }
     const [pr,cmd]=TL[li++]; const d=document.createElement('div'); d.className='tl'; term.append(d);
     if(pr){ let k=0; d.innerHTML=pr; const tick=()=>{ d.innerHTML=pr+'<b>'+cmd.slice(0,++k)+'</b>'; if(k<cmd.length) setTimeout(tick,RM?0:45); else setTimeout(next,RM?0:300); }; tick(); }
     else { d.innerHTML=cmd; setTimeout(next,RM?0:260); } };
   next(); }
-term.innerHTML=TL.map(([p,c])=>`<div class="tl">${p}${p?'<b>'+c+'</b>':c}</div>`).join('')+'<div class="tl"><a href="#pricing">~/blackbriar &gt; <b>request-access</b></a></div>';
+term.innerHTML=TL.map(([p,c])=>`<div class="tl">${p}${p?'<b>'+c+'</b>':c}</div>`).join('')+'<div class="tl"><a href="#pricing">~/linx &gt; <b>request-access</b></a></div>';
 new IntersectionObserver((es,o)=>es.forEach(e=>{ if(e.isIntersecting){ typeTerm(); o.disconnect(); } }),{threshold:.4}).observe(document.getElementById('ws'));
 addEventListener('keydown',e=>{ if(!(e.metaKey||e.ctrlKey)) return; const k=e.key.toLowerCase(); if(k==='j'){ e.preventDefault(); term.hidden=!term.hidden; } if(k==='k'){ e.preventDefault(); document.getElementById('workspace').scrollIntoView(); treeEl.querySelector('button.on')?.focus(); } });
 
@@ -859,7 +866,7 @@ document.querySelectorAll('.q').forEach(q=>q.addEventListener('click',()=>{ cons
 
 /* ---------- subscribe ---------- */
 document.getElementById('subForm').addEventListener('submit',e=>{ e.preventDefault(); const i=document.getElementById('subEmail'), m=document.getElementById('subMsg');
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value)){ m.style.color='var(--accent)'; m.textContent='Enter a full email address, like name@unit.mil'; return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value)){ m.style.color='var(--accent)'; m.textContent='Enter a full email address, like name@organization.com'; return; }
   m.style.color='var(--ok)'; m.textContent='Noted. Demo form: nothing was sent.'; i.value=''; });
 })();
 </script>
